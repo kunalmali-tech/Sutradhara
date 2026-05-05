@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-git)",
+      "PowerShell($env:PATH)",
+      "PowerShell(Get-ChildItem \"C:\\\\Program Files\\\\nodejs\" -ErrorAction SilentlyContinue; Get-ChildItem \"C:\\\\Program Files \\(x86\\)\\\\nodejs\" -ErrorAction SilentlyContinue; Get-ChildItem \"$env:APPDATA\\\\npm\" -ErrorAction SilentlyContinue; Get-ChildItem \"$env:LOCALAPPDATA\\\\Programs\" | Select-Object Name)",
+      "PowerShell(Get-ChildItem \"C:\\\\\" -ErrorAction SilentlyContinue | Select-Object Name; Get-ChildItem \"$env:USERPROFILE\" | Select-Object Name)",
+      "PowerShell(ls \"C:\\\\Program Files\\\\nodejs\" -ErrorAction SilentlyContinue; ls \"C:\\\\Program Files \\(x86\\)\\\\nodejs\" -ErrorAction SilentlyContinue; ls \"$env:USERPROFILE\\\\.local\\\\bin\" -ErrorAction SilentlyContinue)",
+      "Bash(npm install *)",
+      "Bash(npx tsc *)",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\Admin\\\\Desktop\\\\Sutradhara\" -Recurse -Force)",
+      "Bash(Select-Object FullName)",
+      "Bash(Sort-Object FullName)",
+      "PowerShell(tree \"c:\\\\Users\\\\Admin\\\\Desktop\\\\Sutradhara\" -L 3 -Attributes)",
+      "Bash(Get-ChildItem \"c:\\\\Users\\\\Admin\\\\Desktop\\\\Sutradhara\\\\public\\\\images\")",
+      "Bash(Select-Object Name, Length)",
+      "Bash(Sort-Object Name)",
+      "Bash(npx next *)"
+    ]
+  }
+}
