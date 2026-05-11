@@ -16,7 +16,7 @@ export default function Footer() {
         <div className="flex whitespace-nowrap marquee-track">
           {Array.from({ length: 10 }).map((_, i) => (
             <span key={i} className="font-display text-lg tracking-[0.3em] text-white px-8">
-              SUTRADHARA YOGA STUDIO &nbsp;·&nbsp; BREATHE. BEND. BECOME. &nbsp;·&nbsp;
+              THESUTRADHARA &nbsp;·&nbsp; WISDOM. WELLNESS. WHOLENESS. &nbsp;·&nbsp;
             </span>
           ))}
         </div>
@@ -32,11 +32,11 @@ export default function Footer() {
                 <div className="w-1.5 h-1.5 rounded-full bg-gym-red" />
               </div>
               <span className="font-display text-2xl tracking-widest">
-                SUTRA<span className="text-gym-red">DHARA</span>
+                THESUTRA<span className="text-gym-red">DHARA</span>
               </span>
             </div>
             <p className="text-gym-muted text-sm leading-relaxed max-w-xs mb-6">
-              A sacred space in the heart of Lohegaon, Pune — where ancient yoga wisdom
+              A sacred space in VimanNagar, Pune — where ancient yoga wisdom
               meets modern life, and every breath becomes a step toward transformation.
             </p>
             {/* Contact info */}
@@ -117,7 +117,7 @@ export default function Footer() {
       <div className="border-t border-gym-border">
         <div className="container mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-gym-muted">
-            © {new Date().getFullYear()} Sutradhara Yoga Studio, Lohegaon, Pune. All rights reserved.
+            © {new Date().getFullYear()} TheSutraDhara, VimanNagar, Pune. All rights reserved.
           </p>
           <p className="text-xs text-gym-muted">
             Mon–Sat: 6:00 AM – 8:00 PM &nbsp;|&nbsp; Sunday: 7:00 AM – 12:00 PM

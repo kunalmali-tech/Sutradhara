@@ -21,16 +21,22 @@ export default function About() {
           {/* Left — Image grid */}
           <AnimateOnScroll direction="left">
             <div className="relative">
+              {/* Silver-grey brand frame */}
+              <div
+                className="absolute -top-3 -left-3 right-3 bottom-3 border border-[#C0C0C0]/25 pointer-events-none z-10"
+                style={{ background: "linear-gradient(135deg, rgba(192,192,192,0.07) 0%, transparent 60%)" }}
+              />
+
               {/* Main image */}
               <div className="relative h-[480px] md:h-[560px] overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/image9.jpg"
+                  src="/images/image13.jpg"
                   alt="Sutradhara Yoga Studio"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gym-red/8" />
+                {/* Silver-grey gradient overlay at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#C0C0C0]/12 to-transparent" />
               </div>
 
               {/* Accent secondary image — bottom right */}
@@ -64,35 +70,31 @@ export default function About() {
               <p className="text-gym-red text-xs font-semibold tracking-[0.3em] uppercase mb-3">
                 Our Story
               </p>
-              <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-none tracking-wide text-gym-white mb-6">
-                WHERE BODY
-                <br />
-                MEETS{" "}
-                <span className="text-gym-red">SPIRIT</span>
-              </h2>
-              <p className="text-gym-muted text-base leading-relaxed mb-5">
-                Sutradhara was born from a simple belief — that yoga is not just
-                exercise, but a complete path of transformation. Our studio is a
-                space where ancient wisdom is taught with authenticity, and
-                every student is met with care and intention.
-              </p>
+              {/* Silver-grey brand accent line */}
+              <div className="flex items-center gap-3 mb-6">
+                <div className="h-px flex-1 bg-gradient-to-r from-[#C0C0C0]/50 to-transparent" />
+                <span className="text-[#C0C0C0]/70 text-[10px] tracking-[0.35em] uppercase font-medium">
+                  Sutradhara — The thread that connects it all
+                </span>
+                <div className="h-px w-6 bg-[#C0C0C0]/30" />
+              </div>
+
               <p className="text-gym-muted text-base leading-relaxed mb-8">
-                From curious beginners to dedicated practitioners, our teachers
-                hold space for every level — guided by one truth:{" "}
-                <em className="text-gym-white not-italic font-medium">
-                  the practice meets you exactly where you are.
-                </em>
+                Like a master storyteller, it gathers many strands and weaves them into one living journey. Each offering is a moment in the story—of the body, the mind, and the self. Step in, and gently follow the thread inward. Here, everything connects… and the story becomes your own.
               </p>
 
               {/* Pillars */}
-              <ul className="space-y-3 mb-10">
-                {pillars.map((p) => (
-                  <li key={p} className="flex items-center gap-3 text-sm text-gym-muted">
-                    <CheckCircle2 size={16} className="text-gym-red shrink-0" />
-                    {p}
-                  </li>
-                ))}
-              </ul>
+              <div className="relative mb-10 p-5 border border-[#C0C0C0]/15 bg-gradient-to-br from-[#C0C0C0]/5 to-transparent">
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-[#C0C0C0]/50 via-[#C0C0C0]/20 to-transparent" />
+                <ul className="space-y-3">
+                  {pillars.map((p) => (
+                    <li key={p} className="flex items-center gap-3 text-sm text-gym-muted">
+                      <CheckCircle2 size={16} className="text-gym-red shrink-0" />
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </AnimateOnScroll>
 
             {/* Stats row */}

@@ -50,7 +50,7 @@ export default function Header() {
               <div className="w-2 h-2 rounded-full bg-gym-red group-hover:scale-125 transition-transform duration-300" />
             </div>
             <span className="font-display text-2xl tracking-widest text-gym-white">
-              SUTRA<span className="text-gym-red">DHARA</span>
+              THESUTRA<span className="text-gym-red">DHARA</span>
             </span>
           </a>
 

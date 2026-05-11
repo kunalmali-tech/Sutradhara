@@ -82,7 +82,7 @@ export default function Hero() {
         >
           <div className="w-8 h-px bg-gym-red" />
           <span className="text-gym-red text-xs font-semibold tracking-[0.3em] uppercase">
-            Sutradhara Yoga Studio · Lohegaon, Pune
+            Sutradhara — The thread that connects it all · VimanNagar, Pune
           </span>
         </motion.div>
 
@@ -95,16 +95,16 @@ export default function Hero() {
             className="font-display leading-none text-gym-white"
           >
             <span className="block text-[clamp(72px,12vw,180px)] tracking-wider">
-              BREATHE.
+              WISDOM.
             </span>
             <span
               className="block text-[clamp(72px,12vw,180px)] tracking-wider"
               style={{ WebkitTextStroke: "2px #E8831A", color: "transparent" }}
             >
-              BEND.
+              WELLNESS.
             </span>
             <span className="block text-[clamp(72px,12vw,180px)] tracking-wider">
-              BECOME<span className="text-gym-red">.</span>
+              WHOLENESS<span className="text-gym-red">.</span>
             </span>
           </motion.h1>
         </div>
@@ -132,7 +132,7 @@ export default function Hero() {
             <ChevronRight size={16} />
           </Button>
           <Button size="lg" variant="outline" onClick={scrollToServices}>
-            Explore Classes
+            Explore The Thread
           </Button>
         </motion.div>
 
@@ -164,7 +164,7 @@ export default function Hero() {
             {[
               { value: "5+", label: "Years Teaching" },
               { value: "300+", label: "Students" },
-              { value: "4", label: "Teachers" },
+              { value: "5+", label: "Facilitators" },
               { value: "20+", label: "Classes / Week" },
             ].map((stat) => (
               <div key={stat.label} className="py-5 px-6 text-center">

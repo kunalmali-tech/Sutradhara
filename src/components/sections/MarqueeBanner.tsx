@@ -3,12 +3,10 @@ const items = [
   "VINYASA FLOW",
   "PRANAYAMA",
   "MEDITATION",
-  "YIN YOGA",
-  "POWER YOGA",
-  "RESTORATIVE",
-  "SUTRADHARA",
-  "BREATHE",
-  "BECOME",
+  "THESUTRADHARA",
+  "WISDOM",
+  "WELLNESS",
+  "WHOLENESS",
 ];
 
 export default function MarqueeBanner() {

@@ -16,9 +16,9 @@ const bebas = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
-  title: "Sutradhara Yoga Studio | Breathe. Bend. Become.",
+  title: "TheSutraDhara | Wisdom. Wellness. Wholeness.",
   description:
-    "Sutradhara is Pune's premier yoga studio in Lohegaon, offering Hatha, Vinyasa, Yin, Pranayama, and Power Yoga classes. Expert certified teachers in a sacred, welcoming space.",
+    "TheSutraDhara is Pune's premier yoga studio in VimanNagar, offering Hatha, Vinyasa, Yin, Pranayama, and more. Expert certified facilitators in a sacred, welcoming space.",
   keywords: [
     "yoga studio pune",
     "hatha yoga pune",
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
     "yoga near airport pune",
   ],
   openGraph: {
-    title: "Sutradhara Yoga Studio | Breathe. Bend. Become.",
+    title: "TheSutraDhara | Wisdom. Wellness. Wholeness.",
     description:
-      "A sacred space for transformative yoga practice in Lohegaon, Pune. Discover stillness, strength, and serenity with certified expert teachers.",
+      "A sacred space for transformative yoga practice in VimanNagar, Pune. Discover wisdom, wellness, and wholeness with certified expert facilitators.",
     type: "website",
   },
 };
