@@ -3,7 +3,7 @@ import { IconInstagram, IconFacebook, IconYoutube } from "@/components/ui/Social
 import { GYM_ADDRESS, GYM_EMAIL, GYM_PHONE, GYM_WHATSAPP } from "@/data";
 
 const footerLinks = {
-  Classes: ["Hatha Yoga", "Vinyasa Flow", "Yin & Restorative", "Pranayama", "Power Yoga", "Private Sessions"],
+  Elements: ["Hatha Sutra", "Jeevan Sutra", "Kala Dhara", "Sangeet Dhara", "Veer Dhara", "Vastra Dhara", "Gau Sutra"],
   Studio: ["About Us", "Our Teachers", "Timetable", "Blog", "Workshops"],
   Support: ["Beginner's Guide", "Class Schedule", "Membership FAQ", "Privacy Policy", "Terms of Service"],
 };
@@ -74,13 +74,15 @@ export default function Footer() {
             {/* Socials */}
             <div className="flex items-center gap-4">
               {[
-                { Icon: IconInstagram, label: "Instagram" },
-                { Icon: IconFacebook, label: "Facebook" },
-                { Icon: IconYoutube, label: "YouTube" },
-              ].map(({ Icon, label }) => (
+                { Icon: IconInstagram, label: "Instagram", href: "https://www.instagram.com/breath.balance.being?igsh=bHE4Z3Y5NDhjZHhu&utm_source=qr" },
+                { Icon: IconFacebook, label: "Facebook", href: "#" },
+                { Icon: IconYoutube, label: "YouTube", href: "#" },
+              ].map(({ Icon, label, href }) => (
                 <a
                   key={label}
-                  href="#"
+                  href={href}
+                  target={href !== "#" ? "_blank" : undefined}
+                  rel={href !== "#" ? "noopener noreferrer" : undefined}
                   aria-label={label}
                   className="w-9 h-9 border border-gym-border flex items-center justify-center text-gym-muted hover:border-gym-red hover:text-gym-red transition-colors duration-200"
                 >

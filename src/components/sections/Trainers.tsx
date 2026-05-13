@@ -24,8 +24,8 @@ export default function Trainers() {
       <div className="container mx-auto px-6">
         <SectionHeading
           eyebrow="Meet The Team"
-          title="OUR TEACHERS"
-          subtitle="Certified yoga instructors dedicated to guiding your practice with wisdom, authenticity, and care."
+          title="OUR FACILITATORS"
+          subtitle="Certified Isha Hatha Yoga teachers dedicated to guiding your practice with wisdom, authenticity, and genuine care."
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
@@ -44,17 +44,13 @@ export default function Trainers() {
                   <div className="flex items-center gap-4">
                     {/* Avatar */}
                     <div
-                      className={`relative w-14 h-14 overflow-hidden shrink-0 bg-gradient-to-br ${placeholderColors[i]}`}
+                      className={`relative w-14 h-14 overflow-hidden shrink-0 rounded-full bg-gradient-to-br ${placeholderColors[i]} ${activeIndex === i ? "ring-2 ring-gym-red ring-offset-2 ring-offset-gym-black" : ""}`}
                       style={{
                         backgroundImage: `url('${trainer.image}')`,
                         backgroundSize: "cover",
                         backgroundPosition: "center top",
                       }}
-                    >
-                      {activeIndex === i && (
-                        <div className="absolute inset-0 ring-2 ring-gym-red ring-inset" />
-                      )}
-                    </div>
+                    />
                     <div className="flex-1 min-w-0">
                       <div className="font-display text-xl tracking-wider text-gym-white group-hover:text-gym-red transition-colors duration-200">
                         {trainer.name}
@@ -151,7 +147,7 @@ export default function Trainers() {
         {/* CTA */}
         <AnimateOnScroll direction="up" delay={0.2} className="mt-12 text-center">
           <p className="text-gym-muted text-sm mb-4">
-            Ready to begin your practice with a dedicated teacher?
+            Ready to begin your practice with a dedicated facilitator?
           </p>
           <button
             onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}

@@ -5,26 +5,27 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
-import { programs } from "@/data";
+import { elements } from "@/data";
 
-// Positions tuned for 240px cards in a 960px-tall container
-// left % spread widened to 17 / 83 so cards don't crowd the centre
+// Positions for 240px cards in a 1080px-tall container — heptagonal (7-point) mandala
 const cardPositions = [
-  { top: "13%", left: "50%" },   // top
-  { top: "27%", left: "83%" },   // upper-right
-  { top: "62%", left: "83%" },   // lower-right
-  { top: "80%", left: "50%" },   // bottom
-  { top: "62%", left: "17%" },   // lower-left
-  { top: "27%", left: "17%" },   // upper-left
+  { top: "12%", left: "50%" },   // top
+  { top: "26%", left: "77%" },   // upper-right
+  { top: "58%", left: "84%" },   // right
+  { top: "83%", left: "65%" },   // lower-right
+  { top: "83%", left: "35%" },   // lower-left
+  { top: "58%", left: "16%" },   // left
+  { top: "26%", left: "23%" },   // upper-left
 ];
 
 const svgEndpoints = [
-  { x2: "50%", y2: "13%" },
-  { x2: "83%", y2: "27%" },
-  { x2: "83%", y2: "62%" },
-  { x2: "50%", y2: "80%" },
-  { x2: "17%", y2: "62%" },
-  { x2: "17%", y2: "27%" },
+  { x2: "50%", y2: "12%" },
+  { x2: "77%", y2: "26%" },
+  { x2: "84%", y2: "58%" },
+  { x2: "65%", y2: "83%" },
+  { x2: "35%", y2: "83%" },
+  { x2: "16%", y2: "58%" },
+  { x2: "23%", y2: "26%" },
 ];
 
 const circleVariants = (color: string) => ({
@@ -45,12 +46,12 @@ export default function Services() {
       <div className="container mx-auto px-6">
         <SectionHeading
           title="THE SUTRAS"
-          subtitle="Six living threads woven from one centre — each a unique path, all leading to the same wholeness."
+          subtitle="Seven living threads woven from one centre — each a unique path, all leading to the same wholeness."
           align="center"
         />
 
         {/* ── Desktop radial mandala ── */}
-        <div className="hidden lg:block relative h-[960px] mt-4">
+        <div className="hidden lg:block relative h-[1080px] mt-4">
 
           {/* SVG decorative threads */}
           <svg
@@ -58,7 +59,7 @@ export default function Services() {
             xmlns="http://www.w3.org/2000/svg"
             overflow="visible"
           >
-            <ellipse cx="50%" cy="50%" rx="38%" ry="40%"
+            <ellipse cx="50%" cy="50%" rx="35%" ry="38%"
               fill="none" stroke="#C0C0C0"
               strokeWidth="0.6" strokeDasharray="3 9" opacity="0.13" />
             <ellipse cx="50%" cy="50%" rx="10%" ry="11%"
@@ -82,7 +83,7 @@ export default function Services() {
               <motion.circle
                 key={`dot-${i}`}
                 cx={ep.x2} cy={ep.y2} r="4"
-                fill={programs[i].color}
+                fill={elements[i].color}
                 initial={{ opacity: 0, r: 0 }}
                 whileInView={{ opacity: 0.5, r: 4 }}
                 viewport={{ once: true }}
@@ -119,12 +120,12 @@ export default function Services() {
             </div>
           </motion.div>
 
-          {/* Program cards */}
-          {programs.map((program, i) => {
+          {/* Element cards */}
+          {elements.map((element, i) => {
             const pos = cardPositions[i];
             return (
               <motion.div
-                key={program.slug}
+                key={element.slug}
                 className="absolute -translate-x-1/2 -translate-y-1/2 z-10"
                 style={{ top: pos.top, left: pos.left }}
                 initial={{ opacity: 0, scale: 0.55 }}
@@ -132,7 +133,7 @@ export default function Services() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.5 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
               >
-                <Link href={`/programs/${program.slug}`}>
+                <Link href={`/elements/${element.slug}`}>
                   <motion.div
                     className="flex flex-col items-center cursor-pointer"
                     initial="rest"
@@ -143,15 +144,15 @@ export default function Services() {
                     {/* ── Circle ── */}
                     <motion.div
                       className="w-[240px] h-[240px] rounded-full flex flex-col items-center justify-center text-center px-6 relative"
-                      style={{ border: `2px solid ${program.color}35`, backgroundColor: "#111111" }}
-                      variants={circleVariants(program.color)}
+                      style={{ border: `2px solid ${element.color}35`, backgroundColor: "#111111" }}
+                      variants={circleVariants(element.color)}
                       transition={{ duration: 0.3 }}
                     >
                       {/* inner glow */}
                       <motion.div
                         className="absolute inset-0 rounded-full"
                         style={{
-                          background: `radial-gradient(circle at center, ${program.color}1a 0%, transparent 68%)`,
+                          background: `radial-gradient(circle at center, ${element.color}1a 0%, transparent 68%)`,
                         }}
                         variants={glowVariants}
                         transition={{ duration: 0.3 }}
@@ -161,9 +162,9 @@ export default function Services() {
                       <div
                         className="relative z-10 w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold mb-3"
                         style={{
-                          backgroundColor: `${program.color}18`,
-                          color: program.color,
-                          border: `1px solid ${program.color}45`,
+                          backgroundColor: `${element.color}18`,
+                          color: element.color,
+                          border: `1px solid ${element.color}45`,
                         }}
                       >
                         {String(i + 1).padStart(2, "0")}
@@ -174,7 +175,7 @@ export default function Services() {
                         className="relative z-10 font-display text-gym-white leading-none mb-2.5"
                         style={{ fontSize: "22px", letterSpacing: "0.16em" }}
                       >
-                        {program.title.split(" ").map((w, wi) => (
+                        {element.title.split(" ").map((w, wi) => (
                           <span key={wi} className="block">{w}</span>
                         ))}
                       </h3>
@@ -184,13 +185,13 @@ export default function Services() {
                         className="relative z-10 leading-snug"
                         style={{
                           fontSize: "11px",
-                          color: program.color,
+                          color: element.color,
                           opacity: 0.85,
                           letterSpacing: "0.04em",
                           maxWidth: "170px",
                         }}
                       >
-                        {program.subtitle}
+                        {element.subtitle}
                       </p>
                     </motion.div>
 
@@ -198,13 +199,13 @@ export default function Services() {
                     <div className="flex flex-col items-center mt-1 pointer-events-none">
                       <motion.div
                         className="w-px"
-                        style={{ backgroundColor: program.color }}
+                        style={{ backgroundColor: element.color }}
                         variants={threadVariants}
                         transition={{ duration: 0.3 }}
                       />
                       <motion.div
                         className="w-[9px] h-[9px] rounded-full mt-0.5"
-                        style={{ backgroundColor: program.color }}
+                        style={{ backgroundColor: element.color }}
                         animate={{ scale: [1, 1.6, 1], opacity: [0.4, 1, 0.4] }}
                         transition={{
                           duration: 2.4,
@@ -218,7 +219,7 @@ export default function Services() {
                         style={{
                           fontSize: "9px",
                           letterSpacing: "0.35em",
-                          color: program.color,
+                          color: element.color,
                           textTransform: "uppercase",
                         }}
                         variants={enterVariants}
@@ -236,52 +237,52 @@ export default function Services() {
 
         {/* ── Mobile ── */}
         <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-3 mt-12">
-          {programs.map((program, i) => (
-            <AnimateOnScroll key={program.slug} delay={i * 0.07} direction="up">
-              <Link href={`/programs/${program.slug}`}>
+          {elements.map((element, i) => (
+            <AnimateOnScroll key={element.slug} delay={i * 0.07} direction="up">
+              <Link href={`/elements/${element.slug}`}>
                 <div
                   className="relative border p-5 group cursor-pointer overflow-hidden transition-all duration-300 hover:bg-gym-card"
-                  style={{ borderColor: `${program.color}28` }}
+                  style={{ borderColor: `${element.color}28` }}
                 >
                   <div
                     className="absolute left-0 top-0 bottom-0 w-0.5"
-                    style={{ backgroundColor: program.color }}
+                    style={{ backgroundColor: element.color }}
                   />
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     style={{
-                      background: `linear-gradient(135deg, ${program.color}08 0%, transparent 60%)`,
+                      background: `linear-gradient(135deg, ${element.color}08 0%, transparent 60%)`,
                     }}
                   />
                   <div className="relative flex items-start gap-4">
                     <div
                       className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
                       style={{
-                        backgroundColor: `${program.color}18`,
-                        color: program.color,
-                        border: `1px solid ${program.color}40`,
+                        backgroundColor: `${element.color}18`,
+                        color: element.color,
+                        border: `1px solid ${element.color}40`,
                       }}
                     >
                       {String(i + 1).padStart(2, "0")}
                     </div>
                     <div className="min-w-0">
                       <h3 className="font-display text-2xl tracking-wider text-gym-white leading-none">
-                        {program.title}
+                        {element.title}
                       </h3>
                       <p
                         className="text-[10px] tracking-widest uppercase mt-1 font-medium"
-                        style={{ color: program.color }}
+                        style={{ color: element.color }}
                       >
-                        {program.subtitle}
+                        {element.subtitle}
                       </p>
                       <p className="text-gym-muted text-sm mt-3 leading-relaxed line-clamp-2">
-                        {program.description}
+                        {element.description}
                       </p>
                     </div>
                   </div>
                   <div
                     className="relative flex items-center gap-1.5 mt-4 text-[9px] tracking-[0.25em] uppercase font-semibold transition-all duration-300 group-hover:gap-2.5"
-                    style={{ color: program.color }}
+                    style={{ color: element.color }}
                   >
                     <span>Follow the thread</span>
                     <ArrowRight size={10} />

@@ -33,7 +33,8 @@ export default function About() {
                 <img
                   src="/images/image13.jpg"
                   alt="Sutradhara Yoga Studio"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-contain"
+                  style={{ backgroundColor: "#C2C2C0" }}
                 />
                 {/* Silver-grey gradient overlay at bottom */}
                 <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#C0C0C0]/12 to-transparent" />

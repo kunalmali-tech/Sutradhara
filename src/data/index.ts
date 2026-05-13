@@ -43,7 +43,7 @@ export const GYM_PHONE = "06383303101";
 export const GYM_WHATSAPP = "916383303101";
 export const GYM_ADDRESS =
   "Lane Number 14, behind airport, Khese Park, Lohegaon, Pune, Maharashtra 411032";
-export const GYM_EMAIL = "namaste@sutradhara.in";
+export const GYM_EMAIL = "hathasutra@gmail.com";
 
 export const stats: Stat[] = [
   { value: 5, suffix: "+", label: "Years of Teaching" },
@@ -99,35 +99,27 @@ export const services: Service[] = [
 
 export const trainers: Trainer[] = [
   {
-    name: "Harkirat",
-    specialty: "Founder & Head Teacher — Isha Hatha Yoga",
-    bio: "Harkirat is an Isha Hatha Yoga certified teacher and the founder of Sutradhara. Trained directly in the Isha tradition, she brings extraordinary precision, discipline, and warmth to every class. Students describe her as deeply attentive — she connects with each person, corrects postures carefully, and ensures the practice goes far beyond the physical into genuine transformation.",
-    image: "/images/image10.jpg",
-    certifications: ["Isha Hatha Yoga Certified Teacher", "Yogasanas Specialist", "Surya Kriya & Angamardana"],
+    name: "Dr. Harkirat Kaur",
+    specialty: "PhD Humanities | MBA (Marketing) | Author",
+    bio: "A basketball player, athlete, biker, and entrepreneur — Dr. Harkirat has lived life at full intensity. After completing an MBA, clearing the NET examination, and earning a PhD in Humanities, she ran her own Event Management Company while teaching and volunteering at NGOs. Her spiritual anchor arrived through Inner Engineering, leading her through Bhava Spandana, the Shoonya Intensive, and the Silence Program — culminating in 5+ months of Isha Hatha Yoga Teacher Training completed in February 2021. Yoga, for her, is not a practice — it is life itself.",
+    image: "/images/image14.avif",
+    certifications: ["PhD Humanities", "MBA Marketing", "Isha Hatha Yoga Certified Teacher", "Surya Kriya & Angamardana"],
     instagram: "@sutradhara.yoga",
   },
   {
-    name: "Arjun Nair",
-    specialty: "Pranayama & Meditation — RYT 500",
-    bio: "Arjun specializes in the science of breath and sitting practices. His calm, methodical teaching style helps students build a pranayama foundation that transforms energy, clarity, and inner stillness.",
-    image: "/images/image6.jpg",
-    certifications: ["RYT-500 Yoga Alliance", "Pranayama & Breathwork", "Mindfulness Meditation"],
+    name: "SD Bhavani Chamarthy",
+    specialty: "MSc. Counselling Psychology | PGD Art and Play Therapy | Artist",
+    bio: "From a young age, Bhavani felt a deep calling to support others in achieving their highest well-being. Her psychology thesis on the well-being of yoga practitioners revealed yoga's profound impact on mental and emotional health, inspiring her to weave yogic practices into her clinical work. This path led her to Isha Yoga, and in 2020 she completed the 1750+ hour Isha Hatha Yoga Teacher Training Program — a life-changing experience that transformed not only her understanding of yoga but the very way she lives. She now shares classical Hatha Yoga as a timeless science of holistic well-being, accessible to all.",
+    image: "/images/image15.avif",
+    certifications: ["MSc Counselling Psychology", "PGD Art & Play Therapy", "1750+ hr Isha Hatha Yoga TTP"],
     instagram: "@sutradhara.yoga",
   },
   {
-    name: "Priya Mehta",
-    specialty: "Yin & Restorative Yoga — RYT 300",
-    bio: "Priya's gentle, nurturing approach to Yin Yoga helps students release chronic tension and reconnect with their body's natural intelligence. Her classes are quiet, healing spaces for deep restoration.",
-    image: "/images/image11.jpg",
-    certifications: ["RYT-300", "Yin Yoga Certification", "Restorative & Trauma-Informed"],
-    instagram: "@sutradhara.yoga",
-  },
-  {
-    name: "Vikram Kulkarni",
-    specialty: "Power Yoga & Alignment — RYT 500",
-    bio: "Vikram blends athletic rigor with yogic wisdom. His Power Yoga classes challenge the body deeply while grounding practitioners in alignment principles and mindful, present-moment awareness.",
-    image: "/images/image9.jpg",
-    certifications: ["RYT-500", "Power & Ashtanga Yoga", "Sports Science & Yoga"],
+    name: "Dushyant Singh",
+    specialty: "Bachelors in Computer Application | Graphic Designer",
+    bio: "Driven by a passion for computers, Dushyant's life took a beautiful turn when his Guru invited him onto an unknown path. Three years under his guidance reshaped him from within. Since 2018, he has served as a full-time volunteer at the Isha Yoga Center, immersed in yoga practices. The pandemic planted a seed within him to share yoga's gifts with others, inspiring him to complete the intensive 1750+ hour Hatha Yoga Teacher Training Program. Today, alongside freelance graphic design, he teaches Hatha Yoga full-time — finding immense joy in guiding others toward well-being and self-transformation.",
+    image: "/images/image16.avif",
+    certifications: ["BCA", "1750+ hr Isha Hatha Yoga TTP", "Full-time Isha Volunteer since 2018"],
     instagram: "@sutradhara.yoga",
   },
 ];
@@ -175,11 +167,11 @@ export const navLinks = [
   { label: "About", href: "#about" },
   { label: "Classes", href: "#services" },
   { label: "Gallery", href: "#gallery" },
-  { label: "Teachers", href: "#trainers" },
+  { label: "Facilitators", href: "#trainers" },
   { label: "Contact", href: "#contact" },
 ];
 
-export interface Program {
+export interface SutraElement {
   slug: string;
   title: string;
   subtitle: string;
@@ -189,30 +181,34 @@ export interface Program {
   offerings: string[];
   forWhom: string;
   heroImage: string;
+  heroImagePosition?: string;
   images: string[];
+  imagePositions?: string[];
   video?: string;
 }
 
 const BASE = "/images/Sutradhara%20Website%20Images";
 
-export const programs: Program[] = [
+export const elements: SutraElement[] = [
   {
     slug: "hatha-sutra",
     title: "Hatha Sutra",
     subtitle: "Unveil the Yogi Within",
     color: "#E8831A",
     heroImage: `${BASE}/Hatha%20Sutra/20221205_074237.jpg`,
+    heroImagePosition: "center 30%",
     images: [
       `${BASE}/Hatha%20Sutra/IMG-20221022-WA0010.jpg`,
       `${BASE}/Hatha%20Sutra/IMG-20240111-WA0000.jpg`,
       `${BASE}/Hatha%20Sutra/20241024_163201.jpeg`,
       `${BASE}/Hatha%20Sutra/Photos-videos%20for%20Hatha%20Sutra/Hatha%20Sutra/IMG_20230119_153058_271.jpg`,
     ],
+    imagePositions: ["center 40%", "center top", "center top", "center top"],
     video: `${BASE}/Hatha%20Sutra/Photos-videos%20for%20Hatha%20Sutra/Hatha%20Sutra/20230107_175543.mp4`,
     description:
       "The foundational thread — where body, breath, and awareness come into precise alignment through the classical science of Hatha Yoga.",
     longDescription:
-      "Hatha Sutra is a return to the source. Rooted in classical Hatha Yoga as taught through the Isha tradition, this program guides you through precise asanas, conscious pranayama, and meditative stillness. Each session is an invitation to inhabit your body more fully — to feel the intelligence that already lives within you. Through disciplined, attentive practice, the outer form becomes a gateway inward.",
+      "Hatha Sutra is a return to the source. Rooted in classical Hatha Yoga as taught through the Isha tradition, this element guides you through precise asanas, conscious pranayama, and meditative stillness. Each session is an invitation to inhabit your body more fully — to feel the intelligence that already lives within you. Through disciplined, attentive practice, the outer form becomes a gateway inward.",
     offerings: [
       "Classical Hatha Asanas with precision alignment",
       "Pranayama — the foundational science of breath",
@@ -229,15 +225,17 @@ export const programs: Program[] = [
     subtitle: "A Personality Developed in Rhythm with Nature",
     color: "#6BAA75",
     heroImage: `${BASE}/Jeevan%20Sutra/20191216_135119.jpg`,
+    heroImagePosition: "left center",
     images: [
       `${BASE}/Jeevan%20Sutra/IMG-20191216-WA0009.jpg`,
       `${BASE}/Jeevan%20Sutra/IMG-20191216-WA0014.jpg`,
       "/images/image7.jpg",
     ],
+    imagePositions: ["center top", "center top", "center"],
     description:
       "A holistic thread for the whole person — weaving yogic wisdom and natural rhythms into the fabric of who you are and how you live.",
     longDescription:
-      "Jeevan Sutra is more than a yoga program — it is a path of becoming. Drawing from yogic philosophy, Ayurvedic wisdom, and the rhythms of nature, this program helps you cultivate a personality that is grounded, radiant, and in harmony with life itself. Each offering weaves practice into daily living, so transformation becomes not something you do — but a way of being.",
+      "Jeevan Sutra is more than a yoga element — it is a path of becoming. Drawing from yogic philosophy, Ayurvedic wisdom, and the rhythms of nature, this element helps you cultivate a personality that is grounded, radiant, and in harmony with life itself. Each offering weaves practice into daily living, so transformation becomes not something you do — but a way of being.",
     offerings: [
       "Yogic philosophy applied to daily life",
       "Nature-aligned daily rhythms (dinacharya)",
@@ -254,15 +252,17 @@ export const programs: Program[] = [
     subtitle: "Where Art Becomes a Living Expression",
     color: "#9B7FBE",
     heroImage: `${BASE}/Vastra%20Dhara/4d17bf9e-ec2f-4eb5-9a30-9905f16f20a9.jpg`,
+    heroImagePosition: "center 40%",
     images: [
       `${BASE}/Vastra%20Dhara/5869622f-0501-424b-a980-24bdc1f771e3.jpg`,
       `${BASE}/Vastra%20Dhara/8cc1f648-5c95-49d2-998c-88b1f452bb04.jpg`,
       `${BASE}/Vastra%20Dhara/IMG_0251.JPG`,
     ],
+    imagePositions: ["center top", "center top", "center top"],
     description:
       "A flowing thread of movement and creativity — where the body becomes a canvas and practice becomes a living work of art.",
     longDescription:
-      "Kala Dhara bridges the inner and outer worlds through art and movement. In this program, yoga becomes a form of living artistry — where the precision of asana meets the freedom of creative expression. Drawing from movement arts, the storytelling traditions of the body, and expressive practices rooted in Indian classical forms, Kala Dhara invites you to rediscover yourself as an artist in constant motion.",
+      "Kala Dhara bridges the inner and outer worlds through art and movement. In this element, yoga becomes a form of living artistry — where the precision of asana meets the freedom of creative expression. Drawing from movement arts, the storytelling traditions of the body, and expressive practices rooted in Indian classical forms, Kala Dhara invites you to rediscover yourself as an artist in constant motion.",
     offerings: [
       "Expressive movement and free-form flow practice",
       "Storytelling through the body — gesture, mudra, gaze",
@@ -279,17 +279,19 @@ export const programs: Program[] = [
     subtitle: "An Expression of the Divine Through Sound",
     color: "#5B9BD5",
     heroImage: `${BASE}/Sangeet%20Dhara/IMG_0062.JPG`,
+    heroImagePosition: "center 65%",
     images: [
       `${BASE}/Sangeet%20Dhara/IMG_0025.JPG`,
       `${BASE}/Sangeet%20Dhara/IMG_0036.JPG`,
       `${BASE}/Sangeet%20Dhara/IMG-20210613-WA0011.jpg`,
       `${BASE}/Sangeet%20Dhara/IMG_0058.JPG`,
     ],
+    imagePositions: ["center", "center", "center top", "center top"],
     video: `${BASE}/Sangeet%20Dhara/1753714245027711.mp4`,
     description:
       "A vibrating thread of sound and silence — where mantra, music, and deep listening become living paths of transformation.",
     longDescription:
-      "Sound is vibration, and vibration is life. Sangeet Dhara explores yoga through the medium of sound — through mantra, nada (inner sound), chanting, and the profound science of conscious listening. This program weaves ancient sound traditions with present-moment awareness, inviting participants to use their voice, their breath, and their stillness as instruments of inner transformation. Here, music is not performance — it is prayer.",
+      "Sound is vibration, and vibration is life. Sangeet Dhara explores yoga through the medium of sound — through mantra, nada (inner sound), chanting, and the profound science of conscious listening. This element weaves ancient sound traditions with present-moment awareness, inviting participants to use their voice, their breath, and their stillness as instruments of inner transformation. Here, music is not performance — it is prayer.",
     offerings: [
       "Mantra chanting — accessible to all voices",
       "Nada Yoga — the yoga of inner sound and vibration",
@@ -306,15 +308,17 @@ export const programs: Program[] = [
     subtitle: "Awaken the Warrior Within",
     color: "#C94A4A",
     heroImage: "/images/image4.jpg",
+    heroImagePosition: "center top",
     images: [
       "/images/image13.jpg",
       "/images/image10.jpg",
       "/images/image5.jpg",
     ],
+    imagePositions: ["center", "center top", "center top"],
     description:
       "A fierce and vital thread — where physical strength, yogic courage, and the spirit of the inner warrior are forged through dedicated practice.",
     longDescription:
-      "Veer Dhara is yoga for those called to strength — not just of the body, but of character. Grounded in warrior asana sequences, dynamic breath practices, and the philosophy of the inner warrior (the Veer), this program builds physical power alongside mental resilience, sharp focus, and fearlessness. Here, the yoga mat becomes a training ground for life — every challenge on the mat a mirror for the challenges beyond it.",
+      "Veer Dhara is yoga for those called to strength — not just of the body, but of character. Grounded in warrior asana sequences, dynamic breath practices, and the philosophy of the inner warrior (the Veer), this element builds physical power alongside mental resilience, sharp focus, and fearlessness. Here, the yoga mat becomes a training ground for life — every challenge on the mat a mirror for the challenges beyond it.",
     offerings: [
       "Dynamic warrior sequences and power flow practice",
       "Core and functional strength rooted in yogic principles",
@@ -326,21 +330,51 @@ export const programs: Program[] = [
       "For those seeking to build strength, overcome self-imposed limitation, and forge a mind-body connection rooted in genuine courage and discipline.",
   },
   {
+    slug: "vastra-dhara",
+    title: "Vastra Dhara",
+    subtitle: "Where Fabric Becomes a Living Sadhana",
+    color: "#C8733A",
+    heroImage: `${BASE}/Vastra%20Dhara/0f4361d6-8fe8-447e-a086-3c1a68d0f054.jpg`,
+    heroImagePosition: "center 40%",
+    images: [
+      `${BASE}/Vastra%20Dhara/492df843-5c3a-4c56-bde6-e14d0cdc9519.jpg`,
+      `${BASE}/Vastra%20Dhara/5c9b82ba-939a-42ab-8222-4d80a7ba982f.jpg`,
+      `${BASE}/Vastra%20Dhara/a4021950-803a-4eb4-9413-a6d7fe712436.jpg`,
+      `${BASE}/Vastra%20Dhara/df40c4c0-2aba-4740-b791-b4703008d80f.jpg`,
+    ],
+    imagePositions: ["center top", "center top", "center top", "center top"],
+    description:
+      "A sacred thread of cloth and consciousness — where what you wear becomes an act of awareness, reverence, and inner alignment.",
+    longDescription:
+      "Vastra Dhara is rooted in the ancient understanding that clothing is not merely covering — it is an expression of one's inner state, a container for energy, and a conscious act of self-offering. Drawing from Ayurvedic principles of fabric and colour, the yogic science of how textiles affect the body's energy field, and the meditative traditions of conscious adornment, this element invites you to bring awareness into every layer of how you dress, dye, drape, and inhabit what you wear.",
+    offerings: [
+      "Yogic and Ayurvedic understanding of fabric, colour, and energy",
+      "Natural dyeing as a meditative and creative practice",
+      "The art of conscious adornment and intentional dressing",
+      "Breathwork and stillness woven into the creative process",
+      "Exploration of traditional Indian textile wisdom and symbolism",
+    ],
+    forWhom:
+      "For those drawn to craft, colour, and creativity — and for anyone curious about bringing yogic awareness into the textures of everyday life. No prior experience required.",
+  },
+  {
     slug: "gau-sutra",
     title: "Gau Sutra",
     subtitle: "Honouring the Sacred Science of Nourishment",
     color: "#88A85C",
     heroImage: `${BASE}/Gau%20Sutra/IMG-20240414-WA0025.jpg`,
+    heroImagePosition: "center top",
     images: [
       `${BASE}/Gau%20Sutra/20231128_171514.jpg`,
       `${BASE}/Gau%20Sutra/20240216_163902.jpg`,
       `${BASE}/Gau%20Sutra/20231204_121542.jpg`,
     ],
+    imagePositions: ["center top", "center top", "center top"],
     video: `${BASE}/Gau%20Sutra/20231204_120839.mp4`,
     description:
       "A nurturing thread connecting us back to the earth — where food, nature, and the ancient wisdom of nourishment are honoured as sacred.",
     longDescription:
-      "Gau Sutra is an offering rooted in the ancient Indian understanding that nourishment itself is sacred. The word 'Gau' evokes abundance, the sacred cow, and the deep relationship between human beings, the earth, and the sustenance it offers. This program weaves Ayurvedic nutrition, conscious eating practices, yogic lifestyle, and reverence for natural cycles into a complete path of nourishment — for the body, the mind, and the spirit.",
+      "Gau Sutra is an offering rooted in the ancient Indian understanding that nourishment itself is sacred. The word 'Gau' evokes abundance, the sacred cow, and the deep relationship between human beings, the earth, and the sustenance it offers. This element weaves Ayurvedic nutrition, conscious eating practices, yogic lifestyle, and reverence for natural cycles into a complete path of nourishment — for the body, the mind, and the spirit.",
     offerings: [
       "Ayurvedic principles of nutrition and the three doshas",
       "Conscious eating — mindful preparation and relationship with food",

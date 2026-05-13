@@ -15,7 +15,14 @@
       "Bash(Get-ChildItem \"c:\\\\Users\\\\Admin\\\\Desktop\\\\Sutradhara\\\\public\\\\images\")",
       "Bash(Select-Object Name, Length)",
       "Bash(Sort-Object Name)",
-      "Bash(npx next *)"
+      "Bash(npx next *)",
+      "Bash(mkdir -p \"c:/Users/Admin/Desktop/Sutradhara/src/app/elements/[slug]\")",
+      "Bash(New-Item -ItemType Directory -Force \"c:\\\\Users\\\\Admin\\\\Desktop\\\\Sutradhara\\\\src\\\\app\\\\elements\\\\[slug]\")",
+      "Bash(mkdir -p \"/c/Users/Admin/Desktop/Sutradhara/src/app/elements/[slug]\")"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\Admin\\Desktop\\Sutradhara\\src\\app\\elements",
+      "C:\\Users\\Admin\\Desktop\\Sutradhara\\src\\app\\elements\\[slug]"
     ]
   }
 }

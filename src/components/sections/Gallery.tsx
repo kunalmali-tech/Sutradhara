@@ -10,6 +10,7 @@ interface GalleryItem {
   alt: string;
   category: string;
   wide?: boolean;
+  position?: string;
 }
 
 const galleryItems: GalleryItem[] = [
@@ -18,63 +19,75 @@ const galleryItems: GalleryItem[] = [
     alt: "Group Meditation Class",
     category: "Studio",
     wide: true,
+    position: "center 30%",
   },
   {
     src: "/images/image4.jpg",
     alt: "Paschimottanasana — Seated Forward Bend",
     category: "Asanas",
+    position: "center top",
   },
   {
     src: "/images/image3.jpg",
     alt: "Sacred Space — Lotus Diya",
     category: "Studio",
+    position: "center",
   },
   {
     src: "/images/image9.jpg",
     alt: "Hatha Yoga Practice Session",
     category: "Asanas",
     wide: true,
+    position: "center 20%",
   },
   {
     src: "/images/image6.jpg",
     alt: "Morning Meditation",
     category: "Practice",
+    position: "center top",
   },
   {
     src: "/images/image2.jpg",
     alt: "Trikonasana at Adiyogi",
     category: "Asanas",
+    position: "center top",
   },
   {
     src: "/images/image7.jpg",
     alt: "AUM — The Sound of Creation",
     category: "Practice",
+    position: "center top",
   },
   {
     src: "/images/image12.jpg",
     alt: "Group Hatha Yoga Session",
     category: "Studio",
     wide: true,
+    position: "center 25%",
   },
   {
     src: "/images/image11.jpg",
     alt: "Evening Practice Session",
     category: "Studio",
+    position: "center top",
   },
   {
     src: "/images/image5.jpg",
     alt: "The Sacred Space",
     category: "Studio",
+    position: "center top",
   },
   {
     src: "/images/image8.jpg",
     alt: "Students at Sutradhara",
     category: "Practice",
+    position: "center top",
   },
   {
     src: "/images/image10.jpg",
     alt: "Harkirat — Isha Hatha Yoga",
     category: "Practice",
+    position: "center top",
   },
 ];
 
@@ -140,7 +153,7 @@ export default function Gallery() {
                   style={{
                     backgroundImage: `url('${item.src}')`,
                     backgroundSize: "cover",
-                    backgroundPosition: "center",
+                    backgroundPosition: item.position ?? "center top",
                     backgroundColor: "#162019",
                   }}
                 />
