@@ -45,7 +45,7 @@ export default async function ElementPage({
       <main className="bg-gym-black min-h-screen">
 
         {/* ── HERO — full-bleed real photo ── */}
-        <section className="relative min-h-[90vh] flex flex-col justify-end overflow-hidden">
+        <section className="relative min-h-screen flex flex-col justify-end overflow-hidden">
           {/* Photo background */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -65,7 +65,7 @@ export default async function ElementPage({
           />
 
           {/* Top-left back link */}
-          <div className="absolute top-28 left-0 right-0 z-10 container mx-auto px-6">
+          <div className="absolute top-32 left-0 right-0 z-10 container mx-auto px-6">
             <Link
               href="/#services"
               className="inline-flex items-center gap-2 text-gym-white/70 text-xs tracking-[0.2em] uppercase hover:text-gym-white transition-colors duration-200"
@@ -76,7 +76,7 @@ export default async function ElementPage({
           </div>
 
           {/* Hero text — bottom */}
-          <div className="relative z-10 container mx-auto px-6 pb-16 md:pb-24">
+          <div className="relative z-10 container mx-auto px-6 pb-20 md:pb-28">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-8 h-px" style={{ backgroundColor: element.color }} />
               <span
@@ -211,6 +211,83 @@ export default async function ElementPage({
                 >
                   In Practice
                 </span>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* ── DETAILED PRACTICES (Hatha Sutra specific) ── */}
+        {element.detailedOfferings && element.detailedOfferings.length > 0 && (
+          <section className="py-20 bg-gym-black">
+            <div className="container mx-auto px-6">
+              {/* Section header */}
+              <div className="flex items-center gap-4 mb-16">
+                <div className="h-px w-8" style={{ backgroundColor: element.color }} />
+                <span
+                  className="text-[10px] font-semibold tracking-[0.4em] uppercase"
+                  style={{ color: element.color }}
+                >
+                  Offerings
+                </span>
+                <div className="h-px flex-1 bg-gradient-to-r from-[#C0C0C0]/20 to-transparent" />
+              </div>
+
+              <div className="space-y-20 md:space-y-28">
+                {element.detailedOfferings.map((practice, i) => (
+                  <div
+                    key={i}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center"
+                  >
+                    {/* Image */}
+                    <div
+                      className={`relative bg-gym-surface ${i % 2 === 1 ? "md:order-2" : "md:order-1"}`}
+                      style={{ aspectRatio: "3/4" }}
+                    >
+                      {practice.image && (
+                        /* eslint-disable-next-line @next/next/no-img-element */
+                        <img
+                          src={practice.image}
+                          alt={practice.title}
+                          className="absolute inset-0 w-full h-full object-contain"
+                        />
+                      )}
+                      {/* Colour accent bar at bottom */}
+                      <div
+                        className="absolute bottom-0 left-0 right-0 h-0.5"
+                        style={{ backgroundColor: element.color }}
+                      />
+                    </div>
+
+                    {/* Text */}
+                    <div className={i % 2 === 1 ? "md:order-1" : "md:order-2"}>
+                      {/* Number badge */}
+                      <div
+                        className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold mb-6"
+                        style={{
+                          backgroundColor: `${element.color}18`,
+                          color: element.color,
+                          border: `1px solid ${element.color}45`,
+                        }}
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </div>
+
+                      <h3
+                        className="font-display leading-none tracking-widest mb-6"
+                        style={{
+                          fontSize: "clamp(28px, 4vw, 48px)",
+                          color: element.color,
+                        }}
+                      >
+                        {practice.title}
+                      </h3>
+
+                      <p className="text-gym-muted text-base leading-relaxed">
+                        {practice.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </section>

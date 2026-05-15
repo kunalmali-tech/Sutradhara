@@ -22,6 +22,7 @@ export interface Trainer {
   image: string;
   certifications: string[];
   instagram: string;
+  email?: string;
 }
 
 export interface Testimonial {
@@ -42,7 +43,7 @@ export interface Stat {
 export const GYM_PHONE = "06383303101";
 export const GYM_WHATSAPP = "916383303101";
 export const GYM_ADDRESS =
-  "Lane Number 14, behind airport, Khese Park, Lohegaon, Pune, Maharashtra 411032";
+  "Khese Park, Lohegaon, Pune, Maharashtra 411032";
 export const GYM_EMAIL = "hathasutra@gmail.com";
 
 export const stats: Stat[] = [
@@ -101,10 +102,11 @@ export const trainers: Trainer[] = [
   {
     name: "Dr. Harkirat Kaur",
     specialty: "PhD Humanities | MBA (Marketing) | Author",
-    bio: "A basketball player, athlete, biker, and entrepreneur — Dr. Harkirat has lived life at full intensity. After completing an MBA, clearing the NET examination, and earning a PhD in Humanities, she ran her own Event Management Company while teaching and volunteering at NGOs. Her spiritual anchor arrived through Inner Engineering, leading her through Bhava Spandana, the Shoonya Intensive, and the Silence Program — culminating in 5+ months of Isha Hatha Yoga Teacher Training completed in February 2021. Yoga, for her, is not a practice — it is life itself.",
+    bio: "A basketball player, athlete, biker, and entrepreneur — Dr. Harkirat has lived life at full intensity. She pursued her PhD in Humanities and MBA in Marketing simultaneously, while running her own Event Management Company, teaching, and volunteering at NGOs. Her spiritual anchor arrived through Inner Engineering, leading her through Bhava Spandana, the Shoonya Intensive, and the Silence Program — culminating in 1750+ hours of training under the Sadhguru Gurukulam. Yoga, for her, is not a practice — it is life itself.",
     image: "/images/image14.avif",
-    certifications: ["PhD Humanities", "MBA Marketing", "Isha Hatha Yoga Certified Teacher", "Surya Kriya & Angamardana"],
+    certifications: ["PhD in Humanities", "MBA in Marketing", "Classical Hatha Yoga Instructor certified by Sadhguru Gurukulam"],
     instagram: "@sutradhara.yoga",
+    email: "sutradhara@gmail.com",
   },
   {
     name: "SD Bhavani Chamarthy",
@@ -171,6 +173,12 @@ export const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
+export interface DetailedOffering {
+  title: string;
+  description: string;
+  image?: string;
+}
+
 export interface SutraElement {
   slug: string;
   title: string;
@@ -179,6 +187,7 @@ export interface SutraElement {
   description: string;
   longDescription: string;
   offerings: string[];
+  detailedOfferings?: DetailedOffering[];
   forWhom: string;
   heroImage: string;
   heroImagePosition?: string;
@@ -208,13 +217,74 @@ export const elements: SutraElement[] = [
     description:
       "The foundational thread — where body, breath, and awareness come into precise alignment through the classical science of Hatha Yoga.",
     longDescription:
-      "Hatha Sutra is a return to the source. Rooted in classical Hatha Yoga as taught through the Isha tradition, this element guides you through precise asanas, conscious pranayama, and meditative stillness. Each session is an invitation to inhabit your body more fully — to feel the intelligence that already lives within you. Through disciplined, attentive practice, the outer form becomes a gateway inward.",
+      "Hatha Sutra is a return to the source. Rooted in classical Hatha Yoga as taught through the Sadhguru Gurukulam tradition, this element guides you through precise asanas, conscious breathwork, and meditative stillness. Each session is an invitation to inhabit your body more fully — to feel the intelligence that already lives within you. Through disciplined, attentive practice, the outer form becomes a gateway inward.",
     offerings: [
-      "Classical Hatha Asanas with precision alignment",
+      "Classical Hatha Yoga with alignment",
       "Pranayama — the foundational science of breath",
-      "Introduction to yogic philosophy and inner work",
       "Individual corrections and personalised guidance",
       "Structured progression from foundation to advanced postures",
+    ],
+    detailedOfferings: [
+      {
+        title: "UPA YOGA",
+        description:
+          "Upa-yoga is a simple yet powerful system of exercise that activates the joints, muscles, and energy system. Based on a sophisticated understanding of the body's mechanics, Upa-yoga dispels inertia in the body's energy and brings ease to the whole system. It relieves physical stress and tiredness.",
+        image: "/images/image17.avif",
+      },
+      {
+        title: "ANGAMARDANA",
+        description:
+          "Angamardana, a fitness system rooted in yoga, offers everyone the opportunity to invigorate the body and reach peak physical and mental health. 'Angamardana' means gaining complete mastery over the limbs, organs, and other parts of the body. True to its name, this practice revitalizes the body on all levels including the muscles, circulatory system, skeletal structure, nervous system, and the basic energy system.",
+        image: "/images/image18.avif",
+      },
+      {
+        title: "SURYA KRIYA",
+        description:
+          "Surya Kriya is a potent yogic practice of tremendous antiquity, designed as a holistic process for health, wellness, and complete inner well-being. 'Surya' means 'sun,' and 'kriya' means 'inner energy process.' Surya Kriya activates the solar plexus to raise the samat prana, or solar heat, in the system. It also balances a person's left and right energy channels, leading to stability of the body and stillness of the mind. This strong foundation becomes the basis to explore higher dimensions of life.",
+        image: "/images/image19.avif",
+      },
+      {
+        title: "SURYA SHAKTI",
+        description:
+          "Surya Shakti builds the physical body — it makes the sinews and ligaments of your body strong. In Yoga, we give importance to the sinews that hold the skeletal system and the whole body together. When we do any yogic practice, which is physical in nature, the focus is mainly to strengthen those, not to pump up your muscles. Strengthening the sinews of the body is what will endure for a long time and keep you well. Surya Shakti does this in a tremendous way.",
+        image: "/images/image20.avif",
+      },
+      {
+        title: "YOGASANAS",
+        description:
+          "The word asana literally means a posture. Out of the innumerable asanas a body can assume, 84 have been identified as Yogasanas, through which one can transform the body and mind into a possibility for ultimate well-being. Yogasanas are not exercises, but rather very subtle processes to manipulate one's energy in a particular direction.",
+        image: "/images/image21.avif",
+      },
+      {
+        title: "SHANMUKHI MUDRA",
+        description:
+          "Shanmukhi mudra is a simple but subtle practice that brightens and rejuvenates the face and eyes and brings about a state of balance leading toward increased awareness and meditativeness.",
+        image: "/images/image22.avif",
+      },
+      {
+        title: "JALA NETI",
+        description:
+          "Jala Neti is a process of cleansing the nasal passages with salt water. This allows breathing to become free so that air can enter the lungs unimpeded by mucus and dirt which easily builds up during the day.",
+        image: "/images/image23.avif",
+      },
+      {
+        title: "PREGNANCY PRACTICES",
+        description:
+          "Pregnancy practices are specially designed for pregnant mothers to bring more awareness about the pregnancy period and teach them how to keep their body, mind, and emotion in a pleasant way, in order to experience a joyful pregnancy.",
+        image: "/images/image24.avif",
+      },
+      {
+        title: "CHILDREN'S SURYA SHAKTI",
+        description:
+          "Cultivate the right kind of daily regime and habit of yogic practice in children at a young age, helping them blossom into balanced, aware, and joyful human beings.",
+        image: "/images/image25.avif",
+      },
+      {
+        title: "EYE PRACTICES",
+        description:
+          "Eye care practices we offer are a natural way to improve vision-related issues which many a times stem from routine patterns of sitting in front of computers, televisions, phones, and other screens.",
+        image: "/images/image26.avif",
+      },
     ],
     forWhom:
       "Open to all — beginners finding their footing, seasoned practitioners deepening their sadhana, and anyone called back to the classical roots of yoga.",
@@ -224,27 +294,27 @@ export const elements: SutraElement[] = [
     title: "Jeevan Sutra",
     subtitle: "A Personality Developed in Rhythm with Nature",
     color: "#6BAA75",
-    heroImage: `${BASE}/Jeevan%20Sutra/20191216_135119.jpg`,
-    heroImagePosition: "left center",
+    heroImage: `${BASE}/Jeevan%20Sutra/IMG-20191216-WA0009.jpg`,
+    heroImagePosition: "center top",
     images: [
-      `${BASE}/Jeevan%20Sutra/IMG-20191216-WA0009.jpg`,
       `${BASE}/Jeevan%20Sutra/IMG-20191216-WA0014.jpg`,
       "/images/image7.jpg",
+      "/images/image9.jpg",
     ],
-    imagePositions: ["center top", "center top", "center"],
+    imagePositions: ["center top", "center", "center"],
     description:
-      "A holistic thread for the whole person — weaving yogic wisdom and natural rhythms into the fabric of who you are and how you live.",
+      "A transformative thread dedicated to the whole person — cultivating a personality that is grounded, aware, and expressed with clarity and confidence.",
     longDescription:
-      "Jeevan Sutra is more than a yoga element — it is a path of becoming. Drawing from yogic philosophy, Ayurvedic wisdom, and the rhythms of nature, this element helps you cultivate a personality that is grounded, radiant, and in harmony with life itself. Each offering weaves practice into daily living, so transformation becomes not something you do — but a way of being.",
+      "Jeevan Sutra is a path of conscious becoming, dedicated entirely to Personality Development. This element helps you discover, refine, and embody the qualities that define a balanced, purposeful, and authentic individual. Through structured programs, guided self-inquiry, and practical tools for personal growth, Jeevan Sutra empowers you to grow from the inside out — so that transformation becomes not just something you seek, but a way of living.",
     offerings: [
-      "Yogic philosophy applied to daily life",
-      "Nature-aligned daily rhythms (dinacharya)",
-      "Personality mapping and inner self-inquiry",
-      "Breathwork for emotional intelligence and regulation",
-      "Guided reflection practices for conscious living",
+      "Self-discovery and personality awareness",
+      "Communication and interpersonal effectiveness",
+      "Confidence building and purposeful self-expression",
+      "Emotional intelligence and inner self-regulation",
+      "Goal clarity and personal vision development",
     ],
     forWhom:
-      "For those seeking not just physical wellbeing but a deeper sense of self — people ready to bring their inner and outer worlds into alignment.",
+      "For those seeking meaningful personal growth — whether in professional life, relationships, or inner confidence. Open to anyone ready to turn self-awareness into self-mastery.",
   },
   {
     slug: "kala-dhara",

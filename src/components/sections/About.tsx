@@ -8,7 +8,7 @@ import { CheckCircle2 } from "lucide-react";
 
 const pillars = [
   "Authentic classical yoga lineages",
-  "Certified & deeply experienced teachers",
+  "Classical Hatha Yoga teachers certified by the Sadhguru Gurukulam.",
   "A peaceful, beautifully curated practice space",
   "A welcoming community of dedicated students",
 ];
@@ -75,7 +75,7 @@ export default function About() {
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-px flex-1 bg-gradient-to-r from-[#C0C0C0]/50 to-transparent" />
                 <span className="text-[#C0C0C0]/70 text-[10px] tracking-[0.35em] uppercase font-medium">
-                  Sutradhara — The thread that connects it all
+                  The Sutradhara — The thread that connects it all
                 </span>
                 <div className="h-px w-6 bg-[#C0C0C0]/30" />
               </div>

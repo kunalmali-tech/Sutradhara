@@ -1,12 +1,14 @@
 const items = [
-  "HATHA YOGA",
-  "VINYASA FLOW",
+  "YOGIC WISDOM",
+  "CLASSICAL HATHA YOGA",
+  "CLASSICAL DANCE",
+  "CLASSICAL MUSIC",
+  "PERSONALITY DEVELOPMENT",
+  "ARTS",
+  "AYURVEDA",
   "PRANAYAMA",
   "MEDITATION",
   "THESUTRADHARA",
-  "WISDOM",
-  "WELLNESS",
-  "WHOLENESS",
 ];
 
 export default function MarqueeBanner() {

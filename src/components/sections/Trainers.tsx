@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Award, ChevronRight } from "lucide-react";
+import { Award, ChevronRight, Mail } from "lucide-react";
 import { IconInstagram } from "@/components/ui/SocialIcons";
 import SectionHeading from "@/components/ui/SectionHeading";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
@@ -107,6 +107,15 @@ export default function Trainers() {
                           {active.name}
                         </h3>
                         <p className="text-gym-muted text-sm mt-1">{active.instagram}</p>
+                        {active.email && (
+                          <a
+                            href={`mailto:${active.email}`}
+                            className="inline-flex items-center gap-1.5 text-xs text-gym-muted hover:text-gym-red transition-colors duration-200 mt-1"
+                          >
+                            <Mail size={12} className="text-gym-red" />
+                            {active.email}
+                          </a>
+                        )}
                       </div>
                       <a
                         href="#"
