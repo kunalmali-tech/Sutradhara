@@ -32,6 +32,7 @@ export default function Contact() {
   const [form, setForm] = useState<FormData>(initialForm);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [sendError, setSendError] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -42,9 +43,23 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1500));
-    setLoading(false);
-    setSubmitted(true);
+    setSendError(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setSendError(true);
+      }
+    } catch {
+      setSendError(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const whatsappHref = `https://wa.me/${GYM_WHATSAPP}?text=Namaste%21%20I%27d%20like%20to%20know%20more%20about%20Sutradhara%20Yoga%20Studio.`;
@@ -246,6 +261,12 @@ export default function Contact() {
                       className="w-full bg-gym-surface border border-gym-border text-gym-white placeholder:text-gym-muted/50 px-4 py-3 text-sm resize-none transition-colors duration-200"
                     />
                   </div>
+
+                  {sendError && (
+                    <p className="text-red-400 text-xs text-center">
+                      Could not send your message. Please reach us on WhatsApp below.
+                    </p>
+                  )}
 
                   <button
                     type="submit"

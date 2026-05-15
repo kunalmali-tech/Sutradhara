@@ -18,7 +18,11 @@
       "Bash(npx next *)",
       "Bash(mkdir -p \"c:/Users/Admin/Desktop/Sutradhara/src/app/elements/[slug]\")",
       "Bash(New-Item -ItemType Directory -Force \"c:\\\\Users\\\\Admin\\\\Desktop\\\\Sutradhara\\\\src\\\\app\\\\elements\\\\[slug]\")",
-      "Bash(mkdir -p \"/c/Users/Admin/Desktop/Sutradhara/src/app/elements/[slug]\")"
+      "Bash(mkdir -p \"/c/Users/Admin/Desktop/Sutradhara/src/app/elements/[slug]\")",
+      "Bash(node -e \"require\\('./node_modules/resend'\\)\")",
+      "Bash(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\Admin\\\\Desktop\\\\Sutradhara\\\\src\\\\app\\\\api\\\\contact\")",
+      "Bash(Out-Null)",
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\Admin\\\\Desktop\\\\Sutradhara\\\\src\\\\app\\\\api\\\\contact\")"
     ],
     "additionalDirectories": [
       "c:\\Users\\Admin\\Desktop\\Sutradhara\\src\\app\\elements",
