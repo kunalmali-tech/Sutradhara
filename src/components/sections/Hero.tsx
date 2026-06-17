@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, ChevronRight } from "lucide-react";
 import Button from "@/components/ui/Button";
+import { mediaUrl } from "@/lib/media";
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -38,7 +39,7 @@ export default function Hero() {
         <div
           className="absolute inset-0 bg-gym-black"
           style={{
-            backgroundImage: "url('/images/image1.jpg')",
+            backgroundImage: `url('${mediaUrl("/images/image1.jpg")}')`,
             backgroundSize: "cover",
             backgroundPosition: "center 40%",
           }}

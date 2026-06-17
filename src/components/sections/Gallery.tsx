@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ZoomIn } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
+import { mediaUrl } from "@/lib/media";
 
 interface GalleryItem {
   src: string;
@@ -15,76 +16,76 @@ interface GalleryItem {
 
 const galleryItems: GalleryItem[] = [
   {
-    src: "/images/image1.jpg",
+    src: mediaUrl("/images/image1.jpg"),
     alt: "Group Meditation Class",
     category: "Studio",
     wide: true,
     position: "center 30%",
   },
   {
-    src: "/images/image4.jpg",
+    src: mediaUrl("/images/image4.jpg"),
     alt: "Paschimottanasana — Seated Forward Bend",
     category: "Asanas",
     position: "center top",
   },
   {
-    src: "/images/image3.jpg",
+    src: mediaUrl("/images/image3.jpg"),
     alt: "Sacred Space — Lotus Diya",
     category: "Studio",
     position: "center",
   },
   {
-    src: "/images/image9.jpg",
+    src: mediaUrl("/images/image9.jpg"),
     alt: "Hatha Yoga Practice Session",
     category: "Asanas",
     wide: true,
     position: "center 20%",
   },
   {
-    src: "/images/image6.jpg",
+    src: mediaUrl("/images/image6.jpg"),
     alt: "Morning Meditation",
     category: "Practice",
     position: "center top",
   },
   {
-    src: "/images/image2.jpg",
+    src: mediaUrl("/images/image2.jpg"),
     alt: "Trikonasana at Adiyogi",
     category: "Asanas",
     position: "center top",
   },
   {
-    src: "/images/image7.jpg",
+    src: mediaUrl("/images/image7.jpg"),
     alt: "AUM — The Sound of Creation",
     category: "Practice",
     position: "center top",
   },
   {
-    src: "/images/image12.jpg",
+    src: mediaUrl("/images/image12.jpg"),
     alt: "Group Hatha Yoga Session",
     category: "Studio",
     wide: true,
     position: "center 25%",
   },
   {
-    src: "/images/image11.jpg",
+    src: mediaUrl("/images/image11.jpg"),
     alt: "Evening Practice Session",
     category: "Studio",
     position: "center top",
   },
   {
-    src: "/images/image5.jpg",
+    src: mediaUrl("/images/image5.jpg"),
     alt: "The Sacred Space",
     category: "Studio",
     position: "center top",
   },
   {
-    src: "/images/image8.jpg",
+    src: mediaUrl("/images/image8.jpg"),
     alt: "Students at Sutradhara",
     category: "Practice",
     position: "center top",
   },
   {
-    src: "/images/image10.jpg",
+    src: mediaUrl("/images/image10.jpg"),
     alt: "Harkirat — Isha Hatha Yoga",
     category: "Practice",
     position: "center top",
