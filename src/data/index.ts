@@ -7,6 +7,7 @@ import {
   Star,
   type LucideIcon,
 } from "lucide-react";
+import { mediaUrl } from "@/lib/media";
 
 export interface Service {
   icon: LucideIcon;
@@ -103,7 +104,7 @@ export const trainers: Trainer[] = [
     name: "Dr. Harkirat Kaur",
     specialty: "PhD Humanities | MBA (Marketing) | Author",
     bio: "A basketball player, athlete, biker, and entrepreneur — Dr. Harkirat has lived life at full intensity. She pursued her PhD in Humanities and MBA in Marketing simultaneously, while running her own Event Management Company, teaching, and volunteering at NGOs. Her spiritual anchor arrived through Inner Engineering, leading her through Bhava Spandana, the Shoonya Intensive, and the Silence Program — culminating in 1750+ hours of training under the Sadhguru Gurukulam. Yoga, for her, is not a practice — it is life itself.",
-    image: "/images/image14.avif",
+    image: mediaUrl("/images/image14.avif"),
     certifications: ["PhD in Humanities", "MBA in Marketing", "Classical Hatha Yoga Instructor certified by Sadhguru Gurukulam"],
     instagram: "@sutradhara.yoga",
     email: "sutradhara@gmail.com",
@@ -112,7 +113,7 @@ export const trainers: Trainer[] = [
     name: "SD Bhavani Chamarthy",
     specialty: "MSc. Counselling Psychology | PGD Art and Play Therapy | Artist",
     bio: "From a young age, Bhavani felt a deep calling to support others in achieving their highest well-being. Her psychology thesis on the well-being of yoga practitioners revealed yoga's profound impact on mental and emotional health, inspiring her to weave yogic practices into her clinical work. This path led her to Isha Yoga, and in 2020 she completed the 1750+ hour Isha Hatha Yoga Teacher Training Program — a life-changing experience that transformed not only her understanding of yoga but the very way she lives. She now shares classical Hatha Yoga as a timeless science of holistic well-being, accessible to all.",
-    image: "/images/image15.avif",
+    image: mediaUrl("/images/image15.avif"),
     certifications: ["MSc Counselling Psychology", "PGD Art & Play Therapy", "1750+ hr Isha Hatha Yoga TTP"],
     instagram: "@sutradhara.yoga",
   },
@@ -120,7 +121,7 @@ export const trainers: Trainer[] = [
     name: "Dushyant Singh",
     specialty: "Bachelors in Computer Application | Graphic Designer",
     bio: "Driven by a passion for computers, Dushyant's life took a beautiful turn when his Guru invited him onto an unknown path. Three years under his guidance reshaped him from within. Since 2018, he has served as a full-time volunteer at the Isha Yoga Center, immersed in yoga practices. The pandemic planted a seed within him to share yoga's gifts with others, inspiring him to complete the intensive 1750+ hour Hatha Yoga Teacher Training Program. Today, alongside freelance graphic design, he teaches Hatha Yoga full-time — finding immense joy in guiding others toward well-being and self-transformation.",
-    image: "/images/image16.avif",
+    image: mediaUrl("/images/image16.avif"),
     certifications: ["BCA", "1750+ hr Isha Hatha Yoga TTP", "Full-time Isha Volunteer since 2018"],
     instagram: "@sutradhara.yoga",
   },
@@ -196,7 +197,7 @@ export interface SutraElement {
   video?: string;
 }
 
-const BASE = "/images/Sutradhara%20Website%20Images";
+const BASE = mediaUrl("/images/Sutradhara%20Website%20Images");
 
 export const elements: SutraElement[] = [
   {
@@ -229,61 +230,61 @@ export const elements: SutraElement[] = [
         title: "UPA YOGA",
         description:
           "Upa-yoga is a simple yet powerful system of exercise that activates the joints, muscles, and energy system. Based on a sophisticated understanding of the body's mechanics, Upa-yoga dispels inertia in the body's energy and brings ease to the whole system. It relieves physical stress and tiredness.",
-        image: "/images/image17.avif",
+        image: mediaUrl("/images/image17.avif"),
       },
       {
         title: "ANGAMARDANA",
         description:
           "Angamardana, a fitness system rooted in yoga, offers everyone the opportunity to invigorate the body and reach peak physical and mental health. 'Angamardana' means gaining complete mastery over the limbs, organs, and other parts of the body. True to its name, this practice revitalizes the body on all levels including the muscles, circulatory system, skeletal structure, nervous system, and the basic energy system.",
-        image: "/images/image18.avif",
+        image: mediaUrl("/images/image18.avif"),
       },
       {
         title: "SURYA KRIYA",
         description:
           "Surya Kriya is a potent yogic practice of tremendous antiquity, designed as a holistic process for health, wellness, and complete inner well-being. 'Surya' means 'sun,' and 'kriya' means 'inner energy process.' Surya Kriya activates the solar plexus to raise the samat prana, or solar heat, in the system. It also balances a person's left and right energy channels, leading to stability of the body and stillness of the mind. This strong foundation becomes the basis to explore higher dimensions of life.",
-        image: "/images/image19.avif",
+        image: mediaUrl("/images/image19.avif"),
       },
       {
         title: "SURYA SHAKTI",
         description:
           "Surya Shakti builds the physical body — it makes the sinews and ligaments of your body strong. In Yoga, we give importance to the sinews that hold the skeletal system and the whole body together. When we do any yogic practice, which is physical in nature, the focus is mainly to strengthen those, not to pump up your muscles. Strengthening the sinews of the body is what will endure for a long time and keep you well. Surya Shakti does this in a tremendous way.",
-        image: "/images/image20.avif",
+        image: mediaUrl("/images/image20.avif"),
       },
       {
         title: "YOGASANAS",
         description:
           "The word asana literally means a posture. Out of the innumerable asanas a body can assume, 84 have been identified as Yogasanas, through which one can transform the body and mind into a possibility for ultimate well-being. Yogasanas are not exercises, but rather very subtle processes to manipulate one's energy in a particular direction.",
-        image: "/images/image21.avif",
+        image: mediaUrl("/images/image21.avif"),
       },
       {
         title: "SHANMUKHI MUDRA",
         description:
           "Shanmukhi mudra is a simple but subtle practice that brightens and rejuvenates the face and eyes and brings about a state of balance leading toward increased awareness and meditativeness.",
-        image: "/images/image22.avif",
+        image: mediaUrl("/images/image22.avif"),
       },
       {
         title: "JALA NETI",
         description:
           "Jala Neti is a process of cleansing the nasal passages with salt water. This allows breathing to become free so that air can enter the lungs unimpeded by mucus and dirt which easily builds up during the day.",
-        image: "/images/image23.avif",
+        image: mediaUrl("/images/image23.avif"),
       },
       {
         title: "PREGNANCY PRACTICES",
         description:
           "Pregnancy practices are specially designed for pregnant mothers to bring more awareness about the pregnancy period and teach them how to keep their body, mind, and emotion in a pleasant way, in order to experience a joyful pregnancy.",
-        image: "/images/image24.avif",
+        image: mediaUrl("/images/image24.avif"),
       },
       {
         title: "CHILDREN'S SURYA SHAKTI",
         description:
           "Cultivate the right kind of daily regime and habit of yogic practice in children at a young age, helping them blossom into balanced, aware, and joyful human beings.",
-        image: "/images/image25.avif",
+        image: mediaUrl("/images/image25.avif"),
       },
       {
         title: "EYE PRACTICES",
         description:
           "Eye care practices we offer are a natural way to improve vision-related issues which many a times stem from routine patterns of sitting in front of computers, televisions, phones, and other screens.",
-        image: "/images/image26.avif",
+        image: mediaUrl("/images/image26.avif"),
       },
     ],
     forWhom:
@@ -298,8 +299,8 @@ export const elements: SutraElement[] = [
     heroImagePosition: "center top",
     images: [
       `${BASE}/Jeevan%20Sutra/IMG-20191216-WA0014.jpg`,
-      "/images/image7.jpg",
-      "/images/image9.jpg",
+      mediaUrl("/images/image7.jpg"),
+      mediaUrl("/images/image9.jpg"),
     ],
     imagePositions: ["center top", "center", "center"],
     description:
@@ -377,12 +378,12 @@ export const elements: SutraElement[] = [
     title: "Veer Dhara",
     subtitle: "Awaken the Warrior Within",
     color: "#C94A4A",
-    heroImage: "/images/image4.jpg",
+    heroImage: mediaUrl("/images/image4.jpg"),
     heroImagePosition: "center top",
     images: [
-      "/images/image13.jpg",
-      "/images/image10.jpg",
-      "/images/image5.jpg",
+      mediaUrl("/images/image13.jpg"),
+      mediaUrl("/images/image10.jpg"),
+      mediaUrl("/images/image5.jpg"),
     ],
     imagePositions: ["center", "center top", "center top"],
     description:

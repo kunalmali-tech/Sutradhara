@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Counter from "@/components/ui/Counter";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 import { stats } from "@/data";
+import { mediaUrl } from "@/lib/media";
 import { CheckCircle2 } from "lucide-react";
 
 const pillars = [
@@ -31,7 +32,7 @@ export default function About() {
               <div className="relative h-[480px] md:h-[560px] overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/image13.jpg"
+                  src={mediaUrl("/images/image13.jpg")}
                   alt="Sutradhara Yoga Studio"
                   className="absolute inset-0 w-full h-full object-contain"
                   style={{ backgroundColor: "#C2C2C0" }}
@@ -44,7 +45,7 @@ export default function About() {
               <div
                 className="absolute -bottom-8 -right-8 w-52 h-40 overflow-hidden border-4 border-gym-black hidden md:block"
                 style={{
-                  backgroundImage: "url('/images/image3.jpg')",
+                  backgroundImage: `url('${mediaUrl("/images/image3.jpg")}')`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   backgroundColor: "#1a1a1a",
