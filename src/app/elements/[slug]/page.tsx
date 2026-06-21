@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
 import VideoBackground from "@/components/ui/VideoBackground";
+import PanelCard from "@/components/ui/PanelCard";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
@@ -152,6 +153,47 @@ export default async function ElementPage({
             </div>
           </div>
         </section>
+
+        {/* ── INTRO PANEL ── */}
+        {element.introPanel && (
+          <section className="py-20 bg-gym-black border-t border-gym-border">
+            <div className="container mx-auto px-6">
+              <PanelCard panel={element.introPanel} color={element.color} />
+            </div>
+          </section>
+        )}
+
+        {/* ── PANEL DETAILS ── */}
+        {element.panels && element.panels.length > 0 && (
+          <section className="py-20 bg-gym-black border-t border-gym-border">
+            <div className="container mx-auto px-6">
+              <div className="flex items-center gap-4 mb-16">
+                <div className="h-px w-8" style={{ backgroundColor: element.color }} />
+                <span
+                  className="text-[10px] font-semibold tracking-[0.4em] uppercase"
+                  style={{ color: element.color }}
+                >
+                  Panel Details
+                </span>
+                <div className="h-px flex-1 bg-gradient-to-r from-[#C0C0C0]/20 to-transparent" />
+              </div>
+
+              <div className="space-y-24">
+                {element.panels.map((panel, pi) => (
+                  <div key={pi}>
+                    {pi > 0 && (
+                      <div
+                        className="h-px mb-10"
+                        style={{ background: `linear-gradient(to right, ${element.color}40, transparent)` }}
+                      />
+                    )}
+                    <PanelCard panel={panel} color={element.color} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* ── PHOTO GALLERY — aspect-ratio grid handles vertical phone photos ── */}
         {element.images.length >= 2 && (

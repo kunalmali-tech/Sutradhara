@@ -7,25 +7,27 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 import { elements } from "@/data";
 
-// Positions for 240px cards in a 1080px-tall container — heptagonal (7-point) mandala
+// Positions for 240px cards in a 1080px-tall container — octagonal (8-point) mandala
 const cardPositions = [
   { top: "12%", left: "50%" },   // top
-  { top: "26%", left: "77%" },   // upper-right
-  { top: "58%", left: "84%" },   // right
-  { top: "83%", left: "65%" },   // lower-right
-  { top: "83%", left: "35%" },   // lower-left
-  { top: "58%", left: "16%" },   // left
-  { top: "26%", left: "23%" },   // upper-left
+  { top: "23%", left: "75%" },   // upper-right
+  { top: "50%", left: "85%" },   // right
+  { top: "77%", left: "75%" },   // lower-right
+  { top: "88%", left: "50%" },   // bottom
+  { top: "77%", left: "25%" },   // lower-left
+  { top: "50%", left: "15%" },   // left
+  { top: "23%", left: "25%" },   // upper-left
 ];
 
 const svgEndpoints = [
   { x2: "50%", y2: "12%" },
-  { x2: "77%", y2: "26%" },
-  { x2: "84%", y2: "58%" },
-  { x2: "65%", y2: "83%" },
-  { x2: "35%", y2: "83%" },
-  { x2: "16%", y2: "58%" },
-  { x2: "23%", y2: "26%" },
+  { x2: "75%", y2: "23%" },
+  { x2: "85%", y2: "50%" },
+  { x2: "75%", y2: "77%" },
+  { x2: "50%", y2: "88%" },
+  { x2: "25%", y2: "77%" },
+  { x2: "15%", y2: "50%" },
+  { x2: "25%", y2: "23%" },
 ];
 
 const circleVariants = (color: string) => ({
@@ -46,7 +48,7 @@ export default function Services() {
       <div className="container mx-auto px-6">
         <SectionHeading
           title="THE SUTRAS"
-          subtitle="Seven living threads woven from one centre — each a unique path, all leading to the same wholeness."
+          subtitle="Eight living threads woven from one centre — each a unique path, all leading to the same wholeness."
           align="center"
         />
 
