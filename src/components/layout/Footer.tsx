@@ -3,7 +3,7 @@ import { IconInstagram, IconFacebook, IconYoutube } from "@/components/ui/Social
 import { GYM_ADDRESS, GYM_EMAIL, GYM_PHONE, GYM_WHATSAPP } from "@/data";
 
 const footerLinks = {
-  Elements: ["Hatha Sutra", "Jeevan Sutra", "Kala Dhara", "Sangeet Dhara", "Veer Dhara", "Vastra Dhara", "Gau Sutra"],
+  Elements: ["Hatha Sutra", "Jeevan Sutra", "Kala Dhara", "Sangeet Dhara", "Veer Dhara", "Vastra Dhara", "Gau Sutra", "Nritya Dhara"],
   Studio: ["About Us", "Our Teachers", "Timetable", "Blog", "Workshops"],
   Support: ["Beginner's Guide", "Class Schedule", "Membership FAQ", "Privacy Policy", "Terms of Service"],
 };
