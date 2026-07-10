@@ -1,14 +1,43 @@
+"use client";
+
+import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { IconInstagram, IconFacebook, IconYoutube } from "@/components/ui/SocialIcons";
-import { GYM_ADDRESS, GYM_EMAIL, GYM_PHONE, GYM_WHATSAPP } from "@/data";
+import { GYM_AREA, GYM_EMAIL, GYM_PHONE, GYM_WHATSAPP, elements } from "@/data";
 
-const footerLinks = {
-  Elements: ["Hatha Sutra", "Jeevan Sutra", "Kala Dhara", "Sangeet Dhara", "Veer Dhara", "Vastra Dhara", "Gau Sutra", "Nritya Dhara"],
-  Studio: ["About Us", "Our Teachers", "Timetable", "Blog", "Workshops"],
-  Support: ["Beginner's Guide", "Class Schedule", "Membership FAQ", "Privacy Policy", "Terms of Service"],
-};
+// Anchors point to homepage sections. Timetable/Blog/Workshops don't have dedicated
+// pages yet, so they route to Contact until that content exists.
+const studioLinks = [
+  { label: "About Us", href: "#about" },
+  { label: "Our Teachers", href: "#trainers" },
+  { label: "Timetable", href: "#contact" },
+  { label: "Blog", href: "#contact" },
+  { label: "Workshops", href: "#contact" },
+  { label: "Support Us", href: "#support" },
+];
+
+const supportLinks = [
+  { label: "Beginner's Guide", href: "#contact" },
+  { label: "Class Schedule", href: "#contact" },
+  { label: "Membership FAQ", href: "#contact" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms of Service", href: "/terms-of-service" },
+];
 
 export default function Footer() {
+  const pathname = usePathname();
+  const router = useRouter();
+  const isHome = pathname === "/";
+
+  const handleAnchorClick = (href: string) => {
+    if (isHome) {
+      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      router.push(`/${href}`);
+    }
+  };
+
   return (
     <footer className="bg-gym-surface border-t border-gym-border">
       {/* Marquee bar */}
@@ -43,7 +72,7 @@ export default function Footer() {
             <div className="space-y-3 mb-8">
               <div className="flex items-start gap-3 text-sm text-gym-muted">
                 <MapPin size={14} className="text-gym-red mt-0.5 shrink-0" />
-                <span>{GYM_ADDRESS}</span>
+                <span>{GYM_AREA} — exact location shared after registration/contact</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-gym-muted">
                 <Phone size={14} className="text-gym-red shrink-0" />
@@ -92,37 +121,81 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Link columns */}
-          {Object.entries(footerLinks).map(([heading, links]) => (
-            <div key={heading}>
-              <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-gym-white mb-5">
-                {heading}
-              </h4>
-              <ul className="space-y-3">
-                {links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
+          {/* Elements column */}
+          <div>
+            <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-gym-white mb-5">
+              Elements
+            </h4>
+            <ul className="space-y-3">
+              {elements.map((el) => (
+                <li key={el.slug}>
+                  <Link
+                    href={`/elements/${el.slug}`}
+                    className="text-sm text-gym-muted hover:text-gym-white transition-colors duration-200"
+                  >
+                    {el.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Studio column */}
+          <div>
+            <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-gym-white mb-5">
+              Studio
+            </h4>
+            <ul className="space-y-3">
+              {studioLinks.map((link) => (
+                <li key={link.label}>
+                  <button
+                    onClick={() => handleAnchorClick(link.href)}
+                    className="text-sm text-gym-muted hover:text-gym-white transition-colors duration-200 cursor-pointer"
+                  >
+                    {link.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Support column */}
+          <div>
+            <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-gym-white mb-5">
+              Support
+            </h4>
+            <ul className="space-y-3">
+              {supportLinks.map((link) =>
+                link.href.startsWith("#") ? (
+                  <li key={link.label}>
+                    <button
+                      onClick={() => handleAnchorClick(link.href)}
+                      className="text-sm text-gym-muted hover:text-gym-white transition-colors duration-200 cursor-pointer"
+                    >
+                      {link.label}
+                    </button>
+                  </li>
+                ) : (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
                       className="text-sm text-gym-muted hover:text-gym-white transition-colors duration-200"
                     >
-                      {link}
-                    </a>
+                      {link.label}
+                    </Link>
                   </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+                )
+              )}
+            </ul>
+          </div>
         </div>
       </div>
 
       {/* Bottom bar */}
       <div className="border-t border-gym-border">
-        <div className="container mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="container mx-auto px-6 py-5 flex items-center justify-center">
           <p className="text-xs text-gym-muted">
             © {new Date().getFullYear()} TheSutraDhara, VimanNagar, Pune. All rights reserved.
-          </p>
-          <p className="text-xs text-gym-muted">
-            Mon–Sat: 6:00 AM – 8:00 PM &nbsp;|&nbsp; Sunday: 7:00 AM – 12:00 PM
           </p>
         </div>
       </div>

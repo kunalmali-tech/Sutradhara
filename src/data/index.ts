@@ -32,7 +32,6 @@ export interface Testimonial {
   image: string;
   quote: string;
   rating: number;
-  months: number;
 }
 
 export interface Stat {
@@ -43,15 +42,22 @@ export interface Stat {
 
 export const GYM_PHONE = "06383303101";
 export const GYM_WHATSAPP = "916383303101";
+// Exact address intentionally not shown publicly — see GYM_AREA. Used only for internal/admin reference.
 export const GYM_ADDRESS =
   "Khese Park, Lohegaon, Pune, Maharashtra 411032";
+// General area shown publicly on the site — exact location is shared after registration/contact.
+export const GYM_AREA = "Lohegaon, Pune, Maharashtra";
 export const GYM_EMAIL = "hathasutra@gmail.com";
 
+// Tagline in use — alternates suggested for client review:
+//   1. "One Thread, Many Paths"
+//   2. "Where Every Practice Finds Its Place"
+export const TAGLINE = "The Thread That Connects It All";
+
 export const stats: Stat[] = [
-  { value: 5, suffix: "+", label: "Years of Teaching" },
-  { value: 300, suffix: "+", label: "Students Guided" },
+  { value: 6, suffix: "+", label: "Years of Teaching" },
+  { value: 500, suffix: "+", label: "Students Guided" },
   { value: 5, suffix: "+", label: "Facilitators" },
-  { value: 20, suffix: "+", label: "Classes Per Week" },
 ];
 
 export const services: Service[] = [
@@ -99,16 +105,21 @@ export const services: Service[] = [
   },
 ];
 
+// Founder — shown in the homepage "Our Founder" section.
 export const trainers: Trainer[] = [
   {
     name: "Dr. Harkirat Kaur",
     specialty: "PhD Humanities | MBA (Marketing) | Author",
     bio: "A basketball player, athlete, biker, and entrepreneur — Dr. Harkirat has lived life at full intensity. She pursued her PhD in Humanities and MBA in Marketing simultaneously, while running her own Event Management Company, teaching, and volunteering at NGOs. Her spiritual anchor arrived through Inner Engineering, leading her through Bhava Spandana, the Shoonya Intensive, and the Silence Program — culminating in 1750+ hours of training under the Sadhguru Gurukulam. Yoga, for her, is not a practice — it is life itself.",
-    image: mediaUrl("/images/image14.avif"),
+    image: "/images/founder-harkirat.jpg",
     certifications: ["PhD in Humanities", "MBA in Marketing", "Classical Hatha Yoga Instructor certified by Sadhguru Gurukulam"],
     instagram: "@sutradhara.yoga",
     email: "sutradhara@gmail.com",
   },
+];
+
+// Hatha Sutra teachers — shown on the Hatha Sutra element page, not the homepage founder section.
+export const hathaSutraTeachers: Trainer[] = [
   {
     name: "SD Bhavani Chamarthy",
     specialty: "MSc. Counselling Psychology | PGD Art and Play Therapy | Artist",
@@ -135,7 +146,6 @@ export const testimonials: Testimonial[] = [
     quote:
       "This was my first experience with a one-on-one Yogasanas class with an Isha Hatha Yoga certified teacher, and I must say it was truly an enriching experience. Harkirat akka pays so much attention to detail and makes sure that you do the asanas right! Her discipline and dedication towards her students is inspiring. I'm grateful that her class is available in Pune, just 5 mins from the airport! Her yoga studio completely reminds me of Isha Yoga Centre — somehow the vibe resonates the same. Thank you Kirat Di for being there and helping me learn. 🙏",
     rating: 5,
-    months: 3,
   },
   {
     name: "Pratiksha Yadav",
@@ -144,16 +154,6 @@ export const testimonials: Testimonial[] = [
     quote:
       "Namaskaram everyone 🙏 Just go experience this place for yourself — you will fall in love with it. Akka is super supportive, but also disciplined to ensure that you are doing your practice every day. She takes review classes to ensure you are getting the postures correct. The ambience and location are perfect for getting back on track. If you really want to learn Hatha yoga in full depth, do visit this place. Start your spiritual journey today!",
     rating: 5,
-    months: 12,
-  },
-  {
-    name: "SD Bhavani Chamarthy",
-    role: "Google Review ★★★★★",
-    image: "",
-    quote:
-      "Best place to learn yoga in Pune. Harkirat akka makes sure that she connects with each and every participant to understand what difficulties they have and she also gives corrections which help improve postures. The practices are impactful. Thank you akka.",
-    rating: 5,
-    months: 4,
   },
   {
     name: "Edwin Chang",
@@ -162,7 +162,6 @@ export const testimonials: Testimonial[] = [
     quote:
       "I wanted to share my positive experience at this yoga center. The classes were incredibly calming and helped me find a sense of peace. The teachers were all very knowledgeable and provided excellent guidance. I felt like I gained a much better understanding of the practice. I highly recommend exploring yoga here for anyone seeking both physical and mental well-being.",
     rating: 5,
-    months: 5,
   },
 ];
 
@@ -170,7 +169,8 @@ export const navLinks = [
   { label: "About", href: "#about" },
   { label: "Classes", href: "#services" },
   { label: "Gallery", href: "#gallery" },
-  { label: "Facilitators", href: "#trainers" },
+  { label: "Founder", href: "#trainers" },
+  { label: "Support", href: "#support" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -209,6 +209,11 @@ export interface Panel {
   featuredVideo?: string;
 }
 
+export interface ExternalLink {
+  label: string;
+  url: string;
+}
+
 export interface SutraElement {
   slug: string;
   title: string;
@@ -226,6 +231,13 @@ export interface SutraElement {
   video?: string;
   introPanel?: Panel;
   panels?: Panel[];
+  /** Shown as a callout near the top of the page — for elements still being built out. */
+  evolvingNote?: string;
+  /** Shown after the last content section on the element page. */
+  closingNote?: string;
+  /** Teachers specific to this element (separate from the homepage founder section). */
+  teachers?: Trainer[];
+  externalLinks?: ExternalLink[];
 }
 
 const BASE = mediaUrl("/images/Sutradhara%20Website%20Images");
@@ -243,8 +255,21 @@ export const elements: SutraElement[] = [
       `${BASE}/Hatha%20Sutra/IMG-20240111-WA0000.jpg`,
       `${BASE}/Hatha%20Sutra/20241024_163201.jpeg`,
       `${BASE}/Hatha%20Sutra/Photos-videos%20for%20Hatha%20Sutra/Hatha%20Sutra/IMG_20230119_153058_271.jpg`,
+      `${BASE}/Hatha%20Sutra/20260609_082228.jpg`,
+      `${BASE}/Hatha%20Sutra/20260609_074731.jpg`,
+      "/images/hatha-sutra-teacher-moment.jpg",
+      `${BASE}/Hatha%20Sutra/20260609_075701.jpg`,
     ],
-    imagePositions: ["center 40%", "center top", "center top", "center top"],
+    imagePositions: [
+      "center 40%",
+      "center top",
+      "center top",
+      "center top",
+      "center top",
+      "center top",
+      "center top",
+      "center top",
+    ],
     video: `${BASE}/Hatha%20Sutra/Photos-videos%20for%20Hatha%20Sutra/Hatha%20Sutra/20230107_175543.mp4`,
     description:
       "The foundational thread — where body, breath, and awareness come into precise alignment through the classical science of Hatha Yoga.",
@@ -255,6 +280,7 @@ export const elements: SutraElement[] = [
       "Pranayama — the foundational science of breath",
       "Individual corrections and personalised guidance",
       "Structured progression from foundation to advanced postures",
+      "One-on-one / personal sessions available on request",
     ],
     detailedOfferings: [
       {
@@ -320,6 +346,9 @@ export const elements: SutraElement[] = [
     ],
     forWhom:
       "Open to all — beginners finding their footing, seasoned practitioners deepening their sadhana, and anyone called back to the classical roots of yoga.",
+    teachers: hathaSutraTeachers,
+    closingNote:
+      "Practices such as Bhastrika, Bhuta Shuddhi, Thoppukarnam and more are part of the complete offerings. The full list of practices is available in the Hatha Sutra registration form.",
   },
   {
     slug: "jeevan-sutra",
@@ -374,6 +403,8 @@ export const elements: SutraElement[] = [
     ],
     forWhom:
       "For artists, performers, and creatives — and for anyone who has ever felt the pull to express something beyond words. No art or dance background required.",
+    evolvingNote:
+      "Just like a story weaving itself, Kaladhara is still unfolding. While the currently listed art forms are already part of our offerings, many more will be added soon. Upcoming additions include Painting, Drama, Mandala Art, and more.",
   },
   {
     slug: "sangeet-dhara",
@@ -395,11 +426,12 @@ export const elements: SutraElement[] = [
     longDescription:
       "Sound is vibration, and vibration is life. Sangeet Dhara explores yoga through the medium of sound — through mantra, nada (inner sound), chanting, and the profound science of conscious listening. This element weaves ancient sound traditions with present-moment awareness, inviting participants to use their voice, their breath, and their stillness as instruments of inner transformation. Here, music is not performance — it is prayer.",
     offerings: [
-      "Mantra chanting — accessible to all voices",
-      "Nada Yoga — the yoga of inner sound and vibration",
-      "Breathwork through toning and sound",
-      "Sound meditation and the art of deep listening",
-      "Introduction to Bhakti and devotional practice",
+      "Hindustani Vocal",
+      "Carnatic Vocal",
+      "Violin",
+      "Naad Yoga",
+      "Mantra Chanting",
+      "Harmonium",
     ],
     forWhom:
       "For those drawn to music, devotion, sound healing, and the transformative power of the human voice. Open to all, regardless of musical background.",
@@ -520,14 +552,14 @@ export const elements: SutraElement[] = [
     title: "Veer Dhara",
     subtitle: "Awaken the Warrior Within",
     color: "#C94A4A",
-    heroImage: mediaUrl("/images/image4.jpg"),
-    heroImagePosition: "center top",
+    heroImage: `${BASE}/5.%20Veer%20Dhara/Photos%20/Untitled%20design%282%29.jpg`,
+    heroImagePosition: "center",
     images: [
-      mediaUrl("/images/image13.jpg"),
-      mediaUrl("/images/image10.jpg"),
-      mediaUrl("/images/image5.jpg"),
+      `${BASE}/5.%20Veer%20Dhara/Photos%20/Untitled%20design.jpg`,
+      `${BASE}/5.%20Veer%20Dhara/Photos%20/Untitled%20design%281%29.jpg`,
+      `${BASE}/5.%20Veer%20Dhara/Photos%20/Untitled%20design%282%29.jpg`,
     ],
-    imagePositions: ["center", "center top", "center top"],
+    imagePositions: ["center top", "center top", "center top"],
     description:
       "A fierce and vital thread — where physical strength, yogic courage, and the spirit of the inner warrior are forged through dedicated practice.",
     longDescription:
@@ -698,20 +730,22 @@ export const elements: SutraElement[] = [
     description:
       "A sacred thread of cloth and consciousness — where what you wear becomes an act of awareness, reverence, and inner alignment.",
     longDescription:
-      "Vastra Dhara is rooted in the ancient understanding that clothing is not merely covering — it is an expression of one's inner state, a container for energy, and a conscious act of self-offering. Drawing from Ayurvedic principles of fabric and colour, the yogic science of how textiles affect the body's energy field, and the meditative traditions of conscious adornment, this element invites you to bring awareness into every layer of how you dress, dye, drape, and inhabit what you wear.",
+      "Vastra Dhara is rooted in the ancient understanding that clothing is not merely covering — it is an expression of one's inner state, a conscious choice, and an act of self-offering. This element brings awareness to what we wear and how it connects us to the earth, our heritage, and ourselves — through sustainable clothing, intentional dressing, and India's rich handloom and textile traditions. We collaborate with conscious clothing brands such as Shoonya to bring this awareness into everyday life.",
     offerings: [
-      "Yogic and Ayurvedic understanding of fabric, colour, and energy",
-      "Natural dyeing as a meditative and creative practice",
-      "The art of conscious adornment and intentional dressing",
-      "Breathwork and stillness woven into the creative process",
-      "Exploration of traditional Indian textile wisdom and symbolism",
+      "Collaborations with conscious clothing brands like Shoonya",
+      "Sustainable clothing",
+      "Conscious adornment and intentional dressing",
+      "Indian handlooms and textile wisdom",
     ],
     forWhom:
-      "For those drawn to craft, colour, and creativity — and for anyone curious about bringing yogic awareness into the textures of everyday life. No prior experience required.",
+      "For those drawn to conscious living, sustainable style, and India's textile heritage — and for anyone curious about bringing more awareness into the everyday act of dressing. No prior experience required.",
+    externalLinks: [
+      { label: "Visit Shoonya", url: "[SHOONYA_WEBSITE_LINK]" },
+    ],
   },
   {
-    slug: "gau-sutra",
-    title: "Gau Sutra",
+    slug: "aarogya-dhara",
+    title: "Aarogya Dhara",
     subtitle: "Honouring the Sacred Science of Nourishment",
     color: "#88A85C",
     heroImage: `${BASE}/Gau%20Sutra/IMG-20240414-WA0025.jpg`,
@@ -724,18 +758,18 @@ export const elements: SutraElement[] = [
     imagePositions: ["center top", "center top", "center top"],
     video: `${BASE}/Gau%20Sutra/20231204_120839.mp4`,
     description:
-      "A nurturing thread connecting us back to the earth — where food, nature, and the ancient wisdom of nourishment are honoured as sacred.",
+      "A holistic thread of healing — where Panchagavya, Siddha, Ayurveda, and Physiotherapy come together in service of complete, natural wellness.",
     longDescription:
-      "Gau Sutra is an offering rooted in the ancient Indian understanding that nourishment itself is sacred. The word 'Gau' evokes abundance, the sacred cow, and the deep relationship between human beings, the earth, and the sustenance it offers. This element weaves Ayurvedic nutrition, conscious eating practices, yogic lifestyle, and reverence for natural cycles into a complete path of nourishment — for the body, the mind, and the spirit.",
+      "Aarogya Dhara is a holistic approach to health — weaving together Panchagavya, Siddha, Ayurveda, and Physiotherapy into one complete path of healing. Guided by Dr. Balakrishnan, Dr. Rushmita, and Dr. Aditi Kulkarni, this element honours the ancient Indian understanding that nourishment and healing are sacred acts, rooted in the deep relationship between human beings, the earth, and the sacred cow (Gau Mata). Through traditional therapies, conscious eating, and modern movement science, Aarogya Dhara offers a complete path of nourishment — for the body, the mind, and the spirit.",
     offerings: [
-      "Ayurvedic principles of nutrition and the three doshas",
+      "Panchagavya Therapy — the traditional five-substance healing science",
+      "Siddha and Ayurvedic principles of nutrition and the three doshas",
+      "Musculoskeletal & Sports Physiotherapy for injury prevention and healthy ageing",
       "Conscious eating — mindful preparation and relationship with food",
-      "Yoga practices for digestion, metabolic health, and vitality",
       "Seasonal living and alignment with natural rhythms",
-      "The sacred science of herbs, spices, and natural remedies",
     ],
     forWhom:
-      "For those seeking a deeper, more reverent relationship with food, the body, and the earth — and a return to natural, conscious nourishment.",
+      "For those seeking a deeper, more reverent relationship with food, the body, and the earth — and a return to natural, conscious healing and nourishment.",
     panels: [
       {
         name: "Dr Balakrishnan",
@@ -830,6 +864,47 @@ export const elements: SutraElement[] = [
           `${BASE}/Gau%20Sutra/Dr%20Rushmita%20/Screenshot%202026-06-17%20at%204.33.17%E2%80%AFPM.png`,
         ],
       },
+      {
+        name: "Dr. Aditi Kulkarni",
+        title: "Musculoskeletal & Sports Physiotherapist | Founder, BlissedOutPhysio",
+        sections: [
+          {
+            paragraphs: [
+              "Dr. Aditi Kulkarni has always been fascinated by movement—not just how the human body works, but how it shapes the way we experience life.",
+              "With a Master's degree in Musculoskeletal & Sports Physiotherapy and training in dry needling, therapeutic taping, and cupping therapy, she has dedicated her career to helping people move with greater confidence, resilience, and freedom. Her work is rooted in evidence-based practice, complemented by two published research studies exploring stress physiology and the management of musculoskeletal pain.",
+            ],
+          },
+          {
+            heading: "A Different Question",
+            paragraphs: [
+              "Yet, somewhere along the way, she realized that physiotherapy is about much more than treating injuries.",
+              "Most people seek help only after pain begins. But what if we could build bodies that were strong enough to prevent pain in the first place? What if ageing didn't have to mean slowing down? What if pregnancy was approached with confidence instead of fear? These questions became the foundation of her work.",
+            ],
+          },
+          {
+            heading: "Through BlissedOutPhysio",
+            paragraphs: [
+              "Through BlissedOutPhysio, Dr. Aditi advocates for a simpler approach to health—one where movement becomes a daily practice rather than a temporary treatment. Her areas of interest include healthy ageing, pregnancy physiotherapy, injury prevention, and helping people stay physically prepared for the demands and joys of everyday life.",
+            ],
+          },
+          {
+            heading: "Beyond the Clinic",
+            paragraphs: [
+              "Away from her profession, she finds inspiration in quiet moments—working in her garden, cooking wholesome meals, spending time with animals, exploring nature, and maintaining a regular meditation practice. These experiences continually remind her that health is not merely the absence of illness, but a way of living with awareness and intention.",
+            ],
+          },
+        ],
+        quote: "A healthy body isn't one that never experiences pain. It's one that's always ready for life.",
+        signature: ["Dr. Aditi Kulkarni", "BlissedOutPhysio"],
+        images: [
+          `${BASE}/Gau%20Sutra/image1.jpeg`,
+          `${BASE}/Gau%20Sutra/image2.jpeg`,
+          `${BASE}/Gau%20Sutra/image3.jpeg`,
+          `${BASE}/Gau%20Sutra/image4.jpeg`,
+          `${BASE}/Gau%20Sutra/image5.jpeg`,
+          `${BASE}/Gau%20Sutra/image6.jpeg`,
+        ],
+      },
     ],
   },
   {
@@ -837,8 +912,8 @@ export const elements: SutraElement[] = [
     title: "Nritya Dhara",
     subtitle: "Where Movement Becomes a Living Offering",
     color: "#C2517A",
-    heroImage: `${BASE}/6.%20Nritya%20Dhara/ChatGPT%20Image%20Jun%2021%2C%202026%2C%2007_09_21%20PM.png`,
-    heroImagePosition: "center",
+    heroImage: `${BASE}/6.%20Nritya%20Dhara/RIS08293.jpg`,
+    heroImagePosition: "center 20%",
     images: [
       `${BASE}/6.%20Nritya%20Dhara/4Z4A1247.jpg`,
       `${BASE}/6.%20Nritya%20Dhara/DSC02174.JPG`,

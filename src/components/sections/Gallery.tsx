@@ -90,6 +90,28 @@ const galleryItems: GalleryItem[] = [
     category: "Practice",
     position: "center top",
   },
+  {
+    src: mediaUrl("/images/image27.JPG"),
+    alt: "Life at Sutradhara",
+    category: "Studio",
+    wide: true,
+    position: "center top",
+  },
+  {
+    src: mediaUrl("/images/image28.JPEG"),
+    alt: "Life at Sutradhara",
+    category: "Practice",
+    position: "center top",
+  },
+  {
+    src: mediaUrl("/images/image31.JPG"),
+    alt: "Life at Sutradhara",
+    category: "Studio",
+    position: "center top",
+  },
+  // NEEDS CONVERTED IMAGE: image29.HEIF — HEIC/HEIF isn't renderable in most browsers (Chrome/Firefox/Windows). Convert to JPG and re-upload to add here.
+  // NEEDS CONVERTED IMAGE: image30.HEIC — same as above.
+  // NEEDS CONVERTED IMAGE: image32.HEIC — same as above.
 ];
 
 const categories = ["All", "Studio", "Asanas", "Practice"];

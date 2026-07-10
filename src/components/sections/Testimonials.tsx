@@ -88,9 +88,6 @@ export default function Testimonials() {
                     <div>
                       <div className="font-semibold text-gym-white">{t.name}</div>
                       <div className="text-gym-red text-sm font-medium">{t.role}</div>
-                      <div className="text-gym-muted text-xs mt-0.5">
-                        Student for {t.months} months
-                      </div>
                     </div>
                   </div>
                 </motion.div>

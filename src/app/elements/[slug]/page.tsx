@@ -109,6 +109,23 @@ export default async function ElementPage({
           </div>
         </section>
 
+        {/* ── EVOLVING NOTE (e.g. Kala Dhara — still being built out) ── */}
+        {element.evolvingNote && (
+          <section className="py-10 bg-gym-black border-t border-gym-border">
+            <div className="container mx-auto px-6">
+              <div
+                className="relative p-6 border"
+                style={{ borderColor: `${element.color}25`, background: `linear-gradient(135deg, ${element.color}0c 0%, transparent 70%)` }}
+              >
+                <div className="absolute top-0 left-0 bottom-0 w-0.5" style={{ backgroundColor: element.color }} />
+                <p className="text-gym-muted text-base leading-relaxed pl-2 italic">
+                  {element.evolvingNote}
+                </p>
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* ── DESCRIPTION ── */}
         <section className="py-20 bg-gym-black">
           <div className="container mx-auto px-6">
@@ -141,7 +158,7 @@ export default async function ElementPage({
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={element.images[0]}
-                  alt=""
+                  alt={`${element.title} — ${element.subtitle}`}
                   className="absolute inset-0 w-full h-full object-contain"
                 />
                 {/* Bottom colour bar */}
@@ -203,9 +220,9 @@ export default async function ElementPage({
                 className="h-px mb-3"
                 style={{ background: `linear-gradient(to right, ${element.color}50, transparent)` }}
               />
-              {/* 3-column portrait grid — object-contain shows full image, black bg hides bars */}
+              {/* 3-column grid — object-cover fills each cell uniformly regardless of source aspect ratio */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                {element.images.slice(1, 4).map((img, i) => (
+                {element.images.slice(1).map((img, i) => (
                   <div
                     key={i}
                     className="relative bg-gym-black"
@@ -214,8 +231,9 @@ export default async function ElementPage({
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={img}
-                      alt=""
-                      className="absolute inset-0 w-full h-full object-contain"
+                      alt={`${element.title} gallery photo ${i + 1}`}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      style={{ objectPosition: element.imagePositions?.[i + 1] ?? "center" }}
                     />
                     {/* Hover colour tint */}
                     <div
@@ -335,6 +353,49 @@ export default async function ElementPage({
           </section>
         )}
 
+        {/* ── TEACHERS (element-specific, e.g. Hatha Sutra) ── */}
+        {element.teachers && element.teachers.length > 0 && (
+          <section className="py-20 bg-gym-black border-t border-gym-border">
+            <div className="container mx-auto px-6">
+              <div className="flex items-center gap-4 mb-16">
+                <div className="h-px w-8" style={{ backgroundColor: element.color }} />
+                <span
+                  className="text-[10px] font-semibold tracking-[0.4em] uppercase"
+                  style={{ color: element.color }}
+                >
+                  Meet Your Teachers
+                </span>
+                <div className="h-px flex-1 bg-gradient-to-r from-[#C0C0C0]/20 to-transparent" />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                {element.teachers.map((teacher) => (
+                  <div key={teacher.name} className="flex gap-5 bg-gym-card border border-gym-border p-6">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={teacher.image}
+                      alt={`${teacher.name} — ${element.title} teacher`}
+                      className="w-20 h-20 rounded-full object-cover shrink-0"
+                      style={{ objectPosition: "center top" }}
+                    />
+                    <div>
+                      <h3 className="font-display text-2xl tracking-wider text-gym-white leading-none">
+                        {teacher.name}
+                      </h3>
+                      <p className="text-xs tracking-widest uppercase mt-1.5" style={{ color: element.color }}>
+                        {teacher.specialty}
+                      </p>
+                      <p className="text-gym-muted text-sm leading-relaxed mt-3">
+                        {teacher.bio}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* ── OFFERINGS + FOR WHOM ── */}
         <section
           className="py-20 relative overflow-hidden"
@@ -357,7 +418,7 @@ export default async function ElementPage({
                   className="text-[10px] font-semibold tracking-[0.35em] uppercase mb-3"
                   style={{ color: element.color }}
                 >
-                  What You'll Explore
+                  What You&apos;ll Explore
                 </p>
                 <h2 className="font-display text-4xl md:text-5xl tracking-wide text-gym-white leading-none mb-10">
                   YOUR PATH<br />
@@ -371,6 +432,24 @@ export default async function ElementPage({
                     </li>
                   ))}
                 </ul>
+
+                {element.externalLinks && element.externalLinks.length > 0 && (
+                  <div className="flex flex-wrap gap-3 mt-8">
+                    {element.externalLinks.map((link) => (
+                      <a
+                        key={link.label}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase px-5 py-3 border transition-colors duration-200"
+                        style={{ borderColor: `${element.color}45`, color: element.color }}
+                      >
+                        {link.label}
+                        <ArrowRight size={12} />
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* For Whom */}
@@ -401,13 +480,19 @@ export default async function ElementPage({
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={element.images[2]}
-                      alt=""
+                      alt={`${element.title} practice`}
                       className="absolute inset-0 w-full h-full object-contain"
                     />
                   </div>
                 )}
               </div>
             </div>
+
+            {element.closingNote && (
+              <p className="text-gym-muted text-sm leading-relaxed mt-16 pt-10 border-t border-gym-border max-w-3xl">
+                {element.closingNote}
+              </p>
+            )}
           </div>
         </section>
 

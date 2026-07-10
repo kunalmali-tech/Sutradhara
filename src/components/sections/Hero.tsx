@@ -161,12 +161,11 @@ export default function Hero() {
         className="relative z-10 border-t border-gym-border bg-gym-black/60 backdrop-blur-sm"
       >
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gym-border">
+          <div className="grid grid-cols-3 divide-x divide-gym-border">
             {[
-              { value: "5+", label: "Years Teaching" },
-              { value: "300+", label: "Students" },
+              { value: "6+", label: "Years Teaching" },
+              { value: "500+", label: "Students" },
               { value: "5+", label: "Facilitators" },
-              { value: "20+", label: "Classes / Week" },
             ].map((stat) => (
               <div key={stat.label} className="py-5 px-6 text-center">
                 <div className="font-display text-3xl text-gym-red tracking-wider">

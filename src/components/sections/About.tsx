@@ -8,10 +8,10 @@ import { mediaUrl } from "@/lib/media";
 import { CheckCircle2 } from "lucide-react";
 
 const pillars = [
-  "Authentic classical yoga lineages",
-  "Classical Hatha Yoga teachers certified by the Sadhguru Gurukulam.",
-  "A peaceful, beautifully curated practice space",
-  "A welcoming community of dedicated students",
+  "Sadhguru Gurukulam certified Hatha Yoga practices",
+  "Classical Music — Naad Yoga & Mantra Chanting",
+  "Classical Dance — Bharatanatyam",
+  "Martial Arts — Kalaripayattu",
 ];
 
 export default function About() {
@@ -60,7 +60,7 @@ export default function About() {
 
               {/* Year badge */}
               <div className="absolute top-6 left-6 bg-gym-black/80 backdrop-blur-sm border border-gym-border px-4 py-3">
-                <div className="font-display text-4xl text-gym-red leading-none">5</div>
+                <div className="font-display text-4xl text-gym-red leading-none">6</div>
                 <div className="text-xs text-gym-muted tracking-widest uppercase mt-0.5">Years Teaching</div>
               </div>
             </div>
