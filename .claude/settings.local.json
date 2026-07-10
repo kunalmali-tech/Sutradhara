@@ -108,7 +108,9 @@
       "Bash(node -e ' *)",
       "Bash(/usr/bin/curl -s -o /dev/null -w '%{http_code}' https://sutradhara-storage-611723957834-ap-southeast-2-an.s3.ap-southeast-2.amazonaws.com/images/image1.jpeg)",
       "Bash(/usr/bin/curl -s -o /dev/null -w '%{http_code}' https://sutradhara-storage-611723957834-ap-southeast-2-an.s3.ap-southeast-2.amazonaws.com/images/Aditi%20Kulkarni/image1.jpeg)",
-      "Bash(/usr/bin/curl -s -o /dev/null -w '%{http_code}' https://sutradhara-storage-611723957834-ap-southeast-2-an.s3.ap-southeast-2.amazonaws.com/images/Dr%20Aditi%20Kulkarni/image1.jpeg)"
+      "Bash(/usr/bin/curl -s -o /dev/null -w '%{http_code}' https://sutradhara-storage-611723957834-ap-southeast-2-an.s3.ap-southeast-2.amazonaws.com/images/Dr%20Aditi%20Kulkarni/image1.jpeg)",
+      "Bash(git fetch *)",
+      "Bash(git pull *)"
     ],
     "additionalDirectories": [
       "c:\\Users\\Admin\\Desktop\\Sutradhara\\src\\app\\elements",
