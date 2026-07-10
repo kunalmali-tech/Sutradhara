@@ -7,6 +7,7 @@ import Services from "@/components/sections/Services";
 import Gallery from "@/components/sections/Gallery";
 import Trainers from "@/components/sections/Trainers";
 import Testimonials from "@/components/sections/Testimonials";
+import Support from "@/components/sections/Support";
 import Contact from "@/components/sections/Contact";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 
@@ -22,6 +23,7 @@ export default function Home() {
         <Gallery />
         <Trainers />
         <Testimonials />
+        <Support />
         <Contact />
       </main>
       <Footer />

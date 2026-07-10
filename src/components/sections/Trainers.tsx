@@ -23,9 +23,9 @@ export default function Trainers() {
     <section id="trainers" className="py-24 md:py-32 bg-gym-surface">
       <div className="container mx-auto px-6">
         <SectionHeading
-          eyebrow="Meet The Team"
-          title="OUR FACILITATORS"
-          subtitle="Certified Isha Hatha Yoga teachers dedicated to guiding your practice with wisdom, authenticity, and genuine care."
+          eyebrow="Meet The Founder"
+          title="OUR FOUNDER"
+          subtitle="Certified by the Sadhguru Gurukulam, dedicated to guiding your practice with wisdom, authenticity, and genuine care."
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">

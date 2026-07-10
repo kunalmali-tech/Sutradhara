@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Send, CheckCircle } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
-import { GYM_ADDRESS, GYM_EMAIL, GYM_PHONE, GYM_WHATSAPP } from "@/data";
+import { GYM_AREA, GYM_EMAIL, GYM_PHONE, GYM_WHATSAPP } from "@/data";
 
 interface FormData {
   name: string;
@@ -22,11 +22,6 @@ const initialForm: FormData = {
   goal: "",
   message: "",
 };
-
-const hours = [
-  { day: "Monday – Saturday", time: "6:00 AM – 8:00 PM" },
-  { day: "Sunday", time: "7:00 AM – 12:00 PM" },
-];
 
 export default function Contact() {
   const [form, setForm] = useState<FormData>(initialForm);
@@ -103,8 +98,23 @@ export default function Contact() {
 
               {/* Contact details */}
               <div className="space-y-6 mb-10">
+                {/* Location — general area only; exact address shared after registration/contact for privacy */}
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-gym-red/10 border border-gym-red/20 flex items-center justify-center shrink-0">
+                    <MapPin size={16} className="text-gym-red" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-semibold tracking-widest uppercase text-gym-muted mb-0.5">
+                      Location
+                    </div>
+                    <p className="text-gym-white text-sm">{GYM_AREA}</p>
+                    <p className="text-gym-muted text-xs mt-0.5">
+                      Exact location shared after registration/contact.
+                    </p>
+                  </div>
+                </div>
+
                 {[
-                  { icon: MapPin, label: "Address", value: GYM_ADDRESS, href: `https://maps.google.com/?q=${encodeURIComponent(GYM_ADDRESS)}` },
                   { icon: Phone, label: "Phone", value: GYM_PHONE, href: `tel:${GYM_PHONE}` },
                   { icon: Mail, label: "Email", value: GYM_EMAIL, href: `mailto:${GYM_EMAIL}` },
                 ].map(({ icon: Icon, label, value, href }) => (
@@ -118,8 +128,6 @@ export default function Contact() {
                       </div>
                       <a
                         href={href}
-                        target={label === "Address" ? "_blank" : undefined}
-                        rel={label === "Address" ? "noopener noreferrer" : undefined}
                         className="text-gym-white text-sm hover:text-gym-red transition-colors duration-200"
                       >
                         {value}
@@ -127,22 +135,6 @@ export default function Contact() {
                     </div>
                   </div>
                 ))}
-              </div>
-
-              {/* Hours */}
-              <div>
-                <div className="flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase text-gym-white mb-4">
-                  <Clock size={13} className="text-gym-red" />
-                  Class Hours
-                </div>
-                <div className="space-y-2">
-                  {hours.map((h) => (
-                    <div key={h.day} className="flex items-center justify-between text-sm">
-                      <span className="text-gym-muted">{h.day}</span>
-                      <span className="text-gym-white font-medium">{h.time}</span>
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
           </AnimateOnScroll>
