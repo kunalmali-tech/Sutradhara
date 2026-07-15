@@ -94,6 +94,9 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="font-display leading-none text-gym-white"
           >
+            <span className="sr-only">
+              TheSutraDhara — Yoga Studio in VimanNagar, Pune |{" "}
+            </span>
             <span className="block text-[clamp(72px,12vw,180px)] tracking-wider">
               WISDOM.
             </span>

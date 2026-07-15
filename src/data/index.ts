@@ -39,6 +39,8 @@ export interface Stat {
   label: string;
 }
 
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.thesutradhara.com";
+
 export const GYM_PHONE = "06383303101";
 export const GYM_WHATSAPP = "916383303101";
 // Exact address intentionally not shown publicly — see GYM_AREA. Used only for internal/admin reference.
@@ -941,7 +943,7 @@ export const threads: SutraThread[] = [
     subtitle: "Where Fabric Becomes a Living Sadhana",
     color: "#C8733A",
     heroImage: "/images/threads/vastra-dhara/hero.jpg",
-    heroImagePosition: "center 40%",
+    heroImagePosition: "center 8%",
     images: [
       "/images/threads/vastra-dhara/photo-1.jpg",
       "/images/threads/vastra-dhara/photo-2.jpg",

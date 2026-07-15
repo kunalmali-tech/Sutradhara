@@ -90,7 +90,7 @@ export default function Trainers() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={active.image}
-                      alt={active.name}
+                      alt={`${active.name} — ${active.specialty}, TheSutraDhara, VimanNagar Pune`}
                       className="absolute inset-0 w-full h-full object-contain"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-gym-card via-transparent to-transparent" />

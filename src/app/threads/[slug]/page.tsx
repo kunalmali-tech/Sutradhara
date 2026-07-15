@@ -6,7 +6,7 @@ import ImageGallery from "@/components/ui/ImageGallery";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
-import { threads } from "@/data";
+import { GYM_AREA, SITE_URL, threads } from "@/data";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -21,9 +21,51 @@ export async function generateMetadata({
   const { slug } = await params;
   const thread = threads.find((e) => e.slug === slug);
   if (!thread) return {};
+
+  const title = thread.title;
+  const withCta = `${thread.description} Join us in ${GYM_AREA} — book a free trial class today.`;
+  const description =
+    withCta.length <= 160
+      ? withCta
+      : thread.description.length <= 160
+        ? thread.description
+        : `${thread.description.slice(0, 157).replace(/\s+\S*$/, "")}…`;
+  const url = `${SITE_URL}/threads/${thread.slug}`;
+  const keywords = Array.from(
+    new Set([
+      thread.title.toLowerCase(),
+      `${thread.title.toLowerCase()} pune`,
+      `${thread.title.toLowerCase()} vimannagar`,
+      thread.subtitle.toLowerCase(),
+      ...thread.offerings.map((o) => o.toLowerCase()),
+      "yoga studio pune",
+      "sutradhara yoga",
+    ])
+  );
+
   return {
-    title: `${thread.title} — TheSutraDhara`,
-    description: thread.description,
+    title,
+    description,
+    keywords,
+    alternates: { canonical: `/threads/${thread.slug}` },
+    openGraph: {
+      title: `${title} — ${thread.subtitle}`,
+      description,
+      url,
+      type: "website",
+      images: [
+        {
+          url: thread.heroImage,
+          alt: `${thread.title} — ${thread.subtitle}`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} — ${thread.subtitle}`,
+      description,
+      images: [thread.heroImage],
+    },
   };
 }
 
@@ -65,8 +107,47 @@ export default async function ThreadPage({
   const galleryImages = galleryPairs.map((p) => p.img);
   const galleryPositions = galleryPairs.map((p) => p.position ?? "center");
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: thread.title,
+    alternateName: thread.subtitle,
+    description: thread.description,
+    url: `${SITE_URL}/threads/${thread.slug}`,
+    image: `${SITE_URL}${thread.heroImage}`,
+    serviceType: thread.title,
+    areaServed: { "@type": "City", name: "Pune" },
+    audience: {
+      "@type": "Audience",
+      audienceType: thread.forWhom,
+    },
+    provider: {
+      "@type": "ExerciseGym",
+      "@id": `${SITE_URL}/#organization`,
+      name: "TheSutraDhara",
+    },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "The Sutras", item: `${SITE_URL}/#services` },
+      { "@type": "ListItem", position: 3, name: thread.title, item: `${SITE_URL}/threads/${thread.slug}` },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Header />
       <main className="bg-gym-black min-h-screen">
 
@@ -76,7 +157,7 @@ export default async function ThreadPage({
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={thread.heroImage}
-            alt={thread.title}
+            alt={`${thread.title} — ${thread.subtitle}, TheSutraDhara, VimanNagar Pune`}
             className="absolute inset-0 w-full h-full object-cover"
             style={{ objectPosition: thread.heroImagePosition ?? "center" }}
           />
