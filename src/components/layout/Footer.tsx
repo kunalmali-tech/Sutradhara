@@ -4,23 +4,18 @@ import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { IconInstagram, IconFacebook, IconYoutube } from "@/components/ui/SocialIcons";
-import { GYM_AREA, GYM_EMAIL, GYM_PHONE, GYM_WHATSAPP, elements } from "@/data";
+import { GYM_AREA, GYM_EMAIL, GYM_PHONE, GYM_WHATSAPP, threads } from "@/data";
 
-// Anchors point to homepage sections. Timetable/Blog/Workshops don't have dedicated
-// pages yet, so they route to Contact until that content exists.
+// Anchors point to homepage sections. Workshops doesn't have a dedicated
+// page yet, so it routes to Contact until that content exists.
 const studioLinks = [
   { label: "About Us", href: "#about" },
-  { label: "Our Teachers", href: "#trainers" },
-  { label: "Timetable", href: "#contact" },
-  { label: "Blog", href: "#contact" },
+  { label: "Our Founder", href: "#trainers" },
   { label: "Workshops", href: "#contact" },
   { label: "Support Us", href: "#support" },
 ];
 
 const supportLinks = [
-  { label: "Beginner's Guide", href: "#contact" },
-  { label: "Class Schedule", href: "#contact" },
-  { label: "Membership FAQ", href: "#contact" },
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Terms of Service", href: "/terms-of-service" },
 ];
@@ -89,7 +84,7 @@ export default function Footer() {
             </div>
             {/* WhatsApp CTA */}
             <a
-              href={`https://wa.me/${GYM_WHATSAPP}?text=Namaste%21%20I%27d%20like%20to%20know%20more%20about%20Sutradhara%20Yoga%20Studio.`}
+              href={`https://wa.me/${GYM_WHATSAPP}?text=Namaskara%21%20I%20have%20viewed%20the%20website%20and%20I%20have%20a%20doubt%20regarding%20`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 mb-6 text-xs font-semibold tracking-widest uppercase text-white px-4 py-2.5 transition-opacity hover:opacity-90"
@@ -104,8 +99,8 @@ export default function Footer() {
             <div className="flex items-center gap-4">
               {[
                 { Icon: IconInstagram, label: "Instagram", href: "https://www.instagram.com/breath.balance.being?igsh=bHE4Z3Y5NDhjZHhu&utm_source=qr" },
-                { Icon: IconFacebook, label: "Facebook", href: "#" },
-                { Icon: IconYoutube, label: "YouTube", href: "#" },
+                { Icon: IconFacebook, label: "Facebook", href: "https://www.facebook.com/share/1Gvsumvdqb/?mibextid=wwXIfr" },
+                { Icon: IconYoutube, label: "YouTube", href: "https://www.youtube.com/@harkiratkaur5394" },
               ].map(({ Icon, label, href }) => (
                 <a
                   key={label}
@@ -121,16 +116,16 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Elements column */}
+          {/* Threads column */}
           <div>
             <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-gym-white mb-5">
-              Elements
+              Threads
             </h4>
             <ul className="space-y-3">
-              {elements.map((el) => (
+              {threads.map((el) => (
                 <li key={el.slug}>
                   <Link
-                    href={`/elements/${el.slug}`}
+                    href={`/threads/${el.slug}`}
                     className="text-sm text-gym-muted hover:text-gym-white transition-colors duration-200"
                   >
                     {el.title}
@@ -159,33 +154,22 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Support column */}
+          {/* Policy column */}
           <div>
             <h4 className="text-xs font-semibold tracking-[0.2em] uppercase text-gym-white mb-5">
-              Support
+              Policy
             </h4>
             <ul className="space-y-3">
-              {supportLinks.map((link) =>
-                link.href.startsWith("#") ? (
-                  <li key={link.label}>
-                    <button
-                      onClick={() => handleAnchorClick(link.href)}
-                      className="text-sm text-gym-muted hover:text-gym-white transition-colors duration-200 cursor-pointer"
-                    >
-                      {link.label}
-                    </button>
-                  </li>
-                ) : (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-gym-muted hover:text-gym-white transition-colors duration-200"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                )
-              )}
+              {supportLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-gym-muted hover:text-gym-white transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

@@ -57,7 +57,7 @@ export default function Contact() {
     }
   };
 
-  const whatsappHref = `https://wa.me/${GYM_WHATSAPP}?text=Namaste%21%20I%27d%20like%20to%20know%20more%20about%20Sutradhara%20Yoga%20Studio.`;
+  const whatsappHref = `https://wa.me/${GYM_WHATSAPP}?text=Namaskara%21%20I%20have%20viewed%20the%20website%20and%20I%20have%20a%20doubt%20regarding%20`;
 
   return (
     <section id="contact" className="py-24 md:py-32 bg-gym-black">

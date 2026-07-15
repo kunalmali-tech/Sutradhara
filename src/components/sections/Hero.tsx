@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, ChevronRight } from "lucide-react";
 import Button from "@/components/ui/Button";
-import { mediaUrl } from "@/lib/media";
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -39,7 +38,7 @@ export default function Hero() {
         <div
           className="absolute inset-0 bg-gym-black"
           style={{
-            backgroundImage: `url('${mediaUrl("/images/image1.jpg")}')`,
+            backgroundImage: "url('/images/gallery/group-meditation-class.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center 40%",
           }}
@@ -83,7 +82,7 @@ export default function Hero() {
         >
           <div className="w-8 h-px bg-gym-red" />
           <span className="text-gym-red text-xs font-semibold tracking-[0.3em] uppercase">
-            Sutradhara — The thread that connects it all · VimanNagar, Pune
+            Sutradhara — Weaving the story within · VimanNagar, Pune
           </span>
         </motion.div>
 

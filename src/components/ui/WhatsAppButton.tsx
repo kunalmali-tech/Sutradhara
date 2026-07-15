@@ -17,7 +17,7 @@ export default function WhatsAppButton() {
     };
   }, []);
 
-  const href = `https://wa.me/${GYM_WHATSAPP}?text=Namaste%21%20I%27d%20like%20to%20know%20more%20about%20Sutradhara%20Yoga%20Studio.`;
+  const href = `https://wa.me/${GYM_WHATSAPP}?text=Namaskara%21%20I%20have%20viewed%20the%20website%20and%20I%20have%20a%20doubt%20regarding%20`;
 
   return (
     <AnimatePresence>
@@ -38,7 +38,7 @@ export default function WhatsAppButton() {
                 exit={{ opacity: 0, x: 10 }}
                 className="bg-white text-gray-800 text-xs font-semibold px-4 py-2.5 shadow-xl whitespace-nowrap relative"
               >
-                Begin your yoga journey!
+                Begin your journey towards wellness
                 <div className="absolute right-[-6px] top-1/2 -translate-y-1/2 w-0 h-0 border-t-[6px] border-b-[6px] border-l-[6px] border-transparent border-l-white" />
               </motion.div>
             )}

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
-import { GYM_EMAIL } from "@/data";
 
 export const metadata: Metadata = {
   title: "Terms of Service | TheSutraDhara",
@@ -35,7 +34,7 @@ export default function TermsOfServicePage() {
                 Class Registrations
               </h2>
               <p>
-                Registration for any class, workshop, or element is confirmed once we have
+                Registration for any class, workshop, or thread is confirmed once we have
                 received your details through our contact form, WhatsApp, or the Hatha Sutra
                 registration form, and your spot has been confirmed by a member of our team.
               </p>
@@ -83,7 +82,7 @@ export default function TermsOfServicePage() {
                 Intellectual Property
               </h2>
               <p>
-                All content on this website — including text, photos, and videos — belongs to
+                All content on this website — including text and photos — belongs to
                 TheSutraDhara or is used with permission, and may not be reproduced without
                 consent.
               </p>
@@ -101,19 +100,6 @@ export default function TermsOfServicePage() {
                 harmless TheSutraDhara, its facilitators, and its teachers from any liability
                 for injury, loss, or damage arising from your voluntary participation, except
                 where caused by our negligence.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="font-display text-2xl tracking-widest text-gym-white mb-4">
-                Contact Us
-              </h2>
-              <p>
-                Questions about these terms can be sent to{" "}
-                <a href={`mailto:${GYM_EMAIL}`} className="text-gym-red hover:underline">
-                  {GYM_EMAIL}
-                </a>
-                .
               </p>
             </section>
           </div>

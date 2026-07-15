@@ -9,6 +9,7 @@ interface SectionHeadingProps {
   subtitle?: string;
   align?: "left" | "center";
   className?: string;
+  eyebrowClassName?: string;
   light?: boolean;
 }
 
@@ -18,6 +19,7 @@ export default function SectionHeading({
   subtitle,
   align = "left",
   className,
+  eyebrowClassName,
   light = false,
 }: SectionHeadingProps) {
   return (
@@ -34,7 +36,10 @@ export default function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-gym-red text-xs font-semibold tracking-[0.3em] uppercase mb-3"
+          className={cn(
+            "text-gym-red text-xs font-semibold tracking-[0.3em] uppercase mb-3",
+            eyebrowClassName
+          )}
         >
           {eyebrow}
         </motion.p>

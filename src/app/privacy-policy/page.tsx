@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
-import { GYM_EMAIL } from "@/data";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | TheSutraDhara",
@@ -117,8 +116,8 @@ export default function PrivacyPolicyPage() {
               </h2>
               <p>
                 You can ask us at any time to access, correct, or delete the personal
-                information we hold about you, or to stop contacting you. To do so, email us
-                at the address below and we will action your request promptly.
+                information we hold about you, or to stop contacting you, and we will action
+                your request promptly.
               </p>
             </section>
 
@@ -129,19 +128,6 @@ export default function PrivacyPolicyPage() {
               <p>
                 We may update this policy from time to time — for example, if we start using
                 cookies or analytics tools. Any changes will be posted on this page.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="font-display text-2xl tracking-widest text-gym-white mb-4">
-                Contact Us
-              </h2>
-              <p>
-                Questions about this policy, or requests regarding your data, can be sent to{" "}
-                <a href={`mailto:${GYM_EMAIL}`} className="text-gym-red hover:underline">
-                  {GYM_EMAIL}
-                </a>
-                .
               </p>
             </section>
 

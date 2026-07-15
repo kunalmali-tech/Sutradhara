@@ -3,14 +3,18 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Quote, CheckCircle2 } from "lucide-react";
+import ImageGallery from "@/components/ui/ImageGallery";
 import type { Panel } from "@/data";
 
 interface Props {
   panel: Panel;
   color: string;
+  /** Overrides panel.images for display — used to drop photos already shown elsewhere on the page. */
+  galleryImages?: string[];
 }
 
-export default function PanelCard({ panel, color }: Props) {
+export default function PanelCard({ panel, color, galleryImages }: Props) {
+  const images = galleryImages ?? panel.images;
   const [expanded, setExpanded] = useState(false);
   const [previewSection, ...restSections] = panel.sections;
   const testimonials = panel.testimonials ?? [];
@@ -167,19 +171,6 @@ export default function PanelCard({ panel, color }: Props) {
     </>
   );
 
-  const featuredVideo = panel.featuredVideo && (
-    <div className="relative bg-gym-black overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
-      <video
-        src={panel.featuredVideo}
-        controls
-        preload="metadata"
-        playsInline
-        className="absolute inset-0 w-full h-full object-contain"
-      />
-      <div className="absolute bottom-0 left-0 right-0 h-1 pointer-events-none" style={{ backgroundColor: color }} />
-    </div>
-  );
-
   const profilePhoto = panel.profileImage && (
     <div className="relative bg-gym-black overflow-hidden w-full max-w-xs" style={{ aspectRatio: "1/1" }}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -194,20 +185,20 @@ export default function PanelCard({ panel, color }: Props) {
 
   const nameRoleHeader = (
     <>
-      <p
-        className="text-[10px] font-semibold tracking-[0.35em] uppercase mb-3"
-        style={{ color }}
-      >
-        {panel.name}
-      </p>
       {panel.role && (
-        <h3
-          className="font-display leading-none tracking-widest text-gym-white"
-          style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
+        <p
+          className="text-[10px] font-semibold tracking-[0.35em] uppercase mb-3"
+          style={{ color }}
         >
           {panel.role}
-        </h3>
+        </p>
       )}
+      <h3
+        className="font-display leading-none tracking-widest text-gym-white"
+        style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
+      >
+        {panel.name}
+      </h3>
     </>
   );
 
@@ -232,7 +223,6 @@ export default function PanelCard({ panel, color }: Props) {
           <div className="max-w-3xl space-y-8">
             {previewBlock}
             {expandBlock}
-            {featuredVideo}
           </div>
         </div>
       )}
@@ -244,7 +234,6 @@ export default function PanelCard({ panel, color }: Props) {
             {previewBlock}
             {profilePhoto && <div className="mb-2">{profilePhoto}</div>}
             {expandBlock}
-            {featuredVideo}
           </div>
         </>
       )}
@@ -252,20 +241,20 @@ export default function PanelCard({ panel, color }: Props) {
       {layout === "stacked" && (
         <>
           <div className="mb-10">
-            <p
-              className="text-[10px] font-semibold tracking-[0.35em] uppercase mb-3"
-              style={{ color }}
-            >
-              {panel.name}
-            </p>
             {panel.title && (
-              <h3
-                className="font-display leading-none tracking-widest text-gym-white mb-4"
-                style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
+              <p
+                className="text-[10px] font-semibold tracking-[0.35em] uppercase mb-3"
+                style={{ color }}
               >
                 {panel.title}
-              </h3>
+              </p>
             )}
+            <h3
+              className="font-display leading-none tracking-widest text-gym-white mb-4"
+              style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
+            >
+              {panel.name}
+            </h3>
             {panel.tagline && (
               <p className="text-gym-muted text-base md:text-lg leading-relaxed max-w-2xl">
                 {panel.tagline}
@@ -275,41 +264,13 @@ export default function PanelCard({ panel, color }: Props) {
           <div className="max-w-3xl space-y-8">
             {previewBlock}
             {expandBlock}
-            {featuredVideo}
           </div>
         </>
       )}
 
-      {panel.images.length > 0 && (
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mt-12">
-          {panel.images.map((img, ii) => (
-            <div key={ii} className="relative bg-gym-black overflow-hidden" style={{ aspectRatio: "3/4" }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={img}
-                alt={`${panel.name} ${ii + 1}`}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            </div>
-          ))}
-        </div>
-      )}
-
-      {panel.videos && panel.videos.length > 0 && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-12">
-          {panel.videos.map((vid, vi) => (
-            <div key={vi} className="relative bg-gym-black overflow-hidden" style={{ aspectRatio: "16/9" }}>
-              <video
-                src={vid}
-                controls
-                preload="metadata"
-                playsInline
-                className="absolute inset-0 w-full h-full object-contain"
-              />
-            </div>
-          ))}
-        </div>
-      )}
+      <div className="mt-12">
+        <ImageGallery images={images} color={color} label={panel.name} max={3} />
+      </div>
     </div>
   );
 }

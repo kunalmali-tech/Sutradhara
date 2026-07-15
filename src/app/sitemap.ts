@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { elements } from "@/data";
+import { threads } from "@/data";
 
 const SITE_URL = "https://www.thesutradhara.com";
 
@@ -10,11 +10,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/terms-of-service`, changeFrequency: "yearly", priority: 0.3 },
   ];
 
-  const elementRoutes: MetadataRoute.Sitemap = elements.map((el) => ({
-    url: `${SITE_URL}/elements/${el.slug}`,
+  const threadRoutes: MetadataRoute.Sitemap = threads.map((el) => ({
+    url: `${SITE_URL}/threads/${el.slug}`,
     changeFrequency: "monthly",
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...elementRoutes];
+  return [...staticRoutes, ...threadRoutes];
 }

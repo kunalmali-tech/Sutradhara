@@ -7,7 +7,6 @@ import {
   Star,
   type LucideIcon,
 } from "lucide-react";
-import { mediaUrl } from "@/lib/media";
 
 export interface Service {
   icon: LucideIcon;
@@ -22,7 +21,7 @@ export interface Trainer {
   bio: string;
   image: string;
   certifications: string[];
-  instagram: string;
+  instagram?: string;
   email?: string;
 }
 
@@ -46,8 +45,8 @@ export const GYM_WHATSAPP = "916383303101";
 export const GYM_ADDRESS =
   "Khese Park, Lohegaon, Pune, Maharashtra 411032";
 // General area shown publicly on the site — exact location is shared after registration/contact.
-export const GYM_AREA = "Lohegaon, Pune, Maharashtra";
-export const GYM_EMAIL = "hathasutra@gmail.com";
+export const GYM_AREA = "VimanNagar, Pune, Maharashtra";
+export const GYM_EMAIL = "thesutradhaara@gmail.com";
 
 // Tagline in use — alternates suggested for client review:
 //   1. "One Thread, Many Paths"
@@ -110,30 +109,28 @@ export const trainers: Trainer[] = [
   {
     name: "Dr. Harkirat Kaur",
     specialty: "PhD Humanities | MBA (Marketing) | Author",
-    bio: "A basketball player, athlete, biker, and entrepreneur — Dr. Harkirat has lived life at full intensity. She pursued her PhD in Humanities and MBA in Marketing simultaneously, while running her own Event Management Company, teaching, and volunteering at NGOs. Her spiritual anchor arrived through Inner Engineering, leading her through Bhava Spandana, the Shoonya Intensive, and the Silence Program — culminating in 1750+ hours of training under the Sadhguru Gurukulam. Yoga, for her, is not a practice — it is life itself.",
-    image: "/images/founder-harkirat.jpg",
-    certifications: ["PhD in Humanities", "MBA in Marketing", "Classical Hatha Yoga Instructor certified by Sadhguru Gurukulam"],
-    instagram: "@sutradhara.yoga",
-    email: "sutradhara@gmail.com",
+    bio: "Dr. Harkirat Kaur is the Founder & Visionary of The Sutradhara — a platform dedicated to weaving Bharat's timeless classical traditions into one living ecosystem. By bringing together authentic teachers and practitioners of Classical Hatha Yoga, classical music, dance, martial arts, and conscious clothing, The Sutradhara seeks to make these living traditions accessible, relevant, and transformative for today's world. A Ph.D. in Humanities, entrepreneur, author, and Classical Hatha Yoga Teacher trained at Sadhguru Gurukulam, her journey reflects a unique confluence of scholarship, leadership, and inner exploration. Through Hatha Sutra and the larger vision of The Sutradhara, she is committed to creating spaces where timeless wisdom is experienced as a living reality rather than remembered as a tradition.",
+    image: "/images/team/founder/harkirat-kaur.jpg",
+    certifications: ["Classical Hatha Yoga Instructor certified by Sadhguru Gurukulam", "PhD in Humanities", "MBA in Marketing"],
+    email: GYM_EMAIL,
   },
 ];
 
-// Hatha Sutra teachers — shown on the Hatha Sutra element page, not the homepage founder section.
+// Hatha Sutra teachers — shown on the Hatha Sutra thread page, not the homepage founder section.
 export const hathaSutraTeachers: Trainer[] = [
+  {
+    name: "Dr. Harkirat Kaur",
+    specialty: "Founder, Sutradhara",
+    bio: "Dr. Harkirat Kaur is the Founder & Visionary of The Sutradhara — a platform dedicated to weaving Bharat's timeless classical traditions into one living ecosystem. By bringing together authentic teachers and practitioners of Classical Hatha Yoga, classical music, dance, martial arts, and conscious clothing, The Sutradhara seeks to make these living traditions accessible, relevant, and transformative for today's world. A Ph.D. in Humanities, entrepreneur, author, and Classical Hatha Yoga Teacher trained at Sadhguru Gurukulam, her journey reflects a unique confluence of scholarship, leadership, and inner exploration. Through Hatha Sutra and the larger vision of The Sutradhara, she is committed to creating spaces where timeless wisdom is experienced as a living reality rather than remembered as a tradition.",
+    image: "/images/team/founder/harkirat-kaur.jpg",
+    certifications: ["Classical Hatha Yoga Instructor certified by Sadhguru Gurukulam", "PhD in Humanities"],
+  },
   {
     name: "SD Bhavani Chamarthy",
     specialty: "MSc. Counselling Psychology | PGD Art and Play Therapy | Artist",
     bio: "From a young age, Bhavani felt a deep calling to support others in achieving their highest well-being. Her psychology thesis on the well-being of yoga practitioners revealed yoga's profound impact on mental and emotional health, inspiring her to weave yogic practices into her clinical work. This path led her to Isha Yoga, and in 2020 she completed the 1750+ hour Isha Hatha Yoga Teacher Training Program — a life-changing experience that transformed not only her understanding of yoga but the very way she lives. She now shares classical Hatha Yoga as a timeless science of holistic well-being, accessible to all.",
-    image: mediaUrl("/images/image15.avif"),
+    image: "/images/team/hatha-sutra-teachers/bhavani-chamarthy.avif",
     certifications: ["MSc Counselling Psychology", "PGD Art & Play Therapy", "1750+ hr Isha Hatha Yoga TTP"],
-    instagram: "@sutradhara.yoga",
-  },
-  {
-    name: "Dushyant Singh",
-    specialty: "Bachelors in Computer Application | Graphic Designer",
-    bio: "Driven by a passion for computers, Dushyant's life took a beautiful turn when his Guru invited him onto an unknown path. Three years under his guidance reshaped him from within. Since 2018, he has served as a full-time volunteer at the Isha Yoga Center, immersed in yoga practices. The pandemic planted a seed within him to share yoga's gifts with others, inspiring him to complete the intensive 1750+ hour Hatha Yoga Teacher Training Program. Today, alongside freelance graphic design, he teaches Hatha Yoga full-time — finding immense joy in guiding others toward well-being and self-transformation.",
-    image: mediaUrl("/images/image16.avif"),
-    certifications: ["BCA", "1750+ hr Isha Hatha Yoga TTP", "Full-time Isha Volunteer since 2018"],
     instagram: "@sutradhara.yoga",
   },
 ];
@@ -163,6 +160,64 @@ export const testimonials: Testimonial[] = [
       "I wanted to share my positive experience at this yoga center. The classes were incredibly calming and helped me find a sense of peace. The teachers were all very knowledgeable and provided excellent guidance. I felt like I gained a much better understanding of the practice. I highly recommend exploring yoga here for anyone seeking both physical and mental well-being.",
     rating: 5,
   },
+  // Sangeet Dhara — Nagapushpa's students
+  {
+    name: "Shubhangi",
+    role: "Sangeet Dhara Student, Rajasthan",
+    image: "",
+    quote:
+      "Learning Hindustani music with akka has been such a nurturing experience. Her way of teaching is very patient, clear and grounded, and the daily classes have helped me build both discipline and confidence in my voice. Akka breaks things down so simply, corrects with so much care, and creates a very safe space to explore the voice. Truly grateful to be learning from her.",
+    rating: 5,
+  },
+  {
+    name: "Prasanna Tallam",
+    role: "Sangeet Dhara Student, Sydney",
+    image: "",
+    quote:
+      "It has been a truly wonderful journey learning with you over the past two years. You are one of the most humble, simple, and lovely people I have ever met. Your guidance on the sounds of Isha teachings gave me a deeper understanding of how the tunes shift and the differences between high and low pitch. With this clarity, I was also able to learn Gurupooja well. Thank you so much for everything. I wish you all the very best for your future endeavours.",
+    rating: 5,
+  },
+  {
+    name: "Lakshmi Priya",
+    role: "Sangeet Dhara Student, Coimbatore",
+    image: "",
+    quote:
+      "The music classes from Nagapushpa akka felt truly blessed and were conducted in a very friendly manner. There was never any pressure or harshness, yet the learning happened with complete devotion and dedication. The training was given sincerely and in a very effective way. For my personal spiritual purpose, I now sing these chants in temples, not on auditorium stages. The classes have been extremely useful for my spiritual growth and well-being.",
+    rating: 5,
+  },
+  {
+    name: "Ujali Patel",
+    role: "Sangeet Dhara Student, Nashville",
+    image: "",
+    quote:
+      "Attending music class has been such an enriching experience for me. From the moment it begins, I feel calm, focused, and reconnected with myself. Learning the basics, understanding rhythm, and practicing regularly has taught me patience, discipline, and presence.",
+    rating: 5,
+  },
+  // Sangeet Dhara — Prasana Ganesan's students
+  {
+    name: "Surya",
+    role: "Sangeet Dhara Student, Bangalore",
+    image: "",
+    quote:
+      "Prasanna is far more than a talented violin teacher. She has a rare gift for making students feel comfortable, confident, and encouraged, regardless of their skill level. Her patience, kindness, and down-to-earth nature make learning both enjoyable and relaxed. Even after just a few classes, I gained confidence and a genuine appreciation for music. She truly lives up to her name by bringing happiness and positivity into every lesson.",
+    rating: 5,
+  },
+  {
+    name: "Priyanaka",
+    role: "Sangeet Dhara Student, Hyderabad",
+    image: "",
+    quote:
+      "Learning Carnatic music from you has been a wonderful experience. Your patient and encouraging teaching style made me feel comfortable as a beginner. You explain concepts clearly, pay attention to even the smallest mistakes, and help students improve with confidence. I am grateful for your dedication and highly recommend your classes to anyone interested in learning Carnatic music.",
+    rating: 5,
+  },
+  {
+    name: "Jesper Appelgrem",
+    role: "Sangeet Dhara Student, Switzerland",
+    image: "",
+    quote:
+      "For a long time I wanted to learn Indian classical music and am very fortunate to have found a teacher with such deep insight into the art form. Learning through a thorough step by step system and having regular lessons it has been easy to keep up practicing and I have seen big results in my playing.",
+    rating: 5,
+  },
 ];
 
 export const navLinks = [
@@ -178,6 +233,7 @@ export interface DetailedOffering {
   title: string;
   description: string;
   image?: string;
+  benefits?: string[];
 }
 
 export interface PanelSection {
@@ -205,8 +261,6 @@ export interface Panel {
   quote?: string;
   signature?: string[];
   images: string[];
-  videos?: string[];
-  featuredVideo?: string;
 }
 
 export interface ExternalLink {
@@ -214,51 +268,51 @@ export interface ExternalLink {
   url: string;
 }
 
-export interface SutraElement {
+export interface SutraThread {
   slug: string;
   title: string;
   subtitle: string;
+  /** Short second line shown in the hero, directly under the subtitle. */
+  heroTagline?: string;
   color: string;
   description: string;
   longDescription: string;
   offerings: string[];
   detailedOfferings?: DetailedOffering[];
+  /** Link to an external registration form, shown under the description. */
+  registrationLink?: string;
   forWhom: string;
   heroImage: string;
   heroImagePosition?: string;
   images: string[];
   imagePositions?: string[];
-  video?: string;
   introPanel?: Panel;
   panels?: Panel[];
-  /** Shown as a callout near the top of the page — for elements still being built out. */
+  /** Shown as a callout near the top of the page — for threads still being built out. */
   evolvingNote?: string;
-  /** Shown after the last content section on the element page. */
+  /** Shown after the last content section on the thread page. */
   closingNote?: string;
-  /** Teachers specific to this element (separate from the homepage founder section). */
+  /** Teachers specific to this thread (separate from the homepage founder section). */
   teachers?: Trainer[];
   externalLinks?: ExternalLink[];
 }
 
-const BASE = mediaUrl("/images/Sutradhara%20Website%20Images");
-
-export const elements: SutraElement[] = [
+export const threads: SutraThread[] = [
   {
     slug: "hatha-sutra",
     title: "Hatha Sutra",
     subtitle: "Unveil the Yogi Within",
     color: "#E8831A",
-    heroImage: `${BASE}/Hatha%20Sutra/20221205_074237.jpg`,
+    heroImage: "/images/threads/hatha-sutra/hero.jpg",
     heroImagePosition: "center 30%",
     images: [
-      `${BASE}/Hatha%20Sutra/IMG-20221022-WA0010.jpg`,
-      `${BASE}/Hatha%20Sutra/IMG-20240111-WA0000.jpg`,
-      `${BASE}/Hatha%20Sutra/20241024_163201.jpeg`,
-      `${BASE}/Hatha%20Sutra/Photos-videos%20for%20Hatha%20Sutra/Hatha%20Sutra/IMG_20230119_153058_271.jpg`,
-      `${BASE}/Hatha%20Sutra/20260609_082228.jpg`,
-      `${BASE}/Hatha%20Sutra/20260609_074731.jpg`,
-      "/images/hatha-sutra-teacher-moment.jpg",
-      `${BASE}/Hatha%20Sutra/20260609_075701.jpg`,
+      "/images/threads/hatha-sutra/photo-1.jpg",
+      "/images/threads/hatha-sutra/photo-2.jpg",
+      "/images/threads/hatha-sutra/photo-4.jpg",
+      "/images/threads/hatha-sutra/photo-5.jpg",
+      "/images/threads/hatha-sutra/photo-6.jpg",
+      "/images/threads/hatha-sutra/teacher-moment.jpg",
+      "/images/threads/hatha-sutra/photo-7.jpg",
     ],
     imagePositions: [
       "center 40%",
@@ -268,15 +322,14 @@ export const elements: SutraElement[] = [
       "center top",
       "center top",
       "center top",
-      "center top",
     ],
-    video: `${BASE}/Hatha%20Sutra/Photos-videos%20for%20Hatha%20Sutra/Hatha%20Sutra/20230107_175543.mp4`,
     description:
       "The foundational thread — where body, breath, and awareness come into precise alignment through the classical science of Hatha Yoga.",
     longDescription:
-      "Hatha Sutra is a return to the source. Rooted in classical Hatha Yoga as taught through the Sadhguru Gurukulam tradition, this element guides you through precise asanas, conscious breathwork, and meditative stillness. Each session is an invitation to inhabit your body more fully — to feel the intelligence that already lives within you. Through disciplined, attentive practice, the outer form becomes a gateway inward.",
+      "Hatha Sutra is a return to the source. Rooted in classical Hatha Yoga as taught through the Sadhguru Gurukulam tradition, this thread guides you through precise asanas, conscious breathwork, and meditative stillness. Each session is an invitation to inhabit your body more fully — to feel the intelligence that already lives within you. Through disciplined, attentive practice, the outer form becomes a gateway inward.",
+    registrationLink: "https://forms.gle/x6e6CqjUyTwgtvdv5",
     offerings: [
-      "Classical Hatha Yoga with alignment",
+      "Classical Hatha Yoga with focus on alignment",
       "Pranayama — the foundational science of breath",
       "Individual corrections and personalised guidance",
       "Structured progression from foundation to advanced postures",
@@ -287,283 +340,169 @@ export const elements: SutraElement[] = [
         title: "UPA YOGA",
         description:
           "Upa-yoga is a simple yet powerful system of exercise that activates the joints, muscles, and energy system. Based on a sophisticated understanding of the body's mechanics, Upa-yoga dispels inertia in the body's energy and brings ease to the whole system. It relieves physical stress and tiredness.",
-        image: mediaUrl("/images/image17.avif"),
+        image: "/images/practices/upa-yoga.avif",
+        benefits: [
+          "Loosens and activates all major joints in the body",
+          "Relieves physical stiffness, stress, and tiredness",
+          "Prepares the body and energy system for deeper practices",
+          "Works well as a simple daily warm-up routine",
+        ],
       },
       {
         title: "ANGAMARDANA",
         description:
           "Angamardana, a fitness system rooted in yoga, offers everyone the opportunity to invigorate the body and reach peak physical and mental health. 'Angamardana' means gaining complete mastery over the limbs, organs, and other parts of the body. True to its name, this practice revitalizes the body on all levels including the muscles, circulatory system, skeletal structure, nervous system, and the basic energy system.",
-        image: mediaUrl("/images/image18.avif"),
+        image: "/images/practices/angamardana.avif",
+        benefits: [
+          "Builds strength across muscles, joints, and the skeletal system",
+          "Improves stamina, flexibility, and overall vitality",
+          "Strengthens the circulatory and nervous systems",
+          "A complete fitness practice that needs no equipment",
+        ],
       },
       {
         title: "SURYA KRIYA",
         description:
           "Surya Kriya is a potent yogic practice of tremendous antiquity, designed as a holistic process for health, wellness, and complete inner well-being. 'Surya' means 'sun,' and 'kriya' means 'inner energy process.' Surya Kriya activates the solar plexus to raise the samat prana, or solar heat, in the system. It also balances a person's left and right energy channels, leading to stability of the body and stillness of the mind. This strong foundation becomes the basis to explore higher dimensions of life.",
-        image: mediaUrl("/images/image19.avif"),
+        image: "/images/practices/surya-kriya.avif",
+        benefits: [
+          "Balances the body's left and right energy channels",
+          "Builds physical stability and mental stillness",
+          "Activates the solar plexus, raising overall energy levels",
+          "Lays the foundation for deeper meditative states",
+        ],
       },
       {
         title: "SURYA SHAKTI",
         description:
           "Surya Shakti builds the physical body — it makes the sinews and ligaments of your body strong. In Yoga, we give importance to the sinews that hold the skeletal system and the whole body together. When we do any yogic practice, which is physical in nature, the focus is mainly to strengthen those, not to pump up your muscles. Strengthening the sinews of the body is what will endure for a long time and keep you well. Surya Shakti does this in a tremendous way.",
-        image: mediaUrl("/images/image20.avif"),
+        image: "/images/practices/surya-shakti.avif",
+        benefits: [
+          "Strengthens the sinews and ligaments that hold the skeletal system together",
+          "Builds lasting physical resilience without over-exerting the muscles",
+          "Improves flexibility and joint health",
+          "Supports wellbeing that endures over the long term",
+        ],
       },
       {
         title: "YOGASANAS",
         description:
           "The word asana literally means a posture. Out of the innumerable asanas a body can assume, 84 have been identified as Yogasanas, through which one can transform the body and mind into a possibility for ultimate well-being. Yogasanas are not exercises, but rather very subtle processes to manipulate one's energy in a particular direction.",
-        image: mediaUrl("/images/image21.avif"),
+        image: "/images/practices/yogasanas.avif",
+        benefits: [
+          "Improves flexibility, posture, and physical alignment",
+          "Channels and directs the body's energy inward",
+          "Enhances focus and mind-body awareness",
+          "Builds a strong foundation for advanced yogic practice",
+        ],
       },
       {
         title: "SHANMUKHI MUDRA",
         description:
           "Shanmukhi mudra is a simple but subtle practice that brightens and rejuvenates the face and eyes and brings about a state of balance leading toward increased awareness and meditativeness.",
-        image: mediaUrl("/images/image22.avif"),
+        image: "/images/practices/shanmukhi-mudra.avif",
+        benefits: [
+          "Rejuvenates and brightens the face and eyes",
+          "Calms the mind and nervous system",
+          "Increases awareness and meditativeness",
+          "A simple practice for everyday balance",
+        ],
       },
       {
         title: "JALA NETI",
         description:
           "Jala Neti is a process of cleansing the nasal passages with salt water. This allows breathing to become free so that air can enter the lungs unimpeded by mucus and dirt which easily builds up during the day.",
-        image: mediaUrl("/images/image23.avif"),
+        image: "/images/practices/jala-neti.avif",
+        benefits: [
+          "Clears nasal passages for freer breathing",
+          "Reduces mucus and dust buildup from daily pollutants",
+          "Supports respiratory and sinus health",
+          "Prepares the system for pranayama practice",
+        ],
       },
       {
         title: "PREGNANCY PRACTICES",
         description:
           "Pregnancy practices are specially designed for pregnant mothers to bring more awareness about the pregnancy period and teach them how to keep their body, mind, and emotion in a pleasant way, in order to experience a joyful pregnancy.",
-        image: mediaUrl("/images/image24.avif"),
+        image: "/images/practices/pregnancy-practices.avif",
+        benefits: [
+          "Supports physical and emotional wellbeing through pregnancy",
+          "Builds body awareness for a smoother pregnancy experience",
+          "Encourages calm and confidence approaching childbirth",
+          "Designed with a pregnant mother's safety in mind",
+        ],
       },
       {
-        title: "CHILDREN'S SURYA SHAKTI",
+        title: "CHILDREN'S PROGRAM",
         description:
           "Cultivate the right kind of daily regime and habit of yogic practice in children at a young age, helping them blossom into balanced, aware, and joyful human beings.",
-        image: mediaUrl("/images/image25.avif"),
+        image: "/images/practices/childrens-surya-shakti.avif",
+        benefits: [
+          "Builds healthy habits and discipline from a young age",
+          "Improves focus, energy, and physical coordination",
+          "Encourages balanced emotional and social development",
+          "Presented in a fun, age-appropriate format",
+        ],
       },
       {
         title: "EYE PRACTICES",
         description:
           "Eye care practices we offer are a natural way to improve vision-related issues which many a times stem from routine patterns of sitting in front of computers, televisions, phones, and other screens.",
-        image: mediaUrl("/images/image26.avif"),
+        image: "/images/practices/eye-practices.jpg",
+        benefits: [
+          "Relieves eye strain from screens and prolonged focus",
+          "Supports natural improvement of vision-related discomfort",
+          "Enhances clarity, focus, and everyday eye health",
+          "Simple enough to practice daily",
+        ],
+      },
+      {
+        title: "BHASTRIKA KRIYA",
+        description:
+          "Bhastrika Kriya is a powerful kriya, which purifies the blood and increases lung capacity. It can be of assistance to people with asthma, allergy, sinusitis, hormonal imbalance and skin disease.",
+        image: "/images/practices/bhastrika-kriya.JPG",
+        benefits: [
+          "Purifies the blood and increases lung capacity",
+          "Can offer support for asthma, allergies, and sinusitis",
+          "Helps in balancing hormonal imbalances",
+          "May aid in managing certain skin conditions",
+        ],
+      },
+      {
+        title: "BHUTA SHUDDHI",
+        description:
+          "Bhuta Shuddhi means “purification of the five elements” (i.e. earth, water, fire, air and space) which gets to root of imbalances in the body that lead to disease. This simple practice which you can do daily reorganizes your system on the elemental level.",
+        image: "/images/practices/bhuta-shuddhi.JPG",
+        benefits: [
+          "Purifies and balances the five elements within the body",
+          "Addresses root imbalances that can lead to disease",
+          "Reorganizes the system at a fundamental, elemental level",
+          "A simple practice suitable for daily use",
+        ],
       },
     ],
     forWhom:
       "Open to all — beginners finding their footing, seasoned practitioners deepening their sadhana, and anyone called back to the classical roots of yoga.",
     teachers: hathaSutraTeachers,
-    closingNote:
-      "Practices such as Bhastrika, Bhuta Shuddhi, Thoppukarnam and more are part of the complete offerings. The full list of practices is available in the Hatha Sutra registration form.",
-  },
-  {
-    slug: "jeevan-sutra",
-    title: "Jeevan Sutra",
-    subtitle: "A Personality Developed in Rhythm with Nature",
-    color: "#6BAA75",
-    heroImage: `${BASE}/Jeevan%20Sutra/IMG-20191216-WA0009.jpg`,
-    heroImagePosition: "center top",
-    images: [
-      `${BASE}/Jeevan%20Sutra/IMG-20191216-WA0014.jpg`,
-      mediaUrl("/images/image7.jpg"),
-      mediaUrl("/images/image9.jpg"),
-    ],
-    imagePositions: ["center top", "center", "center"],
-    description:
-      "A transformative thread dedicated to the whole person — cultivating a personality that is grounded, aware, and expressed with clarity and confidence.",
-    longDescription:
-      "Jeevan Sutra is a path of conscious becoming, dedicated entirely to Personality Development. This element helps you discover, refine, and embody the qualities that define a balanced, purposeful, and authentic individual. Through structured programs, guided self-inquiry, and practical tools for personal growth, Jeevan Sutra empowers you to grow from the inside out — so that transformation becomes not just something you seek, but a way of living.",
-    offerings: [
-      "Self-discovery and personality awareness",
-      "Communication and interpersonal effectiveness",
-      "Confidence building and purposeful self-expression",
-      "Emotional intelligence and inner self-regulation",
-      "Goal clarity and personal vision development",
-    ],
-    forWhom:
-      "For those seeking meaningful personal growth — whether in professional life, relationships, or inner confidence. Open to anyone ready to turn self-awareness into self-mastery.",
-  },
-  {
-    slug: "kala-dhara",
-    title: "Kala Dhara",
-    subtitle: "Where Art Becomes a Living Expression",
-    color: "#9B7FBE",
-    heroImage: `${BASE}/Vastra%20Dhara/4d17bf9e-ec2f-4eb5-9a30-9905f16f20a9.jpg`,
-    heroImagePosition: "center 40%",
-    images: [
-      `${BASE}/Vastra%20Dhara/5869622f-0501-424b-a980-24bdc1f771e3.jpg`,
-      `${BASE}/Vastra%20Dhara/8cc1f648-5c95-49d2-998c-88b1f452bb04.jpg`,
-      `${BASE}/Vastra%20Dhara/IMG_0251.JPG`,
-    ],
-    imagePositions: ["center top", "center top", "center top"],
-    description:
-      "A flowing thread of movement and creativity — where the body becomes a canvas and practice becomes a living work of art.",
-    longDescription:
-      "Kala Dhara bridges the inner and outer worlds through art and movement. In this element, yoga becomes a form of living artistry — where the precision of asana meets the freedom of creative expression. Drawing from movement arts, the storytelling traditions of the body, and expressive practices rooted in Indian classical forms, Kala Dhara invites you to rediscover yourself as an artist in constant motion.",
-    offerings: [
-      "Expressive movement and free-form flow practice",
-      "Storytelling through the body — gesture, mudra, gaze",
-      "Integration of dance elements within the yogic framework",
-      "Breathwork for creative opening and inner release",
-      "Reflective art and journaling alongside movement",
-    ],
-    forWhom:
-      "For artists, performers, and creatives — and for anyone who has ever felt the pull to express something beyond words. No art or dance background required.",
-    evolvingNote:
-      "Just like a story weaving itself, Kaladhara is still unfolding. While the currently listed art forms are already part of our offerings, many more will be added soon. Upcoming additions include Painting, Drama, Mandala Art, and more.",
-  },
-  {
-    slug: "sangeet-dhara",
-    title: "Sangeet Dhara",
-    subtitle: "An Expression of the Divine Through Sound",
-    color: "#5B9BD5",
-    heroImage: `${BASE}/Sangeet%20Dhara/IMG_0062.JPG`,
-    heroImagePosition: "center 65%",
-    images: [
-      `${BASE}/Sangeet%20Dhara/IMG_0025.JPG`,
-      `${BASE}/Sangeet%20Dhara/IMG_0036.JPG`,
-      `${BASE}/Sangeet%20Dhara/IMG-20210613-WA0011.jpg`,
-      `${BASE}/Sangeet%20Dhara/IMG_0058.JPG`,
-    ],
-    imagePositions: ["center", "center", "center top", "center top"],
-    video: `${BASE}/Sangeet%20Dhara/1753714245027711.mp4`,
-    description:
-      "A vibrating thread of sound and silence — where mantra, music, and deep listening become living paths of transformation.",
-    longDescription:
-      "Sound is vibration, and vibration is life. Sangeet Dhara explores yoga through the medium of sound — through mantra, nada (inner sound), chanting, and the profound science of conscious listening. This element weaves ancient sound traditions with present-moment awareness, inviting participants to use their voice, their breath, and their stillness as instruments of inner transformation. Here, music is not performance — it is prayer.",
-    offerings: [
-      "Hindustani Vocal",
-      "Carnatic Vocal",
-      "Violin",
-      "Naad Yoga",
-      "Mantra Chanting",
-      "Harmonium",
-    ],
-    forWhom:
-      "For those drawn to music, devotion, sound healing, and the transformative power of the human voice. Open to all, regardless of musical background.",
-    panels: [
-      {
-        name: "Kshiraja Manasvini",
-        title: "Kshiraja Music Bio",
-        sections: [
-          {
-            paragraphs: [
-              "Kshiraja Manasvini S. is a talented young Carnatic musician from Chennai. She received her initial education and musical training at Isha Samskriti, an alternative education system envisioned by Sadhguru Jaggi Vasudev. She currently continues her advanced training under Jayashree Aravind.",
-            ],
-          },
-          {
-            paragraphs: [
-              "Over the years, she has had the opportunity to learn from several eminent musicians, including N. Vijay Siva, Savita Narasimhan, Malladi Suri Babu, K. Omanakutty, and Ashwath Narayanan.",
-              "She possesses a rich and diverse repertoire, having studied and performed compositions of Annamacharya, Bhadrachala Ramadas, Oothukadu Venkata Kavi, Subbaraya Sastry, and many others, in addition to the works of the Carnatic Trinity. She has also studied Thevarams in the Odhuvar tradition and has received training in the Sanskrit language.",
-              "Kshiraja has won several prizes in senior-level competitions conducted by Shanmukhananda Sabha and Guruguhaamrta.",
-              "In addition to her musical pursuits, she is a professional Bharatanatyam dancer with Dakshina Repertory, under the guidance of Divya Nayar.",
-            ],
-          },
-        ],
-        images: [
-          `${BASE}/Sangeet%20Dhara/4.%20Sangeet%20Dhara/Kshiraja%20/IMG_20260404_170624.jpg`,
-          `${BASE}/Sangeet%20Dhara/4.%20Sangeet%20Dhara/Kshiraja%20/IMG_20260606_152950.jpg`,
-          `${BASE}/Sangeet%20Dhara/4.%20Sangeet%20Dhara/Kshiraja%20/IMG_20260606_153055.jpg`,
-          `${BASE}/Sangeet%20Dhara/4.%20Sangeet%20Dhara/Kshiraja%20/RIS01980.jpg`,
-          `${BASE}/Sangeet%20Dhara/4.%20Sangeet%20Dhara/Kshiraja%20/RIS02120.jpg`,
-          `${BASE}/Sangeet%20Dhara/4.%20Sangeet%20Dhara/Kshiraja%20/RIS09661.jpg`,
-        ],
-      },
-      {
-        name: "Nagapushpa",
-        role: "Hindustani Classical Vocalist",
-        layout: "photo-below",
-        sections: [
-          {
-            paragraphs: [
-              "I'm Nagapushpa, an alumna of Isha Samskriti, a Hindustani classical music teacher and performer with over 14 years of musical training and 5 years of teaching experience.",
-              "I conduct both online and offline classes for students aged 6 and above. These classes offer structured learning in Hindustani classical music, bhajans, devotional songs and chants, from foundational concepts to advanced practice.",
-            ],
-          },
-        ],
-        testimonialsHeading: "Learner Experiences",
-        testimonials: [
-          {
-            quote:
-              "Learning Hindustani music with akka has been such a nurturing experience. Her way of teaching is very patient, clear and grounded, and the daily classes have helped me build both discipline and confidence in my voice. Akka breaks things down so simply, corrects with so much care, and creates a very safe space to explore the voice. Truly grateful to be learning from her.",
-            author: "Shubhangi",
-            location: "Rajasthan",
-          },
-          {
-            quote:
-              "It has been a truly wonderful journey learning with you over the past two years. You are one of the most humble, simple, and lovely people I have ever met. Your guidance on the sounds of Isha teachings gave me a deeper understanding of how the tunes shift and the differences between high and low pitch. With this clarity, I was also able to learn Gurupooja well. Thank you so much for everything. I wish you all the very best for your future endeavours.",
-            author: "Prasanna Tallam",
-            location: "Sydney",
-          },
-          {
-            quote:
-              "The music classes from Nagapushpa akka felt truly blessed and were conducted in a very friendly manner. There was never any pressure or harshness, yet the learning happened with complete devotion and dedication. The training was given sincerely and in a very effective way. For my personal spiritual purpose, I now sing these chants in temples, not on auditorium stages. The classes have been extremely useful for my spiritual growth and well-being.",
-            author: "Lakshmi Priya",
-            location: "Coimbatore",
-          },
-          {
-            quote:
-              "Attending music class has been such an enriching experience for me. From the moment it begins, I feel calm, focused, and reconnected with myself. Learning the basics, understanding rhythm, and practicing regularly has taught me patience, discipline, and presence.",
-            author: "Ujali Patel",
-            location: "Nashville",
-          },
-        ],
-        images: [
-          `${BASE}/Sangeet%20Dhara/4.%20Sangeet%20Dhara/Nagapushpa/Pictures%20/Navaratri%202022.JPEG`,
-        ],
-      },
-      {
-        name: "Prasana Ganesan",
-        role: "Carnatic Violinist",
-        layout: "photo-left",
-        profileImage: `${BASE}/Sangeet%20Dhara/4.%20Sangeet%20Dhara/Prasana%20Ganesan%20/Pics%20/Casual%20pic/IMG_20260204_180625.jpg`,
-        sections: [
-          {
-            paragraphs: [
-              "I'm Prasana, an alumna of Isha Samskriti and a trained Carnatic violinist with over 9 years of experience in Indian classical music. I have been teaching violin for the past 5 years, guiding students through a structured and engaging learning journey.",
-              "I conduct both online and offline classes for students aged 6 and above. My lessons are designed to build a strong foundation in technique, musical understanding, and overall artistry. Along with violin training, I also provide foundational vocal guidance to help students develop pitch, rhythm, and musical sensitivity.",
-            ],
-          },
-        ],
-        testimonialsHeading: "Sharings",
-        testimonials: [
-          {
-            quote:
-              "Prasanna is far more than a talented violin teacher. She has a rare gift for making students feel comfortable, confident, and encouraged, regardless of their skill level. Her patience, kindness, and down-to-earth nature make learning both enjoyable and relaxed. Even after just a few classes, I gained confidence and a genuine appreciation for music. She truly lives up to her name by bringing happiness and positivity into every lesson.",
-            author: "Surya",
-            location: "Bangalore",
-          },
-          {
-            quote:
-              "Learning Carnatic music from you has been a wonderful experience. Your patient and encouraging teaching style made me feel comfortable as a beginner. You explain concepts clearly, pay attention to even the smallest mistakes, and help students improve with confidence. I am grateful for your dedication and highly recommend your classes to anyone interested in learning Carnatic music.",
-            author: "Priyanaka",
-            location: "Hyderabad",
-          },
-          {
-            quote:
-              "For a long time I wanted to learn Indian classical music and am very fortunate to have found a teacher with such deep insight into the art form. Learning through a thorough step by step system and having regular lessons it has been easy to keep up practicing and I have seen big results in my playing.",
-            author: "Jesper Appelgrem",
-            location: "Switzerland",
-          },
-        ],
-        images: [
-          `${BASE}/Sangeet%20Dhara/4.%20Sangeet%20Dhara/Prasana%20Ganesan%20/Pics%20/Casual%20pic/WhatsApp%20Image%202026-06-05%20at%2020.26.06.jpeg`,
-          `${BASE}/Sangeet%20Dhara/4.%20Sangeet%20Dhara/Prasana%20Ganesan%20/Pics%20/Violin%20Pic%20.png`,
-        ],
-      },
-    ],
   },
   {
     slug: "veer-dhara",
     title: "Veer Dhara",
     subtitle: "Awaken the Warrior Within",
+    heroTagline: "It is not about flexibility, it is about alignment.",
     color: "#C94A4A",
-    heroImage: `${BASE}/5.%20Veer%20Dhara/Photos%20/Untitled%20design%282%29.jpg`,
+    heroImage: "/images/threads/veer-dhara/photo-3.jpg",
     heroImagePosition: "center",
     images: [
-      `${BASE}/5.%20Veer%20Dhara/Photos%20/Untitled%20design.jpg`,
-      `${BASE}/5.%20Veer%20Dhara/Photos%20/Untitled%20design%281%29.jpg`,
-      `${BASE}/5.%20Veer%20Dhara/Photos%20/Untitled%20design%282%29.jpg`,
+      "/images/threads/veer-dhara/photo-1.jpg",
+      "/images/threads/veer-dhara/photo-2.jpg",
+      "/images/threads/veer-dhara/photo-3.jpg",
     ],
     imagePositions: ["center top", "center top", "center top"],
     description:
-      "A fierce and vital thread — where physical strength, yogic courage, and the spirit of the inner warrior are forged through dedicated practice.",
+      "Veer Dhara calls to those who want to learn both Kalaripayattu and Silambam — Bharat's classical martial arts of empty-hand combat and weapon mastery, where every strike and stance builds the strength, discipline, and spirit of the inner warrior.",
     longDescription:
-      "Veer Dhara is yoga for those called to strength — not just of the body, but of character. Grounded in warrior asana sequences, dynamic breath practices, and the philosophy of the inner warrior (the Veer), this element builds physical power alongside mental resilience, sharp focus, and fearlessness. Here, the yoga mat becomes a training ground for life — every challenge on the mat a mirror for the challenges beyond it.",
+      "Veer Dhara is yoga for those called to strength — not just of the body, but of character. Grounded in warrior asana sequences, dynamic breath practices, and the philosophy of the inner warrior (the Veer), this thread builds physical power alongside mental resilience, sharp focus, and fearlessness. Here, the yoga mat becomes a training ground for life — every challenge on the mat a mirror for the challenges beyond it.",
     offerings: [
       "Dynamic warrior sequences and power flow practice",
       "Core and functional strength rooted in yogic principles",
@@ -579,7 +518,7 @@ export const elements: SutraElement[] = [
       sections: [
         {
           paragraphs: [
-            "Kalaripayattu stands among the oldest martial arts in the world, with a rich legacy stretching back more than 3,000 years — one of ancient India's most enduring gifts to the world.",
+            "Kalaripayattu stands among the oldest martial arts in the world, with a rich legacy stretching back more than 3,000 years — one of ancient Bharat's most enduring gifts to the world.",
           ],
         },
         {
@@ -628,119 +567,210 @@ export const elements: SutraElement[] = [
           {
             paragraphs: [
               "I was awarded a silver medal at the 2021 National Kalaripayattu Championship conducted by the Indian Kalaripayattu Federation.",
-              "I am deeply passionate about preserving and sharing India's traditional art forms. More than a career, teaching these ancient disciplines is a fulfilling way for me to reach people and contribute to their growth and wellbeing. I am particularly keen on building a strong and vibrant community of practitioners dedicated to keeping these traditions alive and relevant for future generations.",
+              "I am deeply passionate about preserving and sharing Bharat's traditional art forms. More than a career, teaching these ancient disciplines is a fulfilling way for me to reach people and contribute to their growth and wellbeing. I am particularly keen on building a strong and vibrant community of practitioners dedicated to keeping these traditions alive and relevant for future generations.",
               "Beyond teaching, I am an avid trekker and mountaineer. I completed a Basic Mountaineering Course and undertook a solo cycling expedition from Manali to Leh in support of the Save Soil movement.",
-              "Through my work, I aim to offer these ancient disciplines as a means to cultivate strength, balance, awareness, and a deeper connection to India's cultural heritage.",
+              "Through my work, I aim to offer these ancient disciplines as a means to cultivate strength, balance, awareness, and a deeper connection to Bharat's cultural heritage.",
             ],
           },
         ],
-        featuredVideo: `${BASE}/5.%20Veer%20Dhara/Self%20demonstration%20video%20from%20performances%20and%20Practice%20/859FCA4B-1E87-4465-A87E-D0A63B38300C.MP4`,
         images: [
-          `${BASE}/5.%20Veer%20Dhara/Photos%20/Untitled%20design.jpg`,
-          `${BASE}/5.%20Veer%20Dhara/Photos%20/Untitled%20design%281%29.jpg`,
-          `${BASE}/5.%20Veer%20Dhara/Photos%20/Untitled%20design%282%29.jpg`,
+          "/images/threads/veer-dhara/photo-1.jpg",
+          "/images/threads/veer-dhara/photo-2.jpg",
+          "/images/threads/veer-dhara/photo-3.jpg",
         ],
-      },
-      {
-        name: "Participant Sharing",
-        sections: [
-          {
-            paragraphs: [
-              "Glimpses of students sharing their experience with Kalaripayattu — in their own words, after their own practice.",
-            ],
-          },
-        ],
-        images: [],
-        videos: [
-          `${BASE}/5.%20Veer%20Dhara/Participant%20Sharing%20/IMG_1524.mov`,
-          `${BASE}/5.%20Veer%20Dhara/Participant%20Sharing%20/IMG_6033.mov`,
-        ],
-      },
-      {
-        name: "Kids Session Glimpses",
-        sections: [
-          {
-            paragraphs: [
-              "Young practitioners bring their own energy to the kalari — discipline and play, side by side.",
-            ],
-          },
-        ],
-        images: [],
-        videos: [
-          `${BASE}/5.%20Veer%20Dhara/Kids%20session%20glimpses%20/1779866991855875.MP4`,
-          `${BASE}/5.%20Veer%20Dhara/Kids%20session%20glimpses%20/89DC031D-8999-478A-AD50-3E4DFDAE632B.MP4`,
-        ],
-      },
-      {
-        name: "Glimpses From In-Person Workshops",
-        sections: [
-          {
-            paragraphs: [
-              "Students learning Kalaripayattu hands-on, through immersive in-person training sessions.",
-            ],
-          },
-        ],
-        images: [],
-        videos: [
-          `${BASE}/5.%20Veer%20Dhara/Glimpses%20from%20inperson%20workshops%20/1BBB45F4-9D63-40FE-81FA-B53AB5E9953A.MP4`,
-          `${BASE}/5.%20Veer%20Dhara/Glimpses%20from%20inperson%20workshops%20/55B05DED-3817-4C77-854C-26CC72A74B00.MP4`,
-          `${BASE}/5.%20Veer%20Dhara/Glimpses%20from%20inperson%20workshops%20/740f1c53779e48dbb56dc9f0d34b4ce1.MP4`,
-        ],
-      },
-      {
-        name: "Reflections from Bhaktapur, Nepal",
-        sections: [
-          {
-            paragraphs: [
-              "A short film weaving Sadhguru's words on Kalaripayattu with glimpses captured in Bhaktapur, Nepal.",
-            ],
-          },
-        ],
-        featuredVideo: `${BASE}/5.%20Veer%20Dhara/A%20video%20along%20with%20Sadhguru%20quotes%20on%20Kalari%2C%20Video%20glimpses%20mostly%20from%20Bhaktapur%20Nepal/4910dc3a85684ce0bcd7033c3b0847f5.MP4`,
-        images: [],
-      },
-      {
-        name: "From an Online Session",
-        sections: [
-          {
-            paragraphs: [
-              "Practice travels too — a glimpse from one of our online Kalaripayattu sessions.",
-            ],
-          },
-        ],
-        featuredVideo: `${BASE}/5.%20Veer%20Dhara/A%20short%20snippet%20from%20an%20online%20session/ScreenRecording_05-27-2026%2013-32-16_1.mov`,
-        images: [],
       },
     ],
   },
   {
-    slug: "vastra-dhara",
-    title: "Vastra Dhara",
-    subtitle: "Where Fabric Becomes a Living Sadhana",
-    color: "#C8733A",
-    heroImage: `${BASE}/Vastra%20Dhara/0f4361d6-8fe8-447e-a086-3c1a68d0f054.jpg`,
-    heroImagePosition: "center 40%",
+    slug: "nritya-dhara",
+    title: "Nritya Dhara",
+    subtitle: "Where Movement Becomes a Living Offering",
+    color: "#C2517A",
+    heroImage: "/images/threads/nritya-dhara/photo-5.jpg",
+    heroImagePosition: "center 20%",
     images: [
-      `${BASE}/Vastra%20Dhara/492df843-5c3a-4c56-bde6-e14d0cdc9519.jpg`,
-      `${BASE}/Vastra%20Dhara/5c9b82ba-939a-42ab-8222-4d80a7ba982f.jpg`,
-      `${BASE}/Vastra%20Dhara/a4021950-803a-4eb4-9413-a6d7fe712436.jpg`,
-      `${BASE}/Vastra%20Dhara/df40c4c0-2aba-4740-b791-b4703008d80f.jpg`,
+      "/images/threads/nritya-dhara/photo-1.jpg",
+      "/images/threads/nritya-dhara/photo-2.jpg",
+      "/images/threads/nritya-dhara/photo-3.jpg",
+      "/images/threads/nritya-dhara/photo-4.jpg",
+      "/images/threads/nritya-dhara/photo-5.jpg",
     ],
-    imagePositions: ["center top", "center top", "center top", "center top"],
+    imagePositions: ["center top", "center top", "center top", "center top", "center top"],
     description:
-      "A sacred thread of cloth and consciousness — where what you wear becomes an act of awareness, reverence, and inner alignment.",
+      "A graceful thread of rhythm and story — where classical Indian dance becomes a moving meditation, and every gesture carries the breath of devotion.",
     longDescription:
-      "Vastra Dhara is rooted in the ancient understanding that clothing is not merely covering — it is an expression of one's inner state, a conscious choice, and an act of self-offering. This element brings awareness to what we wear and how it connects us to the earth, our heritage, and ourselves — through sustainable clothing, intentional dressing, and India's rich handloom and textile traditions. We collaborate with conscious clothing brands such as Shoonya to bring this awareness into everyday life.",
+      "Nritya Dhara is an invitation into Bharatanatyam, one of India's oldest classical dance forms — where movement, music, and mythology converge into a single living language. Rooted in the Isha Samskriti tradition and the lineage of Dakshina, Chennai, this thread trains the body to speak through abhinaya (expression), nritta (pure movement), and tala (rhythm), while cultivating the discipline, devotion, and presence that classical dance demands. Here, every adavu and every mudra becomes a sadhana — a practice of body, breath, and bhakti woven into one.",
     offerings: [
-      "Collaborations with conscious clothing brands like Shoonya",
-      "Sustainable clothing",
-      "Conscious adornment and intentional dressing",
-      "Indian handlooms and textile wisdom",
+      "Foundational Bharatanatyam adavus, postures, and rhythm training",
+      "Abhinaya — storytelling through gesture, expression, and gaze",
+      "Nritya — pure dance technique built on tala and laya",
+      "Choreography and stage presence drawn from the Dakshina repertory",
+      "Integration of music, mythology, and devotion within movement",
     ],
     forWhom:
-      "For those drawn to conscious living, sustainable style, and India's textile heritage — and for anyone curious about bringing more awareness into the everyday act of dressing. No prior experience required.",
-    externalLinks: [
-      { label: "Visit Shoonya", url: "[SHOONYA_WEBSITE_LINK]" },
+      "For dancers and non-dancers alike — children and adults drawn to rhythm, storytelling, and the discipline of classical Indian art. No prior dance experience required, only a willingness to move with devotion.",
+    panels: [
+      {
+        name: "Srimalli Aiyamperumal",
+        title: "About the Artist",
+        tagline:
+          "Alumni of Isha Samskriti — Disciple of Smt Divya Nayar, Director, Dakshina, Chennai",
+        sections: [
+          {
+            paragraphs: [
+              "Young and passionate Srimalli began her journey at Isha Samskriti, an alternative education system designed by Sadhguru. She now continues her journey under acclaimed dancer and choreographer Smt Divya Nayar, as a member of the Dakshina repertory.",
+              "She has had the opportunity to perform at many renowned dance festivals, in India and abroad during her time at Samskriti. Besides performing, Srimalli finds great joy in sharing her learnings as a teacher.",
+              "Eight years of dedicated study with Smt Divya Nayar has immensely helped Srimalli appreciate the nuances of movement and the musicality of dance within a choreography. She believes that this has contributed immensely in her growth, not only as a dancer, but also as a human being.",
+            ],
+          },
+        ],
+        images: [
+          "/images/threads/nritya-dhara/photo-1.jpg",
+          "/images/threads/nritya-dhara/photo-2.jpg",
+          "/images/threads/nritya-dhara/photo-3.jpg",
+          "/images/threads/nritya-dhara/photo-4.jpg",
+          "/images/threads/nritya-dhara/photo-5.jpg",
+        ],
+      },
+    ],
+  },  {
+    slug: "sangeet-dhara",
+    title: "Sangeet Dhara",
+    subtitle: "An Expression of the Divine Through Sound",
+    color: "#5B9BD5",
+    heroImage: "/images/threads/sangeet-dhara/hero.jpg",
+    heroImagePosition: "center 65%",
+    images: [
+      "/images/threads/sangeet-dhara/photo-1.jpg",
+      "/images/threads/sangeet-dhara/photo-2.jpg",
+      "/images/threads/sangeet-dhara/photo-3.jpg",
+      "/images/threads/sangeet-dhara/photo-4.jpg",
+    ],
+    imagePositions: ["center", "center", "center top", "center top"],
+    description:
+      "A vibrating thread of sound and silence — where mantra, music, and deep listening become living paths of transformation.",
+    longDescription:
+      "Sound is vibration, and vibration is life. Sangeet Dhara explores the medium of sound — through mantra, chanting, and the profound science of conscious listening. Guided by Kshiraja Manasvini, Nagapushpa, and Prasana Ganesan, this thread brings together Hindustani and Carnatic music, violin, and mantra chanting into one living practice.",
+    offerings: [
+      "Hindustani Vocal",
+      "Carnatic Vocal",
+      "Violin",
+      "Naad Yoga",
+      "Mantra Chanting",
+      "Harmonium",
+    ],
+    forWhom:
+      "For those drawn to music, devotion, sound healing, and the transformative power of the human voice. Open to all, regardless of musical background.",
+    panels: [
+      {
+        name: "Kshiraja Manasvini",
+        title: "Kshiraja Music Bio",
+        sections: [
+          {
+            paragraphs: [
+              "Kshiraja Manasvini S. is a talented young Carnatic musician from Chennai. She received her initial education and musical training at Isha Samskriti, an alternative education system envisioned by Sadhguru Jaggi Vasudev. She currently continues her advanced training under Jayashree Aravind.",
+            ],
+          },
+          {
+            paragraphs: [
+              "Over the years, she has had the opportunity to learn from several eminent musicians, including N. Vijay Siva, Savita Narasimhan, Malladi Suri Babu, K. Omanakutty, and Ashwath Narayanan.",
+              "She possesses a rich and diverse repertoire, having studied and performed compositions of Annamacharya, Bhadrachala Ramadas, Oothukadu Venkata Kavi, Subbaraya Sastry, and many others, in addition to the works of the Carnatic Trinity. She has also studied Thevarams in the Odhuvar tradition and has received training in the Sanskrit language.",
+              "Kshiraja has won several prizes in senior-level competitions conducted by Shanmukhananda Sabha and Guruguhaamrta.",
+              "In addition to her musical pursuits, she is a professional Bharatanatyam dancer with Dakshina Repertory, under the guidance of Divya Nayar.",
+            ],
+          },
+        ],
+        images: [
+          "/images/threads/sangeet-dhara/people/kshiraja-manasvini/photo-1.jpg",
+          "/images/threads/sangeet-dhara/people/kshiraja-manasvini/photo-2.jpg",
+          "/images/threads/sangeet-dhara/people/kshiraja-manasvini/photo-3.jpg",
+          "/images/threads/sangeet-dhara/people/kshiraja-manasvini/photo-4.jpg",
+          "/images/threads/sangeet-dhara/people/kshiraja-manasvini/photo-5.jpg",
+          "/images/threads/sangeet-dhara/people/kshiraja-manasvini/photo-6.jpg",
+        ],
+      },
+      {
+        name: "Nagapushpa",
+        role: "Hindustani Classical Vocalist",
+        layout: "photo-below",
+        sections: [
+          {
+            paragraphs: [
+              "I'm Nagapushpa, an alumna of Isha Samskriti, a Hindustani classical music teacher and performer with over 14 years of musical training and 5 years of teaching experience.",
+              "I conduct both online and offline classes for students aged 6 and above. These classes offer structured learning in Hindustani classical music, bhajans, devotional songs and chants, from foundational concepts to advanced practice.",
+            ],
+          },
+        ],
+        testimonialsHeading: "Learner Experiences",
+        testimonials: [
+          {
+            quote:
+              "Learning Hindustani music with akka has been such a nurturing experience. Her way of teaching is very patient, clear and grounded, and the daily classes have helped me build both discipline and confidence in my voice. Akka breaks things down so simply, corrects with so much care, and creates a very safe space to explore the voice. Truly grateful to be learning from her.",
+            author: "Shubhangi",
+            location: "Rajasthan",
+          },
+          {
+            quote:
+              "It has been a truly wonderful journey learning with you over the past two years. You are one of the most humble, simple, and lovely people I have ever met. Your guidance on the sounds of Isha teachings gave me a deeper understanding of how the tunes shift and the differences between high and low pitch. With this clarity, I was also able to learn Gurupooja well. Thank you so much for everything. I wish you all the very best for your future endeavours.",
+            author: "Prasanna Tallam",
+            location: "Sydney",
+          },
+          {
+            quote:
+              "The music classes from Nagapushpa akka felt truly blessed and were conducted in a very friendly manner. There was never any pressure or harshness, yet the learning happened with complete devotion and dedication. The training was given sincerely and in a very effective way. For my personal spiritual purpose, I now sing these chants in temples, not on auditorium stages. The classes have been extremely useful for my spiritual growth and well-being.",
+            author: "Lakshmi Priya",
+            location: "Coimbatore",
+          },
+          {
+            quote:
+              "Attending music class has been such an enriching experience for me. From the moment it begins, I feel calm, focused, and reconnected with myself. Learning the basics, understanding rhythm, and practicing regularly has taught me patience, discipline, and presence.",
+            author: "Ujali Patel",
+            location: "Nashville",
+          },
+        ],
+        images: [
+          "/images/threads/sangeet-dhara/people/nagapushpa/photo-1.jpeg",
+        ],
+      },
+      {
+        name: "Prasana Ganesan",
+        role: "Carnatic Violinist",
+        layout: "photo-left",
+        profileImage: "/images/threads/sangeet-dhara/people/prasana-ganesan/profile.jpg",
+        sections: [
+          {
+            paragraphs: [
+              "I'm Prasana, an alumna of Isha Samskriti and a trained Carnatic violinist with over 9 years of experience in Indian classical music. I have been teaching violin for the past 5 years, guiding students through a structured and engaging learning journey.",
+              "I conduct both online and offline classes for students aged 6 and above. My lessons are designed to build a strong foundation in technique, musical understanding, and overall artistry. Along with violin training, I also provide foundational vocal guidance to help students develop pitch, rhythm, and musical sensitivity.",
+            ],
+          },
+        ],
+        testimonialsHeading: "Sharings",
+        testimonials: [
+          {
+            quote:
+              "Prasanna is far more than a talented violin teacher. She has a rare gift for making students feel comfortable, confident, and encouraged, regardless of their skill level. Her patience, kindness, and down-to-earth nature make learning both enjoyable and relaxed. Even after just a few classes, I gained confidence and a genuine appreciation for music. She truly lives up to her name by bringing happiness and positivity into every lesson.",
+            author: "Surya",
+            location: "Bangalore",
+          },
+          {
+            quote:
+              "Learning Carnatic music from you has been a wonderful experience. Your patient and encouraging teaching style made me feel comfortable as a beginner. You explain concepts clearly, pay attention to even the smallest mistakes, and help students improve with confidence. I am grateful for your dedication and highly recommend your classes to anyone interested in learning Carnatic music.",
+            author: "Priyanaka",
+            location: "Hyderabad",
+          },
+          {
+            quote:
+              "For a long time I wanted to learn Indian classical music and am very fortunate to have found a teacher with such deep insight into the art form. Learning through a thorough step by step system and having regular lessons it has been easy to keep up practicing and I have seen big results in my playing.",
+            author: "Jesper Appelgrem",
+            location: "Switzerland",
+          },
+        ],
+        images: [
+          "/images/threads/sangeet-dhara/people/prasana-ganesan/photo-1.jpeg",
+          "/images/threads/sangeet-dhara/people/prasana-ganesan/photo-2.png",
+        ],
+      },
     ],
   },
   {
@@ -748,19 +778,18 @@ export const elements: SutraElement[] = [
     title: "Aarogya Dhara",
     subtitle: "Honouring the Sacred Science of Nourishment",
     color: "#88A85C",
-    heroImage: `${BASE}/Gau%20Sutra/IMG-20240414-WA0025.jpg`,
+    heroImage: "/images/threads/aarogya-dhara/hero.jpg",
     heroImagePosition: "center top",
     images: [
-      `${BASE}/Gau%20Sutra/20231128_171514.jpg`,
-      `${BASE}/Gau%20Sutra/20240216_163902.jpg`,
-      `${BASE}/Gau%20Sutra/20231204_121542.jpg`,
+      "/images/threads/aarogya-dhara/photo-1.jpg",
+      "/images/threads/aarogya-dhara/photo-2.jpg",
+      "/images/threads/aarogya-dhara/photo-3.jpg",
     ],
     imagePositions: ["center top", "center top", "center top"],
-    video: `${BASE}/Gau%20Sutra/20231204_120839.mp4`,
     description:
       "A holistic thread of healing — where Panchagavya, Siddha, Ayurveda, and Physiotherapy come together in service of complete, natural wellness.",
     longDescription:
-      "Aarogya Dhara is a holistic approach to health — weaving together Panchagavya, Siddha, Ayurveda, and Physiotherapy into one complete path of healing. Guided by Dr. Balakrishnan, Dr. Rushmita, and Dr. Aditi Kulkarni, this element honours the ancient Indian understanding that nourishment and healing are sacred acts, rooted in the deep relationship between human beings, the earth, and the sacred cow (Gau Mata). Through traditional therapies, conscious eating, and modern movement science, Aarogya Dhara offers a complete path of nourishment — for the body, the mind, and the spirit.",
+      "Aarogya Dhara is a holistic approach to health — weaving together Panchagavya, Siddha, Ayurveda, and Physiotherapy into one complete path of healing. Guided by Dr. Balakrishnan, Dr. Rushmita, and Dr. Aditi Kulkarni, this thread honours the ancient Indian understanding that nourishment and healing are sacred acts, rooted in the deep relationship between human beings, the earth, and the sacred cow (Gau Mata). Through traditional therapies, conscious eating, and modern movement science, Aarogya Dhara offers a complete path of nourishment — for the body, the mind, and the spirit.",
     offerings: [
       "Panchagavya Therapy — the traditional five-substance healing science",
       "Siddha and Ayurvedic principles of nutrition and the three doshas",
@@ -842,26 +871,25 @@ export const elements: SutraElement[] = [
         quote: "A life connected with nature is the true path to a healthy life.",
         signature: ["Gavyasiddha Balkrishnabhai", "Pune"],
         images: [
-          `${BASE}/Gau%20Sutra/Dr%20Balakrishnan/image1.jpg`,
-          `${BASE}/Gau%20Sutra/Dr%20Balakrishnan/image2.WEBP`,
-          `${BASE}/Gau%20Sutra/Dr%20Balakrishnan/image3.JPG`,
-          `${BASE}/Gau%20Sutra/Dr%20Balakrishnan/image4.JPG`,
-          `${BASE}/Gau%20Sutra/Dr%20Balakrishnan/image5.PNG`,
-          `${BASE}/Gau%20Sutra/Dr%20Balakrishnan/image6.JPG`,
-          `${BASE}/Gau%20Sutra/Dr%20Balakrishnan/image7.JPG`,
+          "/images/threads/aarogya-dhara/people/dr-balakrishnan/photo-2.webp",
+          "/images/threads/aarogya-dhara/people/dr-balakrishnan/photo-3.jpg",
+          "/images/threads/aarogya-dhara/people/dr-balakrishnan/photo-4.jpg",
+          "/images/threads/aarogya-dhara/people/dr-balakrishnan/photo-5.png",
+          "/images/threads/aarogya-dhara/people/dr-balakrishnan/photo-6.jpg",
+          "/images/threads/aarogya-dhara/people/dr-balakrishnan/photo-7.jpg",
         ],
       },
       {
         name: "Dr Rushmita",
         sections: [],
         images: [
-          `${BASE}/Gau%20Sutra/Dr%20Rushmita%20/IMG-20240301-WA0046.jpg`,
-          `${BASE}/Gau%20Sutra/Dr%20Rushmita%20/IMG-20240505-WA0040.jpg`,
-          `${BASE}/Gau%20Sutra/Dr%20Rushmita%20/IMG-20240505-WA0041%281%29.jpg`,
-          `${BASE}/Gau%20Sutra/Dr%20Rushmita%20/IMG-20250701-WA0019.jpg`,
-          `${BASE}/Gau%20Sutra/Dr%20Rushmita%20/IMG-20260606-WA0007.jpg`,
-          `${BASE}/Gau%20Sutra/Dr%20Rushmita%20/IMG-20260606-WA0011.jpg`,
-          `${BASE}/Gau%20Sutra/Dr%20Rushmita%20/Screenshot%202026-06-17%20at%204.33.17%E2%80%AFPM.png`,
+          "/images/threads/aarogya-dhara/people/dr-rushmita/photo-1.jpg",
+          "/images/threads/aarogya-dhara/people/dr-rushmita/photo-2.jpg",
+          "/images/threads/aarogya-dhara/people/dr-rushmita/photo-3.jpg",
+          "/images/threads/aarogya-dhara/people/dr-rushmita/photo-4.jpg",
+          "/images/threads/aarogya-dhara/people/dr-rushmita/photo-5.jpg",
+          "/images/threads/aarogya-dhara/people/dr-rushmita/photo-6.jpg",
+          "/images/threads/aarogya-dhara/people/dr-rushmita/photo-7.png",
         ],
       },
       {
@@ -897,67 +925,72 @@ export const elements: SutraElement[] = [
         quote: "A healthy body isn't one that never experiences pain. It's one that's always ready for life.",
         signature: ["Dr. Aditi Kulkarni", "BlissedOutPhysio"],
         images: [
-          `${BASE}/Gau%20Sutra/image1.jpeg`,
-          `${BASE}/Gau%20Sutra/image2.jpeg`,
-          `${BASE}/Gau%20Sutra/image3.jpeg`,
-          `${BASE}/Gau%20Sutra/image4.jpeg`,
-          `${BASE}/Gau%20Sutra/image5.jpeg`,
-          `${BASE}/Gau%20Sutra/image6.jpeg`,
+          "/images/threads/aarogya-dhara/people/dr-aditi-kulkarni/photo-1.jpeg",
+          "/images/threads/aarogya-dhara/people/dr-aditi-kulkarni/photo-2.jpeg",
+          "/images/threads/aarogya-dhara/people/dr-aditi-kulkarni/photo-3.jpeg",
+          "/images/threads/aarogya-dhara/people/dr-aditi-kulkarni/photo-4.jpeg",
+          "/images/threads/aarogya-dhara/people/dr-aditi-kulkarni/photo-5.jpeg",
+          "/images/threads/aarogya-dhara/people/dr-aditi-kulkarni/photo-6.jpeg",
         ],
       },
     ],
   },
   {
-    slug: "nritya-dhara",
-    title: "Nritya Dhara",
-    subtitle: "Where Movement Becomes a Living Offering",
-    color: "#C2517A",
-    heroImage: `${BASE}/6.%20Nritya%20Dhara/RIS08293.jpg`,
-    heroImagePosition: "center 20%",
+    slug: "vastra-dhara",
+    title: "Vastra Dhara",
+    subtitle: "Where Fabric Becomes a Living Sadhana",
+    color: "#C8733A",
+    heroImage: "/images/threads/vastra-dhara/hero.jpg",
+    heroImagePosition: "center 40%",
     images: [
-      `${BASE}/6.%20Nritya%20Dhara/4Z4A1247.jpg`,
-      `${BASE}/6.%20Nritya%20Dhara/DSC02174.JPG`,
-      `${BASE}/6.%20Nritya%20Dhara/IMG_3950.JPG`,
-      `${BASE}/6.%20Nritya%20Dhara/IMG_3961.JPG`,
-      `${BASE}/6.%20Nritya%20Dhara/RIS08293.jpg`,
+      "/images/threads/vastra-dhara/photo-1.jpg",
+      "/images/threads/vastra-dhara/photo-2.jpg",
+      "/images/threads/vastra-dhara/photo-3.jpg",
+      "/images/threads/vastra-dhara/photo-4.jpg",
     ],
-    imagePositions: ["center top", "center top", "center top", "center top", "center top"],
+    imagePositions: ["center top", "center top", "center top", "center top"],
     description:
-      "A graceful thread of rhythm and story — where classical Indian dance becomes a moving meditation, and every gesture carries the breath of devotion.",
+      "A sacred thread of cloth and consciousness — where what you wear becomes an act of awareness, comfort, and inner alignment.",
     longDescription:
-      "Nritya Dhara is an invitation into Bharatanatyam, one of India's oldest classical dance forms — where movement, music, and mythology converge into a single living language. Rooted in the Isha Samskriti tradition and the lineage of Dakshina, Chennai, this element trains the body to speak through abhinaya (expression), nritta (pure movement), and tala (rhythm), while cultivating the discipline, devotion, and presence that classical dance demands. Here, every adavu and every mudra becomes a sadhana — a practice of body, breath, and bhakti woven into one.",
+      "Vastra Dhara is rooted in an understanding that feels more relevant today than ever — that clothing is not merely covering, it is an expression of one's inner state and a conscious choice. This thread brings awareness to what we wear and how it connects us to the earth, our heritage, and ourselves — through sustainable clothing and India's rich handloom and textile traditions. We collaborate with conscious clothing brands such as Shoonya to bring this awareness into everyday life.",
     offerings: [
-      "Foundational Bharatanatyam adavus, postures, and rhythm training",
-      "Abhinaya — storytelling through gesture, expression, and gaze",
-      "Nritta — pure dance technique built on tala and laya",
-      "Choreography and stage presence drawn from the Dakshina repertory",
-      "Integration of music, mythology, and devotion within movement",
+      "Collaborations with conscious clothing brands like Shoonya",
+      "Sustainable clothing",
+      "Conscious adornment",
+      "Indian handlooms and textile wisdom",
     ],
     forWhom:
-      "For dancers and non-dancers alike — children and adults drawn to rhythm, storytelling, and the discipline of classical Indian art. No prior dance experience required, only a willingness to move with devotion.",
-    panels: [
-      {
-        name: "Srimalli Aiyamperumal",
-        title: "About the Artist",
-        tagline:
-          "Alumni of Isha Samskriti — Disciple of Smt Divya Nayar, Director, Dakshina, Chennai",
-        sections: [
-          {
-            paragraphs: [
-              "Young and passionate Srimalli began her journey at Isha Samskriti, an alternative education system designed by Sadhguru. She now continues her journey under acclaimed dancer and choreographer Smt Divya Nayar, as a member of the Dakshina repertory.",
-              "She has had the opportunity to perform at many renowned dance festivals, in India and abroad during her time at Samskriti. Besides performing, Srimalli finds great joy in sharing her learnings as a teacher.",
-              "Eight years of dedicated study with Smt Divya Nayar has immensely helped Srimalli appreciate the nuances of movement and the musicality of dance within a choreography. She believes that this has contributed immensely in her growth, not only as a dancer, but also as a human being.",
-            ],
-          },
-        ],
-        images: [
-          `${BASE}/6.%20Nritya%20Dhara/4Z4A1247.jpg`,
-          `${BASE}/6.%20Nritya%20Dhara/DSC02174.JPG`,
-          `${BASE}/6.%20Nritya%20Dhara/IMG_3950.JPG`,
-          `${BASE}/6.%20Nritya%20Dhara/IMG_3961.JPG`,
-          `${BASE}/6.%20Nritya%20Dhara/RIS08293.jpg`,
-        ],
-      },
+      "For those drawn to conscious living, sustainable style, and India's textile heritage — and for anyone curious about bringing more awareness into the everyday act of dressing. No prior experience required.",
+    externalLinks: [
+      { label: "Visit Shoonya", url: "[SHOONYA_WEBSITE_LINK]" },
     ],
   },
+  {
+    slug: "jeevan-sutra",
+    title: "Jeevan Sutra",
+    subtitle: "A Personality Developed in Rhythm with Nature",
+    color: "#6BAA75",
+    heroImage: "/images/threads/jeevan-sutra/hero.jpg",
+    heroImagePosition: "center top",
+    images: [
+      "/images/threads/jeevan-sutra/photo-1.jpg",
+      "/images/gallery/aum-sound-of-creation.jpg",
+      "/images/gallery/hatha-yoga-practice-session.jpg",
+    ],
+    imagePositions: ["center top", "center", "center"],
+    description:
+      "A transformative thread dedicated to the whole person — cultivating a personality that is grounded, aware, and expressed with clarity and confidence.",
+    longDescription:
+      "Jeevan Sutra is a path of conscious becoming, dedicated entirely to Personality Development. This thread helps you discover, refine, and embody the qualities that define a balanced, purposeful, and authentic individual. Through structured programs, guided self-inquiry, and practical tools for personal growth, Jeevan Sutra empowers you to grow from the inside out — so that transformation becomes not just something you seek, but a way of living.",
+    offerings: [
+      "Self-discovery and personality awareness",
+      "Communication and interpersonal effectiveness",
+      "Confidence building and purposeful self-expression",
+      "Emotional intelligence and inner self-regulation",
+      "Goal clarity and personal vision development",
+    ],
+    forWhom:
+      "For those seeking meaningful personal growth — whether in professional life, relationships, or inner confidence. Open to anyone ready to turn self-awareness into self-mastery.",
+  },
+
 ];

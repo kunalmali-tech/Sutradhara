@@ -5,29 +5,27 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
-import { elements } from "@/data";
+import { threads } from "@/data";
 
-// Positions for 240px cards in a 1080px-tall container — octagonal (8-point) mandala
+// Positions for 240px cards in a 1080px-tall container — heptagonal (7-point) mandala
 const cardPositions = [
   { top: "12%", left: "50%" },   // top
-  { top: "23%", left: "75%" },   // upper-right
-  { top: "50%", left: "85%" },   // right
-  { top: "77%", left: "75%" },   // lower-right
-  { top: "88%", left: "50%" },   // bottom
-  { top: "77%", left: "25%" },   // lower-left
-  { top: "50%", left: "15%" },   // left
-  { top: "23%", left: "25%" },   // upper-left
+  { top: "26%", left: "77%" },   // upper-right
+  { top: "58%", left: "84%" },   // right
+  { top: "84%", left: "65%" },   // lower-right
+  { top: "84%", left: "35%" },   // lower-left
+  { top: "58%", left: "16%" },   // left
+  { top: "26%", left: "23%" },   // upper-left
 ];
 
 const svgEndpoints = [
   { x2: "50%", y2: "12%" },
-  { x2: "75%", y2: "23%" },
-  { x2: "85%", y2: "50%" },
-  { x2: "75%", y2: "77%" },
-  { x2: "50%", y2: "88%" },
-  { x2: "25%", y2: "77%" },
-  { x2: "15%", y2: "50%" },
-  { x2: "25%", y2: "23%" },
+  { x2: "77%", y2: "26%" },
+  { x2: "84%", y2: "58%" },
+  { x2: "65%", y2: "84%" },
+  { x2: "35%", y2: "84%" },
+  { x2: "16%", y2: "58%" },
+  { x2: "23%", y2: "26%" },
 ];
 
 const circleVariants = (color: string) => ({
@@ -48,7 +46,7 @@ export default function Services() {
       <div className="container mx-auto px-6">
         <SectionHeading
           title="THE SUTRAS"
-          subtitle="Eight living threads woven from one centre — each a unique path, all leading to the same wholeness."
+          subtitle="Seven living threads woven from one centre — each a unique path, all leading to the same wholeness."
           align="center"
         />
 
@@ -85,7 +83,7 @@ export default function Services() {
               <motion.circle
                 key={`dot-${i}`}
                 cx={ep.x2} cy={ep.y2} r="4"
-                fill={elements[i].color}
+                fill={threads[i].color}
                 initial={{ opacity: 0, r: 0 }}
                 whileInView={{ opacity: 0.5, r: 4 }}
                 viewport={{ once: true }}
@@ -122,12 +120,12 @@ export default function Services() {
             </div>
           </motion.div>
 
-          {/* Element cards */}
-          {elements.map((element, i) => {
+          {/* Thread cards */}
+          {threads.map((thread, i) => {
             const pos = cardPositions[i];
             return (
               <motion.div
-                key={element.slug}
+                key={thread.slug}
                 className="absolute -translate-x-1/2 -translate-y-1/2 z-10"
                 style={{ top: pos.top, left: pos.left }}
                 initial={{ opacity: 0, scale: 0.55 }}
@@ -135,7 +133,7 @@ export default function Services() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.5 + i * 0.1, ease: [0.16, 1, 0.3, 1] }}
               >
-                <Link href={`/elements/${element.slug}`}>
+                <Link href={`/threads/${thread.slug}`}>
                   <motion.div
                     className="flex flex-col items-center cursor-pointer"
                     initial="rest"
@@ -146,15 +144,15 @@ export default function Services() {
                     {/* ── Circle ── */}
                     <motion.div
                       className="w-[240px] h-[240px] rounded-full flex flex-col items-center justify-center text-center px-6 relative"
-                      style={{ border: `2px solid ${element.color}35`, backgroundColor: "#111111" }}
-                      variants={circleVariants(element.color)}
+                      style={{ border: `2px solid ${thread.color}35`, backgroundColor: "#111111" }}
+                      variants={circleVariants(thread.color)}
                       transition={{ duration: 0.3 }}
                     >
                       {/* inner glow */}
                       <motion.div
                         className="absolute inset-0 rounded-full"
                         style={{
-                          background: `radial-gradient(circle at center, ${element.color}1a 0%, transparent 68%)`,
+                          background: `radial-gradient(circle at center, ${thread.color}1a 0%, transparent 68%)`,
                         }}
                         variants={glowVariants}
                         transition={{ duration: 0.3 }}
@@ -164,9 +162,9 @@ export default function Services() {
                       <div
                         className="relative z-10 w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold mb-3"
                         style={{
-                          backgroundColor: `${element.color}18`,
-                          color: element.color,
-                          border: `1px solid ${element.color}45`,
+                          backgroundColor: `${thread.color}18`,
+                          color: thread.color,
+                          border: `1px solid ${thread.color}45`,
                         }}
                       >
                         {String(i + 1).padStart(2, "0")}
@@ -177,7 +175,7 @@ export default function Services() {
                         className="relative z-10 font-display text-gym-white leading-none mb-2.5"
                         style={{ fontSize: "22px", letterSpacing: "0.16em" }}
                       >
-                        {element.title.split(" ").map((w, wi) => (
+                        {thread.title.split(" ").map((w, wi) => (
                           <span key={wi} className="block">{w}</span>
                         ))}
                       </h3>
@@ -187,13 +185,13 @@ export default function Services() {
                         className="relative z-10 leading-snug"
                         style={{
                           fontSize: "11px",
-                          color: element.color,
+                          color: thread.color,
                           opacity: 0.85,
                           letterSpacing: "0.04em",
                           maxWidth: "170px",
                         }}
                       >
-                        {element.subtitle}
+                        {thread.subtitle}
                       </p>
                     </motion.div>
 
@@ -201,13 +199,13 @@ export default function Services() {
                     <div className="flex flex-col items-center mt-1 pointer-events-none">
                       <motion.div
                         className="w-px"
-                        style={{ backgroundColor: element.color }}
+                        style={{ backgroundColor: thread.color }}
                         variants={threadVariants}
                         transition={{ duration: 0.3 }}
                       />
                       <motion.div
                         className="w-[9px] h-[9px] rounded-full mt-0.5"
-                        style={{ backgroundColor: element.color }}
+                        style={{ backgroundColor: thread.color }}
                         animate={{ scale: [1, 1.6, 1], opacity: [0.4, 1, 0.4] }}
                         transition={{
                           duration: 2.4,
@@ -221,7 +219,7 @@ export default function Services() {
                         style={{
                           fontSize: "9px",
                           letterSpacing: "0.35em",
-                          color: element.color,
+                          color: thread.color,
                           textTransform: "uppercase",
                         }}
                         variants={enterVariants}
@@ -239,52 +237,52 @@ export default function Services() {
 
         {/* ── Mobile ── */}
         <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-3 mt-12">
-          {elements.map((element, i) => (
-            <AnimateOnScroll key={element.slug} delay={i * 0.07} direction="up">
-              <Link href={`/elements/${element.slug}`}>
+          {threads.map((thread, i) => (
+            <AnimateOnScroll key={thread.slug} delay={i * 0.07} direction="up">
+              <Link href={`/threads/${thread.slug}`}>
                 <div
                   className="relative border p-5 group cursor-pointer overflow-hidden transition-all duration-300 hover:bg-gym-card"
-                  style={{ borderColor: `${element.color}28` }}
+                  style={{ borderColor: `${thread.color}28` }}
                 >
                   <div
                     className="absolute left-0 top-0 bottom-0 w-0.5"
-                    style={{ backgroundColor: element.color }}
+                    style={{ backgroundColor: thread.color }}
                   />
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     style={{
-                      background: `linear-gradient(135deg, ${element.color}08 0%, transparent 60%)`,
+                      background: `linear-gradient(135deg, ${thread.color}08 0%, transparent 60%)`,
                     }}
                   />
                   <div className="relative flex items-start gap-4">
                     <div
                       className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
                       style={{
-                        backgroundColor: `${element.color}18`,
-                        color: element.color,
-                        border: `1px solid ${element.color}40`,
+                        backgroundColor: `${thread.color}18`,
+                        color: thread.color,
+                        border: `1px solid ${thread.color}40`,
                       }}
                     >
                       {String(i + 1).padStart(2, "0")}
                     </div>
                     <div className="min-w-0">
                       <h3 className="font-display text-2xl tracking-wider text-gym-white leading-none">
-                        {element.title}
+                        {thread.title}
                       </h3>
                       <p
                         className="text-[10px] tracking-widest uppercase mt-1 font-medium"
-                        style={{ color: element.color }}
+                        style={{ color: thread.color }}
                       >
-                        {element.subtitle}
+                        {thread.subtitle}
                       </p>
                       <p className="text-gym-muted text-sm mt-3 leading-relaxed line-clamp-2">
-                        {element.description}
+                        {thread.description}
                       </p>
                     </div>
                   </div>
                   <div
                     className="relative flex items-center gap-1.5 mt-4 text-[9px] tracking-[0.25em] uppercase font-semibold transition-all duration-300 group-hover:gap-2.5"
-                    style={{ color: element.color }}
+                    style={{ color: thread.color }}
                   >
                     <span>Follow the thread</span>
                     <ArrowRight size={10} />

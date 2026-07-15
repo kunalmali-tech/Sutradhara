@@ -29,6 +29,7 @@ export default function Testimonials() {
       <div className="container mx-auto px-6">
         <SectionHeading
           eyebrow="Student Stories"
+          eyebrowClassName="text-base md:text-lg"
           title="REAL TRANSFORMATIONS"
           align="center"
           subtitle="Don't take our word for it — hear from the community that breathes, bends, and becomes together."

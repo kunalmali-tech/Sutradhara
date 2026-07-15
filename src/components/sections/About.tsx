@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 import Counter from "@/components/ui/Counter";
 import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 import { stats } from "@/data";
-import { mediaUrl } from "@/lib/media";
 import { CheckCircle2 } from "lucide-react";
 
 const pillars = [
-  "Sadhguru Gurukulam certified Hatha Yoga practices",
+  "Classical Hatha Yoga — Sadhguru Gurukulam Teachers",
   "Classical Music — Naad Yoga & Mantra Chanting",
   "Classical Dance — Bharatanatyam",
   "Martial Arts — Kalaripayattu",
+  "Health — Panchagavya, Siddha, Ayurveda and Physiotherapy",
 ];
 
 export default function About() {
@@ -29,28 +29,16 @@ export default function About() {
               />
 
               {/* Main image */}
-              <div className="relative h-[480px] md:h-[560px] overflow-hidden">
+              <div className="relative h-[480px] md:h-[560px] overflow-hidden bg-gym-black">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={mediaUrl("/images/image13.jpg")}
-                  alt="Sutradhara Yoga Studio"
+                  src="/images/about/the-sutradhara-mandala.svg"
+                  alt="The Sutradhara — the seven living threads woven from one centre"
                   className="absolute inset-0 w-full h-full object-contain"
-                  style={{ backgroundColor: "#C2C2C0" }}
                 />
                 {/* Silver-grey gradient overlay at bottom */}
                 <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#C0C0C0]/12 to-transparent" />
               </div>
-
-              {/* Accent secondary image — bottom right */}
-              <div
-                className="absolute -bottom-8 -right-8 w-52 h-40 overflow-hidden border-4 border-gym-black hidden md:block"
-                style={{
-                  backgroundImage: `url('${mediaUrl("/images/image3.jpg")}')`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundColor: "#1a1a1a",
-                }}
-              />
 
               {/* Diagonal saffron accent */}
               <div

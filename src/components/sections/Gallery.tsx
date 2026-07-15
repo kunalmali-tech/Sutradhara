@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ZoomIn } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { mediaUrl } from "@/lib/media";
+import { threads } from "@/data";
 
 interface GalleryItem {
   src: string;
@@ -14,144 +14,89 @@ interface GalleryItem {
   position?: string;
 }
 
-const galleryItems: GalleryItem[] = [
+// One representative photo per thread, in the same order as the homepage mandala.
+const dharaItems: GalleryItem[] = threads.map((el, i) => ({
+  src: el.heroImage,
+  alt: `${el.title} — ${el.subtitle}`,
+  category: el.title,
+  position: el.heroImagePosition ?? "center",
+  wide: i === 3,
+}));
+
+// Supplementary studio/life photos not tied to a specific thread.
+const studioItems: GalleryItem[] = [
   {
-    src: mediaUrl("/images/image1.jpg"),
+    src: "/images/gallery/sacred-space-lotus-diya.jpg",
+    alt: "Sacred Space — Lotus Diya",
+    category: "Studio",
+    position: "center",
+  },
+  {
+    src: "/images/gallery/group-meditation-class.jpg",
     alt: "Group Meditation Class",
     category: "Studio",
     wide: true,
     position: "center 30%",
   },
   {
-    src: mediaUrl("/images/image4.jpg"),
-    alt: "Paschimottanasana — Seated Forward Bend",
-    category: "Asanas",
-    position: "center top",
-  },
-  {
-    src: mediaUrl("/images/image3.jpg"),
-    alt: "Sacred Space — Lotus Diya",
-    category: "Studio",
-    position: "center",
-  },
-  {
-    src: mediaUrl("/images/image9.jpg"),
-    alt: "Hatha Yoga Practice Session",
-    category: "Asanas",
-    wide: true,
-    position: "center 20%",
-  },
-  {
-    src: mediaUrl("/images/image6.jpg"),
+    src: "/images/gallery/morning-meditation.jpg",
     alt: "Morning Meditation",
-    category: "Practice",
-    position: "center top",
-  },
-  {
-    src: mediaUrl("/images/image2.jpg"),
-    alt: "Trikonasana at Adiyogi",
-    category: "Asanas",
-    position: "center top",
-  },
-  {
-    src: mediaUrl("/images/image7.jpg"),
-    alt: "AUM — The Sound of Creation",
-    category: "Practice",
-    position: "center top",
-  },
-  {
-    src: mediaUrl("/images/image12.jpg"),
-    alt: "Group Hatha Yoga Session",
-    category: "Studio",
-    wide: true,
-    position: "center 25%",
-  },
-  {
-    src: mediaUrl("/images/image11.jpg"),
-    alt: "Evening Practice Session",
     category: "Studio",
     position: "center top",
   },
   {
-    src: mediaUrl("/images/image5.jpg"),
+    src: "/images/gallery/the-sacred-space.jpg",
     alt: "The Sacred Space",
     category: "Studio",
     position: "center top",
   },
   {
-    src: mediaUrl("/images/image8.jpg"),
-    alt: "Students at Sutradhara",
-    category: "Practice",
+    src: "/images/gallery/trikonasana-at-adiyogi.jpg",
+    alt: "Trikonasana at Adiyogi",
+    category: "Studio",
     position: "center top",
   },
   {
-    src: mediaUrl("/images/image10.jpg"),
+    src: "/images/gallery/harkirat-isha-hatha-yoga.jpg",
     alt: "Harkirat — Isha Hatha Yoga",
-    category: "Practice",
+    category: "Studio",
     position: "center top",
   },
   {
-    src: mediaUrl("/images/image27.JPG"),
+    src: "/images/gallery/life-at-sutradhara-1.jpg",
+    alt: "Life at Sutradhara",
+    category: "Studio",
+    position: "center top",
+  },
+  {
+    src: "/images/gallery/life-at-sutradhara-2.jpg",
     alt: "Life at Sutradhara",
     category: "Studio",
     wide: true,
     position: "center top",
   },
-  {
-    src: mediaUrl("/images/image28.JPEG"),
-    alt: "Life at Sutradhara",
-    category: "Practice",
-    position: "center top",
-  },
-  {
-    src: mediaUrl("/images/image31.JPG"),
-    alt: "Life at Sutradhara",
-    category: "Studio",
-    position: "center top",
-  },
-  // NEEDS CONVERTED IMAGE: image29.HEIF — HEIC/HEIF isn't renderable in most browsers (Chrome/Firefox/Windows). Convert to JPG and re-upload to add here.
-  // NEEDS CONVERTED IMAGE: image30.HEIC — same as above.
-  // NEEDS CONVERTED IMAGE: image32.HEIC — same as above.
 ];
 
-const categories = ["All", "Studio", "Asanas", "Practice"];
+// Interleave a Dhara photo with a studio photo, repeating — keeps the grid visually varied.
+const galleryItems: GalleryItem[] = [];
+for (let i = 0; i < Math.max(dharaItems.length, studioItems.length); i++) {
+  if (dharaItems[i]) galleryItems.push(dharaItems[i]);
+  if (studioItems[i]) galleryItems.push(studioItems[i]);
+}
 
 export default function Gallery() {
-  const [activeCategory, setActiveCategory] = useState("All");
   const [lightbox, setLightbox] = useState<GalleryItem | null>(null);
-
-  const filtered =
-    activeCategory === "All"
-      ? galleryItems
-      : galleryItems.filter((g) => g.category === activeCategory);
 
   return (
     <section id="gallery" className="py-24 md:py-32 bg-gym-black">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
+        <div className="mb-12">
           <SectionHeading
             eyebrow="The Studio"
             title="OUR SACRED SPACE"
             subtitle="Step inside the studio where transformations unfold, breath by breath."
             className="mb-0"
           />
-
-          {/* Filter tabs */}
-          <div className="flex flex-wrap gap-2">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`text-xs font-semibold tracking-[0.2em] uppercase px-4 py-2 border transition-all duration-200 cursor-pointer ${
-                  activeCategory === cat
-                    ? "bg-gym-red border-gym-red text-white"
-                    : "border-gym-border text-gym-muted hover:border-gym-red hover:text-gym-red"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
         </div>
 
         {/* Grid */}
@@ -160,7 +105,7 @@ export default function Gallery() {
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 auto-rows-[220px] [grid-auto-flow:dense]"
         >
           <AnimatePresence>
-            {filtered.map((item, i) => (
+            {galleryItems.map((item, i) => (
               <motion.div
                 key={item.src}
                 layout

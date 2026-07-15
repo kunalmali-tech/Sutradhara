@@ -110,11 +110,20 @@
       "Bash(/usr/bin/curl -s -o /dev/null -w '%{http_code}' https://sutradhara-storage-611723957834-ap-southeast-2-an.s3.ap-southeast-2.amazonaws.com/images/Aditi%20Kulkarni/image1.jpeg)",
       "Bash(/usr/bin/curl -s -o /dev/null -w '%{http_code}' https://sutradhara-storage-611723957834-ap-southeast-2-an.s3.ap-southeast-2.amazonaws.com/images/Dr%20Aditi%20Kulkarni/image1.jpeg)",
       "Bash(git fetch *)",
-      "Bash(git pull *)"
+      "Bash(git pull *)",
+      "Bash(gh auth *)",
+      "Bash(gh pr *)",
+      "Bash(/usr/bin/curl -s \"https://api.github.com/repos/kunal299/Sutradhara/pulls?state=all&head=kunalmali-tech:master\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(rm -f /tmp/wa-check.cjs *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000)",
+      "Bash(python3 -)",
+      "Bash(curl -sI \"https://sutradhara-storage-611723957834-ap-southeast-2-an.s3.ap-southeast-2.amazonaws.com/images/image15.avif\")"
     ],
     "additionalDirectories": [
       "c:\\Users\\Admin\\Desktop\\Sutradhara\\src\\app\\elements",
-      "C:\\Users\\Admin\\Desktop\\Sutradhara\\src\\app\\elements\\[slug]"
+      "C:\\Users\\Admin\\Desktop\\Sutradhara\\src\\app\\elements\\[slug]",
+      "/private/tmp"
     ]
   }
 }

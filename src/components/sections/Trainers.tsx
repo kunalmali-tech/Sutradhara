@@ -24,8 +24,8 @@ export default function Trainers() {
       <div className="container mx-auto px-6">
         <SectionHeading
           eyebrow="Meet The Founder"
-          title="OUR FOUNDER"
-          subtitle="Certified by the Sadhguru Gurukulam, dedicated to guiding your practice with wisdom, authenticity, and genuine care."
+          title="THE VISION BEHIND SUTRADHARA"
+          subtitle="Weaving Bharat's timeless wisdom into contemporary life."
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
@@ -85,14 +85,15 @@ export default function Trainers() {
                 <div className="relative bg-gym-card border border-gym-border overflow-hidden h-full">
                   {/* Top image */}
                   <div
-                    className={`relative h-64 md:h-80 bg-gradient-to-br ${placeholderColors[activeIndex]}`}
-                    style={{
-                      backgroundImage: `url('${active.image}')`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center 20%",
-                    }}
+                    className={`relative h-80 md:h-[420px] bg-gradient-to-br ${placeholderColors[activeIndex]}`}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-t from-gym-card to-transparent" />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={active.image}
+                      alt={active.name}
+                      className="absolute inset-0 w-full h-full object-contain"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gym-card via-transparent to-transparent" />
 
                     {/* Specialty badge */}
                     <div className="absolute top-5 right-5 bg-gym-red px-3 py-1.5 text-xs font-semibold tracking-widest uppercase text-white">
@@ -106,7 +107,6 @@ export default function Trainers() {
                         <h3 className="font-display text-4xl tracking-wider text-gym-white">
                           {active.name}
                         </h3>
-                        <p className="text-gym-muted text-sm mt-1">{active.instagram}</p>
                         {active.email && (
                           <a
                             href={`mailto:${active.email}`}
@@ -125,12 +125,15 @@ export default function Trainers() {
                       </a>
                     </div>
 
+                    <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gym-red mb-3">
+                      The Founder
+                    </p>
                     <p className="text-gym-muted text-sm leading-relaxed mb-6">
                       {active.bio}
                     </p>
 
                     {/* Certifications */}
-                    <div>
+                    <div className="mb-8">
                       <div className="flex items-center gap-2 text-xs font-semibold tracking-[0.2em] uppercase text-gym-white mb-3">
                         <Award size={13} className="text-gym-red" />
                         Certifications & Training
@@ -145,6 +148,19 @@ export default function Trainers() {
                           </span>
                         ))}
                       </div>
+                    </div>
+
+                    {/* Why Sutradhara */}
+                    <div className="pt-8 border-t border-gym-border">
+                      <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gym-red mb-3">
+                        Why Sutradhara?
+                      </p>
+                      <p className="text-gym-muted text-sm leading-relaxed mb-4">
+                        Every thread has a purpose. By itself, it is complete. Woven together, it becomes something far greater.
+                      </p>
+                      <p className="text-gym-muted text-sm leading-relaxed">
+                        The Sutradhara was born from the vision of weaving together Bharat&apos;s classical traditions — not to redefine them, but to create a shared space where their authenticity can flourish. The Sutradhara brings together authentic teachers, practitioners, and seekers. Here, timeless wisdom is experienced, shared, and passed on with authenticity.
+                      </p>
                     </div>
                   </div>
                 </div>
