@@ -99,14 +99,14 @@ const sizeClasses: Record<ItemSize, string> = {
   big: "sm:col-span-2 row-span-2",
 };
 
-// Enough to fill a first, satisfying glance without forcing a long scroll — rest reveals on demand.
+// Below `lg`, only this many tiles show by default — rest reveals on demand.
+// The full grid always renders on desktop; this only ever truncates on mobile/tablet.
 const PREVIEW_COUNT = 8;
 
 export default function Gallery() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [expanded, setExpanded] = useState(false);
 
-  const visibleItems = expanded ? galleryItems : galleryItems.slice(0, PREVIEW_COUNT);
   const hiddenCount = galleryItems.length - PREVIEW_COUNT;
 
   const showPrev = useCallback(
@@ -150,8 +150,10 @@ export default function Gallery() {
           className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 auto-rows-[160px] sm:auto-rows-[180px] md:auto-rows-[210px] lg:auto-rows-[230px] [grid-auto-flow:dense]"
         >
           <AnimatePresence>
-            {visibleItems.map((item, i) => {
+            {galleryItems.map((item, i) => {
               const size = item.size ?? "normal";
+              // Only ever hides tiles below `lg` — desktop always shows the full grid.
+              const collapsedOnMobile = i >= PREVIEW_COUNT && !expanded;
               return (
                 <motion.div
                   key={item.src}
@@ -160,7 +162,7 @@ export default function Gallery() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.4, delay: (i % 8) * 0.05 }}
-                  className={`group relative overflow-hidden rounded-xl cursor-pointer ring-1 ring-white/5 shadow-lg shadow-black/30 transition-[box-shadow,ring] duration-300 hover:ring-gym-red/50 hover:shadow-gym-red/10 ${sizeClasses[size]}`}
+                  className={`group relative overflow-hidden rounded-xl cursor-pointer ring-1 ring-white/5 shadow-lg shadow-black/30 transition-[box-shadow,ring] duration-300 hover:ring-gym-red/50 hover:shadow-gym-red/10 ${sizeClasses[size]} ${collapsedOnMobile ? "hidden lg:block" : ""}`}
                   onClick={() => setActiveIndex(i)}
                 >
                   <div
@@ -198,9 +200,9 @@ export default function Gallery() {
           </AnimatePresence>
         </motion.div>
 
-        {/* Expand / collapse */}
+        {/* Expand / collapse — mobile/tablet only; desktop already shows the full grid */}
         {hiddenCount > 0 && (
-          <div className="flex justify-center mt-10">
+          <div className="flex justify-center mt-10 lg:hidden">
             <button
               onClick={() => setExpanded((v) => !v)}
               className="group flex items-center gap-2 rounded-full border border-gym-border px-6 py-3 text-xs font-semibold tracking-[0.2em] uppercase text-gym-muted hover:border-gym-red hover:text-gym-red transition-colors duration-200 cursor-pointer"
